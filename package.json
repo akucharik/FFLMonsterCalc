@@ -1,0 +1,13 @@
+{
+  "name": "Final Fantasy Legend Monster Transformation Calculator",
+  "description": "A Final Fantasy Legend monster transformation calculator",
+  "version": "0.0.1",
+  "dependencies": {
+    "backbone": "^1.2.3",
+    "browserify": "^12.0.1",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "lodash": "^3.10.1",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
