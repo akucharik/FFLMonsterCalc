@@ -2,9 +2,109 @@
 <html lang="en">
 <head>
 	<title>Final Fantasy Legend Monster Transformation Calculator</title>
+    <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+    <style>
+        /* Fonts */
+        @font-face {
+            font-family: 'GraphicPixel';
+            src: url('fonts/graphicpixel-webfont.eot');
+            src: url('fonts/graphicpixel-webfont.eot?#iefix') format('embedded-opentype'),
+                 url('fonts/graphicpixel-webfont.woff') format('woff'),
+                 url('fonts/graphicpixel-webfont.ttf') format('truetype'),
+                 url('fonts/graphicpixel-webfont.svg#GraphicPixelRegular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body, button, input, select {
+            font-family: 'GraphicPixel', sans-serif;
+            font-size: 18px;
+        }
+        
+        .ffl-avatar,
+        .ffl-stats {
+            width: 2.85rem;
+        }
+        
+        .ffl-stats {
+            letter-spacing: 1px;
+        }
+        
+        .ffl-stats > li {
+            margin-top: 0.5rem;
+        }
+        
+        .ffl-stats > li > label,
+        .ffl-stats > li > span {
+            line-height: 1;
+        }
+        
+        .ffl-stats > li > span {
+            display: block;
+            margin-top: -0.2rem;
+            text-align: right;
+        }
+        
+        .ffl-abilities {
+            text-transform: uppercase;
+        }
+        
+        .ffl-abilities > li {
+            margin-top: 0.5rem;
+        }
+        
+        .ffl-abilities > li > label,
+        .ffl-abilities > li > span {
+            line-height: 1;
+        }
+        
+        .ffl-abilities > li > span {
+        }
+    </style>
 </head>
 <body>
-    <div id="result"></div>
+    <div style="width: 180px;">
+        <select style="box-sizing: border-box; font-size: 200%; text-transform: uppercase; width: 100%;">
+            <option>Albatros</option>
+        </select>
+        <div style="height: 160px; margin: 1.0rem 0; overflow: hidden; position: relative; width: 180px;">
+            <img src="images/FFL-Spritesheet-White-1827x1215.png" alt="Starting monster full portrait" width="1827" height="1215" style="left: -340px; position: absolute; top: -460px;" />
+        </div>
+        <div class="ffl-avatar">
+            <div style="height: 40px; margin: 0.8rem auto; overflow: hidden; position: relative; width: 40px;">
+                <img src="images/FFL-Spritesheet-White-1218x810.png" alt="Starting monster avatar portrait" width="1218" height="810" style="left: -200px; position: absolute; top: -632px;" />
+            </div>
+        </div>
+        <ul class="ffl-stats" style="list-style-type: none; margin: 0; padding: 0;">
+            <li>
+                <label>Hp.</label>
+                <span>20</span>
+            </li>
+            <li>
+                <label>Str.</label>
+                <span>6</span>
+            </li>
+            <li>
+                <label>Def.</label>
+                <span>3</span>
+            </li>
+            <li>
+                <label>Agl.</label>
+                <span>9</span>
+            </li>
+            <li>
+                <label>Mana</label>
+                <span>4</span>
+            </li>
+        </ul>
+        
+        <ul class="ffl-abilities" style="list-style-type: none; margin: 0; padding: 0;">
+            <li>
+                <label>Beak</label>
+                <span>25</span>
+            </li>
+        </ul>
+    </div>
 
     <script>
     var constants = {
