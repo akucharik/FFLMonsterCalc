@@ -18,12 +18,87 @@
 
         body, button, input, select {
             font-family: 'GraphicPixel', sans-serif;
-            font-size: 18px;
+            font-size: 20px;
         }
         
-        .ffl-avatar,
-        .ffl-stats {
-            width: 2.85rem;
+        .ffl-box {
+            display: flex;
+            margin: 2px;
+            padding: 0.8em 0.7em 0.5em 0.7em;
+            position: relative;
+        }
+        
+        .ffl-box::before {
+            border: 2px solid #aaa;
+            border-right-color: #666;
+            border-bottom-color: #666;
+            border-radius: 9px;
+            content: '';
+            display: block;
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            bottom: -2px;
+            left: -2px;
+        }
+        
+        .ffl-box::after {
+            border: 2px solid #666;
+            border-right-color: #aaa;
+            border-bottom-color: #aaa;
+            border-radius: 6px;
+            content: '';
+            display: block;
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            bottom: 2px;
+            left: 2px;
+        }
+        
+        .ffl-box-edge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .ffl-box-edge::before {
+            border: 2px solid #000;
+            border-radius: 11px;
+            box-sizing: border-box;
+            content: '';
+            display: block;
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            bottom: -4px;
+            left: -4px;
+        }
+        
+        .ffl-box-edge::after {
+            border: 2px solid #000;
+            border-right-color: #666;
+            border-bottom-color: #666;
+            border-radius: 4px;
+            box-sizing: border-box;
+            content: '';
+            display: block;
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            bottom: 4px;
+            left: 4px;
+        }
+        
+        .ffl-box-col-1 {
+            width: 3.2rem;
+        }
+        
+        .ffl-box-col-2 {
+            flex: 1;
+            margin-left: 1.0em !important;
         }
         
         .ffl-stats {
@@ -50,7 +125,12 @@
         }
         
         .ffl-abilities > li {
+            display: flex;
             margin-top: 0.5rem;
+        }
+        
+        .ffl-abilities > li > label {
+            flex: 1;
         }
         
         .ffl-abilities > li > label,
@@ -59,1687 +139,168 @@
         }
         
         .ffl-abilities > li > span {
+            
         }
     </style>
 </head>
 <body>
-    <div style="width: 180px;">
+    <select id="ddlStartingMonsterType"></select>
+    <select id="ddlStartingMonster"></select>
+    
+    
+    <div style="width: 220px;">
         <select style="box-sizing: border-box; font-size: 200%; text-transform: uppercase; width: 100%;">
             <option>Albatros</option>
         </select>
-        <div style="height: 160px; margin: 1.0rem 0; overflow: hidden; position: relative; width: 180px;">
+        <div style="height: 160px; margin: 1.0rem auto; overflow: hidden; position: relative; width: 180px;">
             <img src="images/FFL-Spritesheet-White-1827x1215.png" alt="Starting monster full portrait" width="1827" height="1215" style="left: -340px; position: absolute; top: -460px;" />
         </div>
-        <div class="ffl-avatar">
-            <div style="height: 40px; margin: 0.8rem auto; overflow: hidden; position: relative; width: 40px;">
-                <img src="images/FFL-Spritesheet-White-1218x810.png" alt="Starting monster avatar portrait" width="1218" height="810" style="left: -200px; position: absolute; top: -632px;" />
-            </div>
+        <div class="ffl-box">
+            <div class="ffl-box-edge"></div>
+                <div class="ffl-box-col-1">
+                    <div class="ffl-avatar">
+                        <div style="height: 40px; margin: 0 auto 0.8rem auto; overflow: hidden; position: relative; width: 40px;">
+                            <img src="images/FFL-Spritesheet-White-1218x810.png" alt="Starting monster avatar portrait" width="1218" height="810" style="left: -200px; position: absolute; top: -632px;" />
+                        </div>
+                    </div>
+                    <ul class="ffl-stats" style="list-style-type: none; margin: 0; padding: 0;">
+                        <li>
+                            <label>Str.</label>
+                            <span>6</span>
+                        </li>
+                        <li>
+                            <label>Def.</label>
+                            <span>3</span>
+                        </li>
+                        <li>
+                            <label>Agl.</label>
+                            <span>9</span>
+                        </li>
+                        <li>
+                            <label>Mana</label>
+                            <span>4</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="ffl-box-col-2">
+                    <ul class="ffl-abilities" style="list-style-type: none; margin: 0; margin-bottom: 1.4em; padding: 0;">
+                        <li>
+                            <label>HP</label>
+                            <span>20</span>
+                        </li>
+                    </ul>
+                    <ul class="ffl-abilities" style="list-style-type: none; margin: 0; padding: 0;">
+                        <li>
+                            <label>Beak</label>
+                            <span>25</span>
+                        </li>
+                    </ul>
+                </div>
+                
+            
         </div>
-        <ul class="ffl-stats" style="list-style-type: none; margin: 0; padding: 0;">
-            <li>
-                <label>Hp.</label>
-                <span>20</span>
-            </li>
-            <li>
-                <label>Str.</label>
-                <span>6</span>
-            </li>
-            <li>
-                <label>Def.</label>
-                <span>3</span>
-            </li>
-            <li>
-                <label>Agl.</label>
-                <span>9</span>
-            </li>
-            <li>
-                <label>Mana</label>
-                <span>4</span>
-            </li>
-        </ul>
-        
-        <ul class="ffl-abilities" style="list-style-type: none; margin: 0; padding: 0;">
-            <li>
-                <label>Beak</label>
-                <span>25</span>
-            </li>
-        </ul>
     </div>
 
+    <script type="text/javascript" src="src/scripts/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="src/scripts/underscore-min.js"></script>
+    <script type="text/javascript" src="src/scripts/backbone-min.js"></script>
+    <script type="text/javascript" src="src/scripts/calculatorModel.js"></script>
     <script>
-    var constants = {
-        MONSTER: {
-            TYPE: {
-                ALBATROS: {
-                    NAME: 'Albatros',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                ANT: {
-                    NAME: 'Ant',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                BULL: {
-                    NAME: 'Bull',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                CONDOR: {
-                    NAME: 'Condor',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                CRAB: {
-                    NAME: 'Crab',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                DRAGON: {
-                    NAME: 'Dragon',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                EYE: {
-                    NAME: 'Eye',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                FIEND: {
-                    NAME: 'Fiend',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                FIEND2: {
-                    NAME: 'Fiend2',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                FISH: {
-                    NAME: 'FISH',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                FLY: {
-                    NAME: 'FLY',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                GHOST: {
-                    NAME: 'Ghost',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                GOBLIN: {
-                    NAME: 'Goblin',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                GOLEM: {
-                    NAME: 'Golem',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                GRIFFIN: {
-                    NAME: 'Griffin',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                IMP: {
-                    NAME: 'Imp',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                LIZARD: {
-                    NAME: 'Lizard',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                MEDUSA: {
-                    NAME: 'Medusa',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                PLANT: {
-                    NAME: 'Plant',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                RAT: {
-                    NAME: 'Rat',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                SEA: {
-                    NAME: 'Sea Creature',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                SKELETON: {
-                    NAME: 'Skeleton',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                SLIME: {
-                    NAME: 'Slime',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                SNAKE: {
-                    NAME: 'Snake',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                WOLF: {
-                    NAME: 'Wolf',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                WORM: {
-                    NAME: 'Worm',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
-                },
-                ZOMBIE: {
-                    NAME: 'Zombie',
-                    SPRITE: {
-                        X: 0,
-                        Y: 0
-                    }
+        var bbDropDownList = {};
+        
+        bbDropDownList.create = function (options) {
+            var instance = new Backbone.View(options);
+            _.extend(instance, options);
+            
+            instance.initialize = function () {
+                instance.delegateEvents();
+                if (instance.dependentValueKey) {
+                    instance.listenTo(instance.model[instance.dependentValueKey], 'change', instance.reload);
+                }
+                instance.render();
+                instance.selectInitialItem();
+            };
+            
+            instance.render = function () {
+                var placeholder = document.createDocumentFragment();
+                
+                _.each(instance.collection, function (item) {
+                    var option = document.createElement('option');
+                    
+                    option.value = item[instance.itemValue];
+                    option.text = item[instance.itemText];
+                    
+                    placeholder.appendChild(option);
+                });
+                
+                instance.$el.html(placeholder);
+            };
+            
+            instance.reload = function () { 
+                var placeholder = document.createDocumentFragment();
+                
+                _.each(_.where(instance.collection, { type: instance.model[instance.dependentValueKey] }), function (item) {
+                    var option = document.createElement('option');
+                    
+                    option.value = item[instance.itemValue];
+                    option.text = item[instance.itemText];
+                    
+                    placeholder.appendChild(option);
+                });
+                
+                instance.$el.html(placeholder);
+                
+                instance.selectInitialItem();
+                console.log('reloaded');
+            };
+            
+            instance.events = {
+                'change': 'onChange'
+            };
+            
+            instance.onChange = function () {
+                instance.model[instance.selectedValueKey] = instance.$el.val();
+            };
+            
+            instance.select = function (value) {
+                instance.$el.val(value);
+                instance.$el.trigger('change');
+            };
+            
+            instance.selectInitialItem = function () {
+                if (instance.initialSelectedValue) {
+                    instance.select(instance.initialSelectedValue);
+                }
+                else {
+                    instance.select(instance.$el.val());
                 }
             }
-        }
-    };
+            
+            instance.initialize();
+            
+            return instance;
+        };
         
-    var startingMonster = null;
-    var meatOfMonster = null;
-    var endingMonster = null;
-    var monsters = [
-        {
-          agility: 9,
-          defense: 3,
-          hp: 20,
-          level: 1,
-          mana: 4,
-          name: 'Albatros',
-          strength: 6,
-          type: constants.MONSTER.TYPE.ALBATROS
-        }, {
-          agility: 38,
-          defense: 14,
-          hp: 150,
-          level: 6,
-          mana: 21,
-          name: 'Eagle',
-          strength: 23,
-          type: constants.MONSTER.TYPE.ALBATROS
-        }, {
-          agility: 74,
-          defense: 32,
-          hp: 330,
-          level: 10,
-          mana: 45,
-          name: 'Thunder',
-          strength: 47,
-          type: constants.MONSTER.TYPE.ALBATROS
-        }, {
-          agility: 99,
-          defense: 47,
-          hp: 501,
-          level: 12,
-          mana: 64,
-          name: 'Cocatris',
-          strength: 66,
-          type: constants.MONSTER.TYPE.ALBATROS
-        }, {
-          agility: 99,
-          defense: 56,
-          hp: 606,
-          level: 13,
-          mana: 74,
-          name: 'Rock',
-          strength: 76,
-          type: constants.MONSTER.TYPE.ALBATROS
-        }, {
-          agility: 99,
-          defense: 62,
-          hp: 666,
-          level: 14,
-          mana: 80,
-          name: 'Phoenix',
-          strength: 82,
-          type: constants.MONSTER.TYPE.ALBATROS
-        }, {
-          agility: 7,
-          defense: 9,
-          hp: 20,
-          level: 1,
-          mana: 6,
-          name: 'Clipper',
-          strength: 4,
-          type: constants.MONSTER.TYPE.ANT
-        }, {
-          agility: 38,
-          defense: 40,
-          hp: 202,
-          level: 7,
-          mana: 29,
-          name: 'Beetle',
-          strength: 19,
-          type: constants.MONSTER.TYPE.ANT
-        }, {
-          agility: 43,
-          defense: 45,
-          hp: 231,
-          level: 8,
-          mana: 33,
-          name: 'Ant Lion',
-          strength: 22,
-          type: constants.MONSTER.TYPE.ANT
-        }, {
-          agility: 53,
-          defense: 55,
-          hp: 295,
-          level: 9,
-          mana: 41,
-          name: 'Atom Ant',
-          strength: 28,
-          type: constants.MONSTER.TYPE.ANT
-        }, {
-          agility: 87,
-          defense: 89,
-          hp: 551,
-          level: 13,
-          mana: 70,
-          name: 'Scorpion',
-          strength: 52,
-          type: constants.MONSTER.TYPE.ANT
-        }, {
-          agility: 99,
-          defense: 99,
-          hp: 666,
-          level: 14,
-          mana: 81,
-          name: 'Scarab',
-          strength: 62,
-          type: constants.MONSTER.TYPE.ANT
-        }, {
-          agility: 5,
-          defense: 7,
-          hp: 60,
-          level: 1,
-          mana: 4,
-          name: 'Redbull',
-          strength: 8,
-          type: constants.MONSTER.TYPE.BULL
-        }, {
-          agility: 14,
-          defense: 16,
-          hp: 150,
-          level: 4,
-          mana: 9,
-          name: 'Rhino',
-          strength: 21,
-          type: constants.MONSTER.TYPE.BULL
-        }, {
-          agility: 36,
-          defense: 38,
-          hp: 295,
-          level: 8,
-          mana: 25,
-          name: 'Triceras',
-          strength: 49,
-          type: constants.MONSTER.TYPE.BULL
-        }, {
-          agility: 45,
-          defense: 47,
-          hp: 409,
-          level: 10,
-          mana: 32,
-          name: 'Behemoth',
-          strength: 60,
-          type: constants.MONSTER.TYPE.BULL
-        }, {
-          agility: 69,
-          defense: 71,
-          hp: 666,
-          level: 13,
-          mana: 52,
-          name: 'Baku',
-          strength: 88,
-          type: constants.MONSTER.TYPE.BULL
-        }, {
-          agility: 80,
-          defense: 82,
-          hp: 795,
-          level: 14,
-          mana: 62,
-          name: 'Ganesha',
-          strength: 99,
-          type: constants.MONSTER.TYPE.BULL
-        }, {
-          agility: 14,
-          defense: 6,
-          hp: 82,
-          level: 3,
-          mana: 9,
-          name: 'Condor',
-          strength: 11,
-          type: constants.MONSTER.TYPE.CONDOR
-        }, {
-          agility: 25,
-          defense: 11,
-          hp: 150,
-          level: 5,
-          mana: 17,
-          name: 'Raven',
-          strength: 19,
-          type: constants.MONSTER.TYPE.CONDOR
-        }, {
-          agility: 39,
-          defense: 19,
-          hp: 231,
-          level: 7,
-          mana: 28,
-          name: 'Harpy',
-          strength: 30,
-          type: constants.MONSTER.TYPE.CONDOR
-        }, {
-          agility: 60,
-          defense: 32,
-          hp: 368,
-          level: 10,
-          mana: 45,
-          name: 'Ten-gu',
-          strength: 47,
-          type: constants.MONSTER.TYPE.CONDOR
-        }, {
-          agility: 88,
-          defense: 52,
-          hp: 606,
-          level: 13,
-          mana: 69,
-          name: 'Garuda',
-          strength: 71,
-          type: constants.MONSTER.TYPE.CONDOR
-        }, {
-          agility: 99,
-          defense: 62,
-          hp: 729,
-          level: 14,
-          mana: 80,
-          name: 'Nike',
-          strength: 82,
-          type: constants.MONSTER.TYPE.CONDOR
-        }, {
-          agility: 8,
-          defense: 22,
-          hp: 103,
-          level: 4,
-          mana: 6,
-          name: 'Shrimp',
-          strength: 13,
-          type: constants.MONSTER.TYPE.CRAB
-        }, {
-          agility: 12,
-          defense: 32,
-          hp: 150,
-          level: 5,
-          mana: 10,
-          name: 'Atomcrab',
-          strength: 18,
-          type: constants.MONSTER.TYPE.CRAB
-        }, {
-          agility: 26,
-          defense: 61,
-          hp: 295,
-          level: 8,
-          mana: 24,
-          name: 'Crab',
-          strength: 37,
-          type: constants.MONSTER.TYPE.CRAB
-        }, {
-          agility: 29,
-          defense: 67,
-          hp: 330,
-          level: 9,
-          mana: 27,
-          name: 'Ice Crab',
-          strength: 41,
-          type: constants.MONSTER.TYPE.CRAB
-        }, {
-          agility: 53,
-          defense: 99,
-          hp: 606,
-          level: 13,
-          mana: 51,
-          name: 'Kingcrab',
-          strength: 70,
-          type: constants.MONSTER.TYPE.CRAB
-        }, {
-          agility: 63,
-          defense: 99,
-          hp: 729,
-          level: 14,
-          mana: 61,
-          name: 'Dagon',
-          strength: 81,
-          type: constants.MONSTER.TYPE.CRAB
-        }, {
-          agility: 19,
-          defense: 28,
-          hp: 202,
-          level: 7,
-          mana: 39,
-          name: 'Dragon 1',
-          strength: 30,
-          type: constants.MONSTER.TYPE.DRAGON
-        }, {
-          agility: 25,
-          defense: 36,
-          hp: 262,
-          level: 8,
-          mana: 49,
-          name: 'Dragon 2',
-          strength: 38,
-          type: constants.MONSTER.TYPE.DRAGON
-        }, {
-          agility: 35,
-          defense: 49,
-          hp: 368,
-          level: 10,
-          mana: 65,
-          name: 'Dragon 3',
-          strength: 51,
-          type: constants.MONSTER.TYPE.DRAGON
-        }, {
-          agility: 47,
-          defense: 64,
-          hp: 501,
-          level: 12,
-          mana: 83,
-          name: 'Dragon 4',
-          strength: 66,
-          type: constants.MONSTER.TYPE.DRAGON
-        }, {
-          agility: 56,
-          defense: 74,
-          hp: 606,
-          level: 13,
-          mana: 94,
-          name: 'Dragon 5',
-          strength: 76,
-          type: constants.MONSTER.TYPE.DRAGON
-        }, {
-          agility: 62,
-          defense: 80,
-          hp: 666,
-          level: 14,
-          mana: 99,
-          name: 'Tiamat',
-          strength: 99,
-          type: constants.MONSTER.TYPE.DRAGON
-        }, {
-          agility: 6,
-          defense: 12,
-          hp: 82,
-          level: 4,
-          mana: 22,
-          name: 'Big Eye',
-          strength: 8,
-          type: constants.MONSTER.TYPE.EYE
-        }, {
-          agility: 18,
-          defense: 29,
-          hp: 202,
-          level: 7,
-          mana: 49,
-          name: 'Gazer',
-          strength: 20,
-          type: constants.MONSTER.TYPE.EYE
-        }, {
-          agility: 27,
-          defense: 41,
-          hp: 295,
-          level: 9,
-          mana: 67,
-          name: 'Seeker',
-          strength: 29,
-          type: constants.MONSTER.TYPE.EYE
-        }, {
-          agility: 42,
-          defense: 60,
-          hp: 454,
-          level: 12,
-          mana: 94,
-          name: 'Watcher',
-          strength: 44,
-          type: constants.MONSTER.TYPE.EYE
-        }, {
-          agility: 55,
-          defense: 75,
-          hp: 606,
-          level: 13,
-          mana: 99,
-          name: 'Evil Eye',
-          strength: 57,
-          type: constants.MONSTER.TYPE.EYE
-        }, {
-          agility: 61,
-          defense: 81,
-          hp: 666,
-          level: 14,
-          mana: 99,
-          name: 'Beholder',
-          strength: 63,
-          type: constants.MONSTER.TYPE.EYE
-        }, {
-          agility: 12,
-          defense: 11,
-          hp: 250,
-          level: null,
-          mana: 12,
-          name: 'Gen-bu',
-          strength: 12,
-          type: constants.MONSTER.TYPE.FIEND
-        }, {
-          agility: 27,
-          defense: 25,
-          hp: 600,
-          level: 7,
-          mana: 27,
-          name: 'Sei-ryu',
-          strength: 27,
-          type: constants.MONSTER.TYPE.FIEND
-        }, {
-          agility: 50,
-          defense: 45,
-          hp: 1000,
-          level: null,
-          mana: 50,
-          name: 'Byak-ko',
-          strength: 50,
-          type: constants.MONSTER.TYPE.FIEND
-        }, {
-          agility: 85,
-          defense: 77,
-          hp:  1500,
-          level: 13,
-          mana: 85,
-          name: 'Su-zaku',
-          strength: 85,
-          type: constants.MONSTER.TYPE.FIEND
-        }, {
-          agility: 90,
-          defense: 100,
-          hp: 1500,
-          level: 14,
-          mana: 90,
-          name: 'Gen-bu2',
-          strength: 90,
-          type: constants.MONSTER.TYPE.FIEND2
-        }, {
-          agility: 90,
-          defense: 90,
-          hp: 1750,
-          level: 14,
-          mana: 100,
-          name: 'Sei-ryu2',
-          strength: 100,
-          type: constants.MONSTER.TYPE.FIEND2
-        }, {
-          agility: 100,
-          defense: 90,
-          hp: 2000,
-          level: 14,
-          mana: 100,
-          name: 'Byak-ko2',
-          strength: 100,
-          type: constants.MONSTER.TYPE.FIEND2
-        }, {
-          agility: 100,
-          defense: 100,
-          hp:  2500,
-          level: 14,
-          mana: 100,
-          name: 'Su-zaku2',
-          strength: 100,
-          type: constants.MONSTER.TYPE.FIEND2
-        }, {
-          agility: 90,
-          defense: 90,
-          hp:  2000,
-          level: 14,
-          mana: 90,
-          name: 'Ashura',
-          strength: 90,
-          type: constants.MONSTER.TYPE.FIEND2
-        }, {
-          agility: 11,
-          defense: 6,
-          hp: 60,
-          level: 2,
-          mana: 5,
-          name: 'Barracud',
-          strength: 9,
-          type: constants.MONSTER.TYPE.FISH
-        }, {
-          agility: 14,
-          defense: 9,
-          hp: 82,
-          level: 3,
-          mana: 6,
-          name: 'Piranha',
-          strength: 11,
-          type: constants.MONSTER.TYPE.FISH
-        }, {
-          agility: 30,
-          defense: 21,
-          hp: 175,
-          level: 6,
-          mana: 14,
-          name: 'Shark',
-          strength: 23,
-          type: constants.MONSTER.TYPE.FISH
-        }, {
-          agility: 54,
-          defense: 40,
-          hp: 330,
-          level: 9,
-          mana: 28,
-          name: 'Gunfish',
-          strength: 42,
-          type: constants.MONSTER.TYPE.FISH
-        }, {
-          agility: 88,
-          defense: 69,
-          hp: 606,
-          level: 13,
-          mana: 52,
-          name: 'Elec Eel',
-          strength: 71,
-          type: constants.MONSTER.TYPE.FISH
-        }, {
-          agility: 99,
-          defense: 80,
-          hp: 729,
-          level: 14,
-          mana: 62,
-          name: 'Leviathn',
-          strength: 82,
-          type: constants.MONSTER.TYPE.FISH
-        }, {
-          agility: 9,
-          defense: 8,
-          hp: 20,
-          level: 1,
-          mana: 5,
-          name: 'Fly',
-          strength: 6,
-          type: constants.MONSTER.TYPE.FLY
-        }, {
-          agility: 18,
-          defense: 17,
-          hp: 82,
-          level: 3,
-          mana: 11,
-          name: 'Drgonfly',
-          strength: 12,
-          type: constants.MONSTER.TYPE.FLY
-        }, {
-          agility: 26,
-          defense: 25,
-          hp: 126,
-          level: 5,
-          mana: 17,
-          name: 'Hornet',
-          strength: 18,
-          type: constants.MONSTER.TYPE.FLY
-        }, {
-          agility: 31,
-          defense: 30,
-          hp: 150,
-          level: 6,
-          mana: 21,
-          name: 'Mosquito',
-          strength: 22,
-          type: constants.MONSTER.TYPE.FLY
-        }, {
-          agility: 89,
-          defense: 88,
-          hp: 551,
-          level: 13,
-          mana: 69,
-          name: 'Cicada',
-          strength: 70,
-          type: constants.MONSTER.TYPE.FLY
-        }, {
-          agility: 99,
-          defense: 99,
-          hp: 666,
-          level: 14,
-          mana: 80,
-          name: 'Mantis',
-          strength: 82,
-          type: constants.MONSTER.TYPE.FLY
-        }, {
-          agility: 8,
-          defense: 3,
-          hp: 20,
-          level: 2,
-          mana: 9,
-          name: 'O-bake',
-          strength: 4,
-          type: constants.MONSTER.TYPE.GHOST
-        }, {
-          agility: 14,
-          defense: 5,
-          hp: 82,
-          level: 3,
-          mana: 15,
-          name: 'Phantom',
-          strength: 6,
-          type: constants.MONSTER.TYPE.GHOST
-        }, {
-          agility: 54,
-          defense: 27,
-          hp: 295,
-          level: 9,
-          mana: 55,
-          name: 'Buruburu',
-          strength: 28,
-          type: constants.MONSTER.TYPE.GHOST
-        }, {
-          agility: 83,
-          defense: 46,
-          hp: 501,
-          level: 12,
-          mana: 84,
-          name: 'Wraith',
-          strength: 47,
-          type: constants.MONSTER.TYPE.GHOST
-        }, {
-          agility: 94,
-          defense: 55,
-          hp: 606,
-          level: 13,
-          mana: 95,
-          name: 'Spector',
-          strength: 56,
-          type: constants.MONSTER.TYPE.GHOST
-        }, {
-          agility: 99,
-          defense: 61,
-          hp: 666,
-          level: 14,
-          mana: 99,
-          name: 'Ghost',
-          strength: 63,
-          type: constants.MONSTER.TYPE.GHOST
-        }, {
-          agility: 4,
-          defense: 6,
-          hp: 20,
-          level: 1,
-          mana: 3,
-          name: 'Goblin',
-          strength: 9,
-          type: constants.MONSTER.TYPE.GOBLIN
-        }, {
-          agility: 7,
-          defense: 9,
-          hp: 60,
-          level: 2,
-          mana: 5,
-          name: 'Oni',
-          strength: 14,
-          type: constants.MONSTER.TYPE.GOBLIN
-        }, {
-          agility: 32,
-          defense: 34,
-          hp: 262,
-          level: 8,
-          mana: 22,
-          name: 'Ogre',
-          strength: 55,
-          type: constants.MONSTER.TYPE.GOBLIN
-        }, {
-          agility: 54,
-          defense: 56,
-          hp: 454,
-          level: 11,
-          mana: 39,
-          name: 'Giant',
-          strength: 87,
-          type: constants.MONSTER.TYPE.GOBLIN
-        }, {
-          agility: 74,
-          defense: 76,
-          hp: 666,
-          level: 13,
-          mana: 56,
-          name: 'Titan',
-          strength: 99,
-          type: constants.MONSTER.TYPE.GOBLIN
-        }, {
-          agility: 80,
-          defense: 82,
-          hp: 729,
-          level: 14,
-          mana: 62,
-          name: 'Susano-o',
-          strength: 99,
-          type: constants.MONSTER.TYPE.GOBLIN
-        }, {
-          agility: 11,
-          defense: 18,
-          hp: 150,
-          level: 5,
-          mana: 24,
-          name: 'Woodman',
-          strength: 26,
-          type: constants.MONSTER.TYPE.GOLEM
-        }, {
-          agility: 25,
-          defense: 37,
-          hp: 295,
-          level: 8,
-          mana: 48,
-          name: 'Clayman',
-          strength: 50,
-          type: constants.MONSTER.TYPE.GOLEM
-        }, {
-          agility: 28,
-          defense: 41,
-          hp: 330,
-          level: 9,
-          mana: 53,
-          name: 'Stoneman',
-          strength: 55,
-          type: constants.MONSTER.TYPE.GOLEM
-        }, {
-          agility: 47,
-          defense: 65,
-          hp: 551,
-          level: 12,
-          mana: 82,
-          name: 'Ironman',
-          strength: 84,
-          type: constants.MONSTER.TYPE.GOLEM
-        }, {
-          agility: 56,
-          defense: 75,
-          hp: 666,
-          level: 13,
-          mana: 93,
-          name: 'Fireman',
-          strength: 95,
-          type: constants.MONSTER.TYPE.GOLEM
-        }, {
-          agility: 62,
-          defense: 81,
-          hp: 729,
-          level: 14,
-          mana: 99,
-          name: 'Mazin',
-          strength: 99,
-          type: constants.MONSTER.TYPE.GOLEM
-        }, {
-          agility: 21,
-          defense: 14,
-          hp: 103,
-          level: 4,
-          mana: 22,
-          name: 'Griffin',
-          strength: 15,
-          type: constants.MONSTER.TYPE.GRIFFIN
-        }, {
-          agility: 30,
-          defense: 21,
-          hp: 150,
-          level: 6,
-          mana: 31,
-          name: 'Mantcore',
-          strength: 22,
-          type: constants.MONSTER.TYPE.GRIFFIN
-        }, {
-          agility: 49,
-          defense: 36,
-          hp: 262,
-          level: 9,
-          mana: 50,
-          name: 'Chimera',
-          strength: 37,
-          type: constants.MONSTER.TYPE.GRIFFIN
-        }, {
-          agility: 71,
-          defense: 54,
-          hp: 409,
-          level: 11,
-          mana: 72,
-          name: 'Nue',
-          strength: 55,
-          type: constants.MONSTER.TYPE.GRIFFIN
-        }, {
-          agility: 94,
-          defense: 74,
-          hp: 606,
-          level: 13,
-          mana: 95,
-          name: 'Sphinx',
-          strength: 75,
-          type: constants.MONSTER.TYPE.GRIFFIN
-        }, {
-          agility: 99,
-          defense: 80,
-          hp: 666,
-          level: 14,
-          mana: 99,
-          name: 'Ki-rin',
-          strength: 82,
-          type: constants.MONSTER.TYPE.GRIFFIN
-        }, {
-          agility: 9,
-          defense: 8,
-          hp: 82,
-          level: 3,
-          mana: 12,
-          name: 'Gargoyle',
-          strength: 11,
-          type: constants.MONSTER.TYPE.IMP
-        }, {
-          agility: 24,
-          defense: 23,
-          hp: 202,
-          level: 7,
-          mana: 27,
-          name: 'Imp',
-          strength: 26,
-          type: constants.MONSTER.TYPE.IMP
-        }, {
-          agility: 54,
-          defense: 53,
-          hp: 454,
-          level: 11,
-          mana: 57,
-          name: 'Demon',
-          strength: 56,
-          type: constants.MONSTER.TYPE.IMP
-        }, {
-          agility: 59,
-          defense: 58,
-          hp: 501,
-          level: 12,
-          mana: 62,
-          name: 'Demolord',
-          strength: 61,
-          type: constants.MONSTER.TYPE.IMP
-        }, {
-          agility: 74,
-          defense: 73,
-          hp: 666,
-          level: 13,
-          mana: 77,
-          name: 'Demoking',
-          strength: 76,
-          type: constants.MONSTER.TYPE.IMP
-        }, {
-          agility: 80,
-          defense: 79,
-          hp: 729,
-          level: 14,
-          mana: 83,
-          name: 'Athtalot',
-          strength: 82,
-          type: constants.MONSTER.TYPE.IMP
-        }, {
-          agility: 4,
-          defense: 7,
-          hp: 40,
-          level: 1,
-          mana: 2,
-          name: 'Lizard',
-          strength: 5,
-          type: constants.MONSTER.TYPE.LIZARD
-        }, {
-          agility: 6,
-          defense: 11,
-          hp: 82,
-          level: 2,
-          mana: 4,
-          name: 'P-frog',
-          strength: 8,
-          type: constants.MONSTER.TYPE.LIZARD
-        }, {
-          agility: 7,
-          defense: 14,
-          hp: 103,
-          level: 3,
-          mana: 5,
-          name: 'Gecko',
-          strength: 12,
-          type: constants.MONSTER.TYPE.LIZARD
-        }, {
-          agility: 40,
-          defense: 71,
-          hp: 501,
-          level: 11,
-          mana: 38,
-          name: 'Dinosaur',
-          strength: 55,
-          type: constants.MONSTER.TYPE.LIZARD
-        }, {
-          agility: 53,
-          defense: 88,
-          hp: 666,
-          level: 13,
-          mana: 51,
-          name: 'Salamand',
-          strength: 70,
-          type: constants.MONSTER.TYPE.LIZARD
-        }, {
-          agility: 63,
-          defense: 99,
-          hp: 795,
-          level: 14,
-          mana: 61,
-          name: 'Basilisk',
-          strength: 81,
-          type: constants.MONSTER.TYPE.LIZARD
-        }, {
-          agility: 19,
-          defense: 17,
-          hp: 126,
-          level: 5,
-          mana: 25,
-          name: 'Medusa',
-          strength: 11,
-          type: constants.MONSTER.TYPE.MEDUSA
-        }, {
-          agility: 23,
-          defense: 21,
-          hp: 150,
-          level: 6,
-          mana: 30,
-          name: 'Siren',
-          strength: 14,
-          type: constants.MONSTER.TYPE.MEDUSA
-        }, {
-          agility: 56,
-          defense: 54,
-          hp: 409,
-          level: 11,
-          mana: 71,
-          name: 'Lamia',
-          strength: 39,
-          type: constants.MONSTER.TYPE.MEDUSA
-        }, {
-          agility: 61,
-          defense: 59,
-          hp: 454,
-          level: 12,
-          mana: 77,
-          name: 'Naga',
-          strength: 43,
-          type: constants.MONSTER.TYPE.MEDUSA
-        }, {
-          agility: 76,
-          defense: 74,
-          hp: 606,
-          level: 13,
-          mana: 94,
-          name: 'Scylla',
-          strength: 56,
-          type: constants.MONSTER.TYPE.MEDUSA
-        }, {
-          agility: 82,
-          defense: 80,
-          hp: 666,
-          level: 14,
-          mana: 99,
-          name: 'Lilith',
-          strength: 62,
-          type: constants.MONSTER.TYPE.MEDUSA
-        }, {
-          agility: 8,
-          defense: 16,
-          hp: 150,
-          level: 4,
-          mana: 9,
-          name: 'Cactus',
-          strength: 15,
-          type: constants.MONSTER.TYPE.PLANT
-        }, {
-          agility: 10,
-          defense: 19,
-          hp: 175,
-          level: 5,
-          mana: 11,
-          name: 'P-flower',
-          strength: 18,
-          type: constants.MONSTER.TYPE.PLANT
-        }, {
-          agility: 15,
-          defense: 26,
-          hp: 231,
-          level: 7,
-          mana: 16,
-          name: 'Garlic',
-          strength: 25,
-          type: constants.MONSTER.TYPE.PLANT
-        }, {
-          agility: 27,
-          defense: 42,
-          hp: 368,
-          level: 9,
-          mana: 28,
-          name: 'Thorn',
-          strength: 41,
-          type: constants.MONSTER.TYPE.PLANT
-        }, {
-          agility: 51,
-          defense: 71,
-          hp: 666,
-          level: 13,
-          mana: 52,
-          name: 'F-flower',
-          strength: 70,
-          type: constants.MONSTER.TYPE.PLANT
-        }, {
-          agility: 61,
-          defense: 82,
-          hp: 795,
-          level: 14,
-          mana: 62,
-          name: 'Darkrose',
-          strength: 81,
-          type: constants.MONSTER.TYPE.PLANT
-        }, {
-          agility: 5,
-          defense: 4,
-          hp: 40,
-          level: 1,
-          mana: 7,
-          name: 'Wererat',
-          strength: 8,
-          type: constants.MONSTER.TYPE.RAT
-        }, {
-          agility: 11,
-          defense: 7,
-          hp: 103,
-          level: 4,
-          mana: 13,
-          name: 'Werewolf',
-          strength: 17,
-          type: constants.MONSTER.TYPE.RAT
-        }, {
-          agility: 21,
-          defense: 14,
-          hp: 175,
-          level: 6,
-          mana: 23,
-          name: 'Catwoman',
-          strength: 30,
-          type: constants.MONSTER.TYPE.RAT
-        }, {
-          agility: 54,
-          defense: 39,
-          hp: 454,
-          level: 11,
-          mana: 56,
-          name: 'Minotaur',
-          strength: 71,
-          type: constants.MONSTER.TYPE.RAT
-        }, {
-          agility: 69,
-          defense: 52,
-          hp: 606,
-          level: 13,
-          mana: 71,
-          name: 'Rakshasa',
-          strength: 88,
-          type: constants.MONSTER.TYPE.RAT
-        }, {
-          agility: 80,
-          defense: 62,
-          hp: 729,
-          level: 14,
-          mana: 82,
-          name: 'Anubis',
-          strength: 99,
-          type: constants.MONSTER.TYPE.RAT
-        }, {
-          agility: 12,
-          defense: 11,
-          hp: 126,
-          level: 4,
-          mana: 7,
-          name: 'Octopus',
-          strength: 13,
-          type: constants.MONSTER.TYPE.SEA
-        }, {
-          agility: 25,
-          defense: 24,
-          hp: 231,
-          level: 6,
-          mana: 16,
-          name: 'Clam',
-          strength: 26,
-          type: constants.MONSTER.TYPE.SEA
-        }, {
-          agility: 33,
-          defense: 32,
-          hp: 295,
-          level: 8,
-          mana: 22,
-          name: 'Amoeba',
-          strength: 34,
-          type: constants.MONSTER.TYPE.SEA
-        }, {
-          agility: 50,
-          defense: 49,
-          hp: 409,
-          level: 10,
-          mana: 35,
-          name: 'Ammonite',
-          strength: 51,
-          type: constants.MONSTER.TYPE.SEA
-        }, {
-          agility: 70,
-          defense: 69,
-          hp: 606,
-          level: 13,
-          mana: 52,
-          name: 'Squid',
-          strength: 71,
-          type: constants.MONSTER.TYPE.SEA
-        }, {
-          agility: 81,
-          defense: 80,
-          hp: 729,
-          level: 14,
-          mana: 62,
-          name: 'Kraken',
-          strength: 82,
-          type: constants.MONSTER.TYPE.SEA
-        }, {
-          agility: 4,
-          defense: 2,
-          hp: 20,
-          level: 1,
-          mana: 7,
-          name: 'Skeleton',
-          strength: 5,
-          type: constants.MONSTER.TYPE.SKELETON
-        }, {
-          agility: 8,
-          defense: 6,
-          hp: 103,
-          level: 4,
-          mana: 17,
-          name: 'Red Bone',
-          strength: 12,
-          type: constants.MONSTER.TYPE.SKELETON
-        }, {
-          agility: 33,
-          defense: 31,
-          hp: 368,
-          level: 10,
-          mana: 60,
-          name: 'Dokuro',
-          strength: 46,
-          type: constants.MONSTER.TYPE.SKELETON
-        }, {
-          agility: 44,
-          defense: 42,
-          hp: 501,
-          level: 12,
-          mana: 77,
-          name: 'Warrior',
-          strength: 60,
-          type: constants.MONSTER.TYPE.SKELETON
-        }, {
-          agility: 57,
-          defense: 55,
-          hp: 666,
-          level: 13,
-          mana: 94,
-          name: 'Boneking',
-          strength: 75,
-          type: constants.MONSTER.TYPE.SKELETON
-        }, {
-          agility: 63,
-          defense: 61,
-          hp: 729,
-          level: 14,
-          mana: 99,
-          name: 'Lich',
-          strength: 81,
-          type: constants.MONSTER.TYPE.SKELETON
-        }, {
-          agility: 3,
-          defense: 4,
-          hp: 60,
-          level: 2,
-          mana: 8,
-          name: 'Slime',
-          strength: 5,
-          type: constants.MONSTER.TYPE.SLIME
-        }, {
-          agility: 21,
-          defense: 22,
-          hp: 295,
-          level: 8,
-          mana: 44,
-          name: 'Jelly',
-          strength: 23,
-          type: constants.MONSTER.TYPE.SLIME
-        }, {
-          agility: 34,
-          defense: 35,
-          hp: 454,
-          level: 10,
-          mana: 65,
-          name: 'Tororo',
-          strength: 36,
-          type: constants.MONSTER.TYPE.SLIME
-        }, {
-          agility: 42,
-          defense: 43,
-          hp: 551,
-          level: 12,
-          mana: 77,
-          name: 'Gummy',
-          strength: 44,
-          type: constants.MONSTER.TYPE.SLIME
-        }, {
-          agility: 55,
-          defense: 56,
-          hp: 729,
-          level: 13,
-          mana: 94,
-          name: 'Pudding',
-          strength: 57,
-          type: constants.MONSTER.TYPE.SLIME
-        }, {
-          agility: 61,
-          defense: 62,
-          hp: 795,
-          level: 14,
-          mana: 99,
-          name: 'Hi-slime',
-          strength: 63,
-          type: constants.MONSTER.TYPE.SLIME
-        }, {
-          agility: 7,
-          defense: 11,
-          hp: 60,
-          level: 2,
-          mana: 5,
-          name: 'Snake',
-          strength: 9,
-          type: constants.MONSTER.TYPE.SNAKE
-        }, {
-          agility: 14,
-          defense: 21,
-          hp: 126,
-          level: 5,
-          mana: 9,
-          name: 'Serpent',
-          strength: 16,
-          type: constants.MONSTER.TYPE.SNAKE
-        }, {
-          agility: 28,
-          defense: 39,
-          hp: 231,
-          level: 7,
-          mana: 19,
-          name: 'Anaconda',
-          strength: 30,
-          type: constants.MONSTER.TYPE.SNAKE
-        }, {
-          agility: 49,
-          defense: 65,
-          hp: 409,
-          level: 10,
-          mana: 35,
-          name: 'Hydra',
-          strength: 51,
-          type: constants.MONSTER.TYPE.SNAKE
-        }, {
-          agility: 69,
-          defense: 88,
-          hp: 606,
-          level: 13,
-          mana: 52,
-          name: 'Ko-run',
-          strength: 71,
-          type: constants.MONSTER.TYPE.SNAKE
-        }, {
-          agility: 80,
-          defense: 99,
-          hp: 729,
-          level: 14,
-          mana: 62,
-          name: 'Jorgandr',
-          strength: 82,
-          type: constants.MONSTER.TYPE.SNAKE
-        }, {
-          agility: 10,
-          defense: 8,
-          hp: 60,
-          level: 2,
-          mana: 5,
-          name: 'Wolf',
-          strength: 12,
-          type: constants.MONSTER.TYPE.WOLF
-        }, {
-          agility: 16,
-          defense: 12,
-          hp: 60,
-          level: 4,
-          mana: 7,
-          name: 'Jaguar',
-          strength: 18,
-          type: constants.MONSTER.TYPE.WOLF
-        }, {
-          agility: 33,
-          defense: 25,
-          hp: 202,
-          level: 7,
-          mana: 16,
-          name: 'Sabercat',
-          strength: 35,
-          type: constants.MONSTER.TYPE.WOLF
-        }, {
-          agility: 59,
-          defense: 46,
-          hp: 368,
-          level: 10,
-          mana: 32,
-          name: 'Snowcat',
-          strength: 61,
-          type: constants.MONSTER.TYPE.WOLF
-        }, {
-          agility: 87,
-          defense: 70,
-          hp: 606,
-          level: 13,
-          mana: 52,
-          name: 'Blackcat',
-          strength: 89,
-          type: constants.MONSTER.TYPE.WOLF
-        }, {
-          agility: 99,
-          defense: 81,
-          hp: 729,
-          level: 14,
-          mana: 62,
-          name: 'Fenswolf',
-          strength: 99,
-          type: constants.MONSTER.TYPE.WOLF
-        }, {
-          agility: 4,
-          defense: 5,
-          hp: 82,
-          level: 2,
-          mana: 8,
-          name: 'Worm',
-          strength: 9,
-          type: constants.MONSTER.TYPE.WORM
-        }, {
-          agility: 15,
-          defense: 16,
-          hp: 231,
-          level: 7,
-          mana: 25,
-          name: 'P-worm',
-          strength: 26,
-          type: constants.MONSTER.TYPE.WORM
-        }, {
-          agility: 24,
-          defense: 25,
-          hp: 330,
-          level: 8,
-          mana: 37,
-          name: 'Crawler',
-          strength: 38,
-          type: constants.MONSTER.TYPE.WORM
-        }, {
-          agility: 34,
-          defense: 35,
-          hp: 454,
-          level: 10,
-          mana: 50,
-          name: 'Lavaworm',
-          strength: 51,
-          type: constants.MONSTER.TYPE.WORM
-        }, {
-          agility: 51,
-          defense: 52,
-          hp: 666,
-          level: 13,
-          mana: 70,
-          name: 'Sandworm',
-          strength: 71,
-          type: constants.MONSTER.TYPE.WORM
-        }, {
-          agility: 61,
-          defense: 62,
-          hp: 795,
-          level: 14,
-          mana: 61,
-          name: 'Gigaworm',
-          strength: 82,
-          type: constants.MONSTER.TYPE.WORM
-        }, {
-          agility: 3,
-          defense: 4,
-          hp: 60,
-          level: 1,
-          mana: 6,
-          name: 'Zombie',
-          strength: 9,
-          type: constants.MONSTER.TYPE.ZOMBIE
-        }, {
-          agility: 5,
-          defense: 6,
-          hp: 103,
-          level: 3,
-          mana: 6,
-          name: 'Ghoul',
-          strength: 15,
-          type: constants.MONSTER.TYPE.ZOMBIE
-        }, {
-          agility: 24,
-          defense: 25,
-          hp: 330,
-          level: 9,
-          mana: 37,
-          name: 'Mou-jya',
-          strength: 50,
-          type: constants.MONSTER.TYPE.ZOMBIE
-        }, {
-          agility: 46,
-          defense: 47,
-          hp: 606,
-          level: 12,
-          mana: 65,
-          name: 'Wight',
-          strength: 84,
-          type: constants.MONSTER.TYPE.ZOMBIE
-        }, {
-          agility: 55,
-          defense: 56,
-          hp: 729,
-          level: 13,
-          mana: 75,
-          name: 'Ghast',
-          strength: 95,
-          type: constants.MONSTER.TYPE.ZOMBIE
-        }, {
-          agility: 61,
-          defense: 62,
-          hp: 795,
-          level: 14,
-          mana: 82,
-          name: 'Revnant',
-          strength: 99,
-          type: constants.MONSTER.TYPE.ZOMBIE
-        }
-    ];  
+        var ddlStartingMonsterType = bbDropDownList.create({
+            el: document.getElementById('ddlStartingMonsterType'),
+            collection: constants.MONSTER.TYPE,
+            model: calculatorModel,
+            selectedValueKey: 'startingMonsterType',
+            itemValue: 'KEY',
+            itemText: 'NAME'
+        });
+        
+        var ddlStartingMonster = bbDropDownList.create({
+            el: document.getElementById('ddlStartingMonster'),
+            collection: calculatorModel.monsters,
+            model: calculatorModel,
+            selectedValueKey: 'startingMonster',
+            dependentValueKey: 'startingMonsterType',
+            itemValue: 'name',
+            itemText: 'name'
+        });
+        
     </script>
     
 </body>
