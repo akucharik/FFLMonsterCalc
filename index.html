@@ -21,6 +21,13 @@
             font-size: 20px;
         }
         
+        .ffl-dropdown-list {
+            box-sizing: border-box;
+            font-size: 200%;
+            text-transform: uppercase;
+            width: 100%;
+        }
+        
         .ffl-box {
             display: flex;
             margin: 2px;
@@ -141,17 +148,27 @@
         .ffl-abilities > li > span {
             
         }
+        
+        h2 {
+            font-size: 110%;
+        }
+        label {
+            font-size: 80%;
+        }
+        
     </style>
 </head>
 <body>
-    <select id="ddlStartingMonsterType"></select>
-    <select id="ddlStartingMonster"></select>
-    
-    
+    <h1>Final Fantasy Legend<br/>Monster Tranformation Calculator</h1>
     <div style="width: 220px;">
-        <select style="box-sizing: border-box; font-size: 200%; text-transform: uppercase; width: 100%;">
+        <h2>Starting Monster</h2>
+        <label>Monster Type</label>
+        <select id="ddlStartingMonsterType" class="ffl-dropdown-list"></select>
+        <label>Monster</label>
+        <select id="ddlStartingMonster" class="ffl-dropdown-list"></select>
+        <!--<select class="ffl-dropdown-list">
             <option>Albatros</option>
-        </select>
+        </select>-->
         <div style="height: 160px; margin: 1.0rem auto; overflow: hidden; position: relative; width: 180px;">
             <img src="images/FFL-Spritesheet-White-1827x1215.png" alt="Starting monster full portrait" width="1827" height="1215" style="left: -340px; position: absolute; top: -460px;" />
         </div>
@@ -207,22 +224,25 @@
     <script type="text/javascript" src="src/scripts/backbone-min.js"></script>
     <script type="text/javascript" src="src/scripts/calculatorModel.js"></script>
     <script>
-        var bbDropDownList = {};
-        
-        bbDropDownList.create = function (options) {
+        var bbDropDownList = function (options) {
             var instance = new Backbone.View(options);
             _.extend(instance, options);
             
             instance.initialize = function () {
                 instance.delegateEvents();
+                instance.listenTo(instance.model, ('change:' + instance.selectedValueKey), instance.selectItem);
                 if (instance.dependentValueKey) {
-                    instance.listenTo(instance.model[instance.dependentValueKey], 'change', instance.reload);
+                    instance.listenTo(instance.model, ('change:' + instance.dependentValueKey), instance.render);
                 }
                 instance.render();
                 instance.selectInitialItem();
             };
             
             instance.render = function () {
+                if (instance.dependentValueKey) {
+                    instance.collection = _.where(instance.model.get('monsters'), { type: instance.model.get(instance.dependentValueKey) });
+                }
+                
                 var placeholder = document.createDocumentFragment();
                 
                 _.each(instance.collection, function (item) {
@@ -237,43 +257,30 @@
                 instance.$el.html(placeholder);
             };
             
-            instance.reload = function () { 
-                var placeholder = document.createDocumentFragment();
-                
-                _.each(_.where(instance.collection, { type: instance.model[instance.dependentValueKey] }), function (item) {
-                    var option = document.createElement('option');
-                    
-                    option.value = item[instance.itemValue];
-                    option.text = item[instance.itemText];
-                    
-                    placeholder.appendChild(option);
-                });
-                
-                instance.$el.html(placeholder);
-                
-                instance.selectInitialItem();
-                console.log('reloaded');
-            };
-            
             instance.events = {
                 'change': 'onChange'
             };
             
             instance.onChange = function () {
-                instance.model[instance.selectedValueKey] = instance.$el.val();
+                instance.model.set(instance.selectedValueKey, instance.$el.val());
             };
             
-            instance.select = function (value) {
-                instance.$el.val(value);
-                instance.$el.trigger('change');
+            instance.selectItem = function () {
+                instance.$el.val(instance.model.get(instance.selectedValueKey));
             };
             
             instance.selectInitialItem = function () {
                 if (instance.initialSelectedValue) {
-                    instance.select(instance.initialSelectedValue);
+                    instance.model.set(instance.selectedValueKey, instance.initialSelectedValue);
                 }
                 else {
-                    instance.select(instance.$el.val());
+                    if (_.isObject(instance.collection)) {
+                        instance.model.set(instance.selectedValueKey, instance.collection[Object.keys(instance.collection)[0]][instance.itemValue]);
+                    }
+                    else {
+                        instance.model.set(instance.selectedValueKey, instance.collection[0][instance.itemValue]);
+                    }
+                    
                 }
             }
             
@@ -282,18 +289,44 @@
             return instance;
         };
         
-        var ddlStartingMonsterType = bbDropDownList.create({
+//        var bbDependentDropDownList = function (options) {
+//            var dependentDropDownList = {
+//                reload: function () { 
+//                    var placeholder = document.createDocumentFragment();
+//
+//                    _.each(_.where(instance.collection, { type: instance.model[instance.dependentValueKey] }), function (item) {
+//                        var option = document.createElement('option');
+//
+//                        option.value = item[instance.itemValue];
+//                        option.text = item[instance.itemText];
+//
+//                        placeholder.appendChild(option);
+//                    });
+//
+//                    instance.$el.html(placeholder);
+//
+//                    instance.selectInitialItem();
+//                    console.log('reloaded');
+//                }
+//            };
+//            
+//            var instance = _.extend(bbDropDownList(options), dependentDropDownList);
+//        
+//            return instance;
+//        };
+        
+        var ddlStartingMonsterType = bbDropDownList({
             el: document.getElementById('ddlStartingMonsterType'),
             collection: constants.MONSTER.TYPE,
             model: calculatorModel,
             selectedValueKey: 'startingMonsterType',
+            initialSelectedValue: constants.MONSTER.TYPE.GHOST.KEY,
             itemValue: 'KEY',
             itemText: 'NAME'
         });
         
-        var ddlStartingMonster = bbDropDownList.create({
+        var ddlStartingMonster = bbDropDownList({
             el: document.getElementById('ddlStartingMonster'),
-            collection: calculatorModel.monsters,
             model: calculatorModel,
             selectedValueKey: 'startingMonster',
             dependentValueKey: 'startingMonsterType',

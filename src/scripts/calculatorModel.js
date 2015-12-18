@@ -221,7 +221,7 @@
         }
     };
 
-var calculatorModel = {
+var calculatorModel = new Backbone.Model({
     startingMonsterType: null,
     startingMonster: null,
     meatOfMonsterType: null,
@@ -1661,4 +1661,4 @@ var calculatorModel = {
           type: constants.MONSTER.TYPE.ZOMBIE.KEY
         }
     ]
-};
+});
