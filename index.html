@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<title>Final Fantasy Legend Monster Transformation Calculator</title>
-    <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+    <!--<link href='src/styles/bootstrap.min.css' rel='stylesheet' type='text/css'>-->
     <style>
         /* Fonts */
         @font-face {
@@ -19,13 +19,6 @@
         body, button, input, select {
             font-family: 'GraphicPixel', sans-serif;
             font-size: 20px;
-        }
-        
-        .ffl-dropdown-list {
-            box-sizing: border-box;
-            font-size: 200%;
-            text-transform: uppercase;
-            width: 100%;
         }
         
         .ffl-box {
@@ -152,8 +145,27 @@
         h2 {
             font-size: 110%;
         }
-        label {
+        .ffl-dropdown-label {
             font-size: 80%;
+        }
+        
+        .ffl-dropdown-list {
+            box-sizing: border-box;
+            font-size: 200%;
+            position: relative;
+            text-transform: uppercase;
+            top: -0.1em;
+            width: 100%;
+        }
+        
+        .ffl-monster-image-mask {
+            margin: 1.0rem auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .ffl-monster-image-mask > img {
+            position: absolute;
         }
         
     </style>
@@ -162,66 +174,85 @@
     <h1>Final Fantasy Legend<br/>Monster Tranformation Calculator</h1>
     <div style="width: 220px;">
         <h2>Starting Monster</h2>
-        <label>Monster Type</label>
+        <label class="ffl-dropdown-label">Monster Type</label>
         <select id="ddlStartingMonsterType" class="ffl-dropdown-list"></select>
-        <label>Monster</label>
+        <label class="ffl-dropdown-label">Monster</label>
         <select id="ddlStartingMonster" class="ffl-dropdown-list"></select>
-        <!--<select class="ffl-dropdown-list">
-            <option>Albatros</option>
-        </select>-->
-        <div style="height: 160px; margin: 1.0rem auto; overflow: hidden; position: relative; width: 180px;">
-            <img src="images/FFL-Spritesheet-White-1827x1215.png" alt="Starting monster full portrait" width="1827" height="1215" style="left: -340px; position: absolute; top: -460px;" />
-        </div>
+        
+        <div id="startingMonsterImage"></div>
+        
         <div class="ffl-box">
             <div class="ffl-box-edge"></div>
-                <div class="ffl-box-col-1">
-                    <div class="ffl-avatar">
-                        <div style="height: 40px; margin: 0 auto 0.8rem auto; overflow: hidden; position: relative; width: 40px;">
-                            <img src="images/FFL-Spritesheet-White-1218x810.png" alt="Starting monster avatar portrait" width="1218" height="810" style="left: -200px; position: absolute; top: -632px;" />
-                        </div>
+            <div class="ffl-box-col-1">
+                <div class="ffl-avatar">
+                    <div style="height: 40px; margin: 0 auto 0.8rem auto; overflow: hidden; position: relative; width: 40px;">
+                        <img src="images/FFL-Spritesheet-White-1218x810.png" alt="Starting monster avatar portrait" width="1218" height="810" style="left: -200px; position: absolute; top: -632px;" />
                     </div>
-                    <ul class="ffl-stats" style="list-style-type: none; margin: 0; padding: 0;">
-                        <li>
-                            <label>Str.</label>
-                            <span>6</span>
-                        </li>
-                        <li>
-                            <label>Def.</label>
-                            <span>3</span>
-                        </li>
-                        <li>
-                            <label>Agl.</label>
-                            <span>9</span>
-                        </li>
-                        <li>
-                            <label>Mana</label>
-                            <span>4</span>
-                        </li>
-                    </ul>
                 </div>
+                <ul class="ffl-stats" style="list-style-type: none; margin: 0; padding: 0;">
+                    <li>
+                        <label>Str.</label>
+                        <span>6</span>
+                    </li>
+                    <li>
+                        <label>Def.</label>
+                        <span>3</span>
+                    </li>
+                    <li>
+                        <label>Agl.</label>
+                        <span>9</span>
+                    </li>
+                    <li>
+                        <label>Mana</label>
+                        <span>4</span>
+                    </li>
+                </ul>
+            </div>
 
-                <div class="ffl-box-col-2">
-                    <ul class="ffl-abilities" style="list-style-type: none; margin: 0; margin-bottom: 1.4em; padding: 0;">
-                        <li>
-                            <label>HP</label>
-                            <span>20</span>
-                        </li>
-                    </ul>
-                    <ul class="ffl-abilities" style="list-style-type: none; margin: 0; padding: 0;">
-                        <li>
-                            <label>Beak</label>
-                            <span>25</span>
-                        </li>
-                    </ul>
-                </div>
-                
+            <div class="ffl-box-col-2">
+                <ul class="ffl-abilities" style="list-style-type: none; margin: 0; margin-bottom: 1.4em; padding: 0;">
+                    <li>
+                        <label>HP</label>
+                        <span>20</span>
+                    </li>
+                </ul>
+                <ul class="ffl-abilities" style="list-style-type: none; margin: 0; padding: 0;">
+                    <li>
+                        <label>Beak</label>
+                        <span>25</span>
+                    </li>
+                </ul>
+            </div>
+            
+            
             
         </div>
     </div>
+    
+    <div style="width: 220px;">
+        <h2>Eats Meat Of</h2>
+        <label class="ffl-dropdown-label">Monster Type</label>
+        <select id="ddlMeatOfMonsterType" class="ffl-dropdown-list"></select>
+        <label class="ffl-dropdown-label">Monster</label>
+        <select id="ddlMeatOfMonster" class="ffl-dropdown-list"></select>
+    </div>
 
+    <script id="monsterImageTemplate" type="text/template">
+        <div class="ffl-monster-image-mask" style="height: <%= item.sprite.height %>px; width: <%= item.sprite.width %>px;">
+            <img src="images/FFL-Spritesheet-White-1827x1215.png" alt="Starting monster image" width="1827" height="1215" style="left: <%= item.sprite.x %>px; top: <%= item.sprite.y %>px;" />
+        </div>
+    </script>
+    
+    <script id="monsterDropDownListTemplate" type="text/template">
+        <% _.each(this.model.get(this.collectionKey), function(item) { %>
+            <option value="<%= item[this.itemValueKey] %>"><%= item[this.itemTextKey] %></option>
+        <% }, this); %>
+    </script>
+    
     <script type="text/javascript" src="src/scripts/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="src/scripts/underscore-min.js"></script>
     <script type="text/javascript" src="src/scripts/backbone-min.js"></script>
+    <script type="text/javascript" src="src/scripts/constants.js"></script>
     <script type="text/javascript" src="src/scripts/calculatorModel.js"></script>
     <script>
         var bbDropDownList = function (options) {
@@ -231,34 +262,19 @@
             instance.initialize = function () {
                 instance.delegateEvents();
                 instance.listenTo(instance.model, ('change:' + instance.selectedValueKey), instance.selectItem);
-                if (instance.dependentValueKey) {
-                    instance.listenTo(instance.model, ('change:' + instance.dependentValueKey), instance.render);
-                }
+                instance.listenTo(instance.model, ('change:' + instance.collectionKey), instance.render);
                 instance.render();
-                instance.selectInitialItem();
-            };
-            
-            instance.render = function () {
-                if (instance.dependentValueKey) {
-                    instance.collection = _.where(instance.model.get('monsters'), { type: instance.model.get(instance.dependentValueKey) });
-                }
-                
-                var placeholder = document.createDocumentFragment();
-                
-                _.each(instance.collection, function (item) {
-                    var option = document.createElement('option');
-                    
-                    option.value = item[instance.itemValue];
-                    option.text = item[instance.itemText];
-                    
-                    placeholder.appendChild(option);
-                });
-                
-                instance.$el.html(placeholder);
             };
             
             instance.events = {
                 'change': 'onChange'
+            };
+            
+            instance.render = function () {
+                instance.$el.html(instance.template(instance.model.toJSON()));
+                if (instance.model.get(instance.collectionKey).length > 0) {
+                    instance.selectInitialItem();
+                }
             };
             
             instance.onChange = function () {
@@ -274,66 +290,81 @@
                     instance.model.set(instance.selectedValueKey, instance.initialSelectedValue);
                 }
                 else {
-                    if (_.isObject(instance.collection)) {
-                        instance.model.set(instance.selectedValueKey, instance.collection[Object.keys(instance.collection)[0]][instance.itemValue]);
-                    }
-                    else {
-                        instance.model.set(instance.selectedValueKey, instance.collection[0][instance.itemValue]);
-                    }
-                    
+                    instance.model.set(instance.selectedValueKey, instance.model.get(instance.collectionKey)[0][instance.itemValueKey]);
                 }
-            }
+            };
             
             instance.initialize();
             
             return instance;
         };
         
-//        var bbDependentDropDownList = function (options) {
-//            var dependentDropDownList = {
-//                reload: function () { 
-//                    var placeholder = document.createDocumentFragment();
-//
-//                    _.each(_.where(instance.collection, { type: instance.model[instance.dependentValueKey] }), function (item) {
-//                        var option = document.createElement('option');
-//
-//                        option.value = item[instance.itemValue];
-//                        option.text = item[instance.itemText];
-//
-//                        placeholder.appendChild(option);
-//                    });
-//
-//                    instance.$el.html(placeholder);
-//
-//                    instance.selectInitialItem();
-//                    console.log('reloaded');
-//                }
-//            };
-//            
-//            var instance = _.extend(bbDropDownList(options), dependentDropDownList);
-//        
-//            return instance;
-//        };
+        var monsterImage = function (options) {
+            var instance = new Backbone.View(options);
+            _.extend(instance, options);
+            
+            instance.initialize = function () {
+                instance.listenTo(instance.model, ('change:' + instance.itemKey), instance.render);
+                instance.render();
+            };
+            
+            instance.render = function () {
+                var item = _.findWhere(instance.model.get(instance.itemsKey), { id: instance.model.get(instance.itemKey) });
+                instance.$el.html(instance.template(item));
+            };
+            
+            instance.initialize();
+            
+            return instance;
+        };
         
         var ddlStartingMonsterType = bbDropDownList({
             el: document.getElementById('ddlStartingMonsterType'),
-            collection: constants.MONSTER.TYPE,
             model: calculatorModel,
+            collectionKey: 'monsterTypes',
+            itemValueKey: 'id',
+            itemTextKey: 'name',
             selectedValueKey: 'startingMonsterType',
-            initialSelectedValue: constants.MONSTER.TYPE.GHOST.KEY,
-            itemValue: 'KEY',
-            itemText: 'NAME'
+            template: _.template(document.getElementById('monsterDropDownListTemplate').innerHTML)
         });
         
         var ddlStartingMonster = bbDropDownList({
             el: document.getElementById('ddlStartingMonster'),
             model: calculatorModel,
+            collectionKey: 'startingMonsters',
+            itemValueKey: 'id',
+            itemTextKey: 'name',
             selectedValueKey: 'startingMonster',
-            dependentValueKey: 'startingMonsterType',
-            itemValue: 'name',
-            itemText: 'name'
+            template: _.template(document.getElementById('monsterDropDownListTemplate').innerHTML)
         });
         
+        var ddlMeatOfMonsterType = bbDropDownList({
+            el: document.getElementById('ddlMeatOfMonsterType'),
+            model: calculatorModel,
+            collectionKey: 'monsterTypes',
+            itemValueKey: 'id',
+            itemTextKey: 'name',
+            selectedValueKey: 'meatOfMonsterType',
+            template: _.template(document.getElementById('monsterDropDownListTemplate').innerHTML)
+        });
+        
+        var ddlMeatOfMonster = bbDropDownList({
+            el: document.getElementById('ddlMeatOfMonster'),
+            model: calculatorModel,
+            collectionKey: 'meatOfMonsters',
+            itemValueKey: 'id',
+            itemTextKey: 'name',
+            selectedValueKey: 'meatOfMonster',
+            template: _.template(document.getElementById('monsterDropDownListTemplate').innerHTML)
+        });
+        
+        var startingMonsterImage = monsterImage({
+            el: document.getElementById('startingMonsterImage'),
+            model: calculatorModel,
+            itemsKey: 'monsters',
+            itemKey: 'startingMonster',
+            template: _.template(document.getElementById('monsterImageTemplate').innerHTML, { variable: 'item' })
+        });
     </script>
     
 </body>
