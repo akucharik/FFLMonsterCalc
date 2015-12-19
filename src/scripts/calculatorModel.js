@@ -18,11 +18,17 @@ _.each(constants.MONSTERS, function (item) {
         defense: item.defense,
         agility: item.agility,
         mana: item.mana,
-        sprite: {
-            height: item.sprite.height,
-            width: item.sprite.width,
-            x: item.sprite.x,
-            y: item.sprite.y
+        image: {
+            height: item.image.height,
+            width: item.image.width,
+            x: item.image.x,
+            y: item.image.y
+        },
+        avatar: {
+            height: item.avatar.height,
+            width: item.avatar.width,
+            x: item.avatar.x,
+            y: item.avatar.y
         }
     });
 });

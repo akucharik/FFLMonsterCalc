@@ -5,211 +5,107 @@ constants.MONSTER = {};
 constants.MONSTER.TYPE = {
     ALBATROS: {
         KEY: 'ALBATROS',
-        NAME: 'Albatros',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Albatros'
     },
     ANT: {
         KEY: 'ANT',
-        NAME: 'Ant',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Ant'
     },
     BULL: {
         KEY: 'BULL',
-        NAME: 'Bull',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Bull'
     },
     CONDOR: {
         KEY: 'CONDOR',
-        NAME: 'Condor',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Condor'
     },
     CRAB: {
         KEY: 'CRAB',
-        NAME: 'Crab',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Crab'
     },
     DRAGON: {
         KEY: 'DRAGON',
-        NAME: 'Dragon',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Dragon'
     },
     EYE: {
         KEY: 'EYE',
-        NAME: 'Eye',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Eye'
     },
     FIEND: {
         KEY: 'FIEND',
-        NAME: 'Fiend',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Fiend'
     },
     FISH: {
         KEY: 'FISH',
-        NAME: 'Fish',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Fish'
     },
     FLY: {
         KEY: 'FLY',
-        NAME: 'Fly',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Fly'
     },
     GHOST: {
         KEY: 'GHOST',
-        NAME: 'Ghost',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Ghost'
     },
     GOBLIN: {
         KEY: 'GOBLIN',
-        NAME: 'Goblin',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Goblin'
     },
     GOLEM: {
         KEY: 'GOLEM',
-        NAME: 'Golem',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Golem'
     },
     GRIFFIN: {
         KEY: 'GRIFFIN',
-        NAME: 'Griffin',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Griffin'
     },
     IMP: {
         KEY: 'IMP',
-        NAME: 'Imp',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Imp'
     },
     LIZARD: {
         KEY: 'LIZARD',
-        NAME: 'Lizard',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Lizard'
     },
     MEDUSA: {
         KEY: 'MEDUSA',
-        NAME: 'Medusa',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Medusa'
     },
     PLANT: {
         KEY: 'PLANT',
-        NAME: 'Plant',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Plant'
     },
     RAT: {
         KEY: 'RAT',
-        NAME: 'Rat',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Rat'
     },
     SEA: {
         KEY: 'SEA',
-        NAME: 'Sea Creature',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Sea Creature'
     },
     SKELETON: {
         KEY: 'SKELETON',
-        NAME: 'Skeleton',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Skeleton'
     },
     SLIME: {
         KEY: 'SLIME',
-        NAME: 'Slime',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Slime'
     },
     SNAKE: {
         KEY: 'SNAKE',
-        NAME: 'Snake',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Snake'
     },
     WOLF: {
         KEY: 'WOLF',
-        NAME: 'Wolf',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Wolf'
     },
     WORM: {
         KEY: 'WORM',
-        NAME: 'Worm',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Worm'
     },
     ZOMBIE: {
         KEY: 'ZOMBIE',
-        NAME: 'Zombie',
-        SPRITE: {
-            X: 0,
-            Y: 0
-        }
+        NAME: 'Zombie'
     }
 };
 
@@ -222,11 +118,17 @@ constants.MONSTERS = [
       mana: 4,
       name: 'Albatros',
       strength: 6,
-      sprite: {
+      image: {
           height: 160,
           width: 180,
           x: -340,
           y: -460
+      },
+      avatar: {
+          height: 40,
+          width: 40,
+          x: -200,
+          y: -632
       },
       type: constants.MONSTER.TYPE.ALBATROS.KEY
     }, {
@@ -237,7 +139,7 @@ constants.MONSTERS = [
       mana: 21,
       name: 'Eagle',
       strength: 23,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.ALBATROS.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.ALBATROS.KEY
     }, {
       agility: 74,
       defense: 32,
@@ -246,7 +148,7 @@ constants.MONSTERS = [
       mana: 45,
       name: 'Thunder',
       strength: 47,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.ALBATROS.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.ALBATROS.KEY
     }, {
       agility: 99,
       defense: 47,
@@ -255,7 +157,7 @@ constants.MONSTERS = [
       mana: 64,
       name: 'Cocatris',
       strength: 66,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.ALBATROS.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.ALBATROS.KEY
     }, {
       agility: 99,
       defense: 56,
@@ -264,7 +166,7 @@ constants.MONSTERS = [
       mana: 74,
       name: 'Rock',
       strength: 76,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.ALBATROS.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.ALBATROS.KEY
     }, {
       agility: 99,
       defense: 62,
@@ -273,7 +175,7 @@ constants.MONSTERS = [
       mana: 80,
       name: 'Phoenix',
       strength: 82,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.ALBATROS.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.ALBATROS.KEY
     }, {
       agility: 7,
       defense: 9,
@@ -282,13 +184,7 @@ constants.MONSTERS = [
       mana: 6,
       name: 'Clipper',
       strength: 4,
-      sprite: {
-          height: 160,
-          width: 180,
-          x: -440,
-          y: -560
-      },
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.ANT.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.ANT.KEY
     }, {
       agility: 38,
       defense: 40,
@@ -297,7 +193,7 @@ constants.MONSTERS = [
       mana: 29,
       name: 'Beetle',
       strength: 19,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.ANT.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.ANT.KEY
     }, {
       agility: 43,
       defense: 45,
@@ -306,7 +202,7 @@ constants.MONSTERS = [
       mana: 33,
       name: 'Ant Lion',
       strength: 22,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.ANT.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.ANT.KEY
     }, {
       agility: 53,
       defense: 55,
@@ -315,7 +211,7 @@ constants.MONSTERS = [
       mana: 41,
       name: 'Atom Ant',
       strength: 28,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.ANT.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.ANT.KEY
     }, {
       agility: 87,
       defense: 89,
@@ -324,7 +220,7 @@ constants.MONSTERS = [
       mana: 70,
       name: 'Scorpion',
       strength: 52,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.ANT.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.ANT.KEY
     }, {
       agility: 99,
       defense: 99,
@@ -333,7 +229,7 @@ constants.MONSTERS = [
       mana: 81,
       name: 'Scarab',
       strength: 62,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.ANT.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.ANT.KEY
     }, {
       agility: 5,
       defense: 7,
@@ -342,7 +238,7 @@ constants.MONSTERS = [
       mana: 4,
       name: 'Redbull',
       strength: 8,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.BULL.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.BULL.KEY
     }, {
       agility: 14,
       defense: 16,
@@ -351,7 +247,7 @@ constants.MONSTERS = [
       mana: 9,
       name: 'Rhino',
       strength: 21,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.BULL.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.BULL.KEY
     }, {
       agility: 36,
       defense: 38,
@@ -360,7 +256,7 @@ constants.MONSTERS = [
       mana: 25,
       name: 'Triceras',
       strength: 49,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.BULL.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.BULL.KEY
     }, {
       agility: 45,
       defense: 47,
@@ -369,7 +265,7 @@ constants.MONSTERS = [
       mana: 32,
       name: 'Behemoth',
       strength: 60,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.BULL.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.BULL.KEY
     }, {
       agility: 69,
       defense: 71,
@@ -378,7 +274,7 @@ constants.MONSTERS = [
       mana: 52,
       name: 'Baku',
       strength: 88,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.BULL.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.BULL.KEY
     }, {
       agility: 80,
       defense: 82,
@@ -387,7 +283,7 @@ constants.MONSTERS = [
       mana: 62,
       name: 'Ganesha',
       strength: 99,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.BULL.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.BULL.KEY
     }, {
       agility: 14,
       defense: 6,
@@ -396,7 +292,7 @@ constants.MONSTERS = [
       mana: 9,
       name: 'Condor',
       strength: 11,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.CONDOR.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.CONDOR.KEY
     }, {
       agility: 25,
       defense: 11,
@@ -405,7 +301,7 @@ constants.MONSTERS = [
       mana: 17,
       name: 'Raven',
       strength: 19,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.CONDOR.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.CONDOR.KEY
     }, {
       agility: 39,
       defense: 19,
@@ -414,7 +310,7 @@ constants.MONSTERS = [
       mana: 28,
       name: 'Harpy',
       strength: 30,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.CONDOR.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.CONDOR.KEY
     }, {
       agility: 60,
       defense: 32,
@@ -423,7 +319,7 @@ constants.MONSTERS = [
       mana: 45,
       name: 'Ten-gu',
       strength: 47,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.CONDOR.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.CONDOR.KEY
     }, {
       agility: 88,
       defense: 52,
@@ -432,7 +328,7 @@ constants.MONSTERS = [
       mana: 69,
       name: 'Garuda',
       strength: 71,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.CONDOR.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.CONDOR.KEY
     }, {
       agility: 99,
       defense: 62,
@@ -441,7 +337,7 @@ constants.MONSTERS = [
       mana: 80,
       name: 'Nike',
       strength: 82,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.CONDOR.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.CONDOR.KEY
     }, {
       agility: 8,
       defense: 22,
@@ -450,7 +346,7 @@ constants.MONSTERS = [
       mana: 6,
       name: 'Shrimp',
       strength: 13,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.CRAB.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.CRAB.KEY
     }, {
       agility: 12,
       defense: 32,
@@ -459,7 +355,7 @@ constants.MONSTERS = [
       mana: 10,
       name: 'Atomcrab',
       strength: 18,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.CRAB.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.CRAB.KEY
     }, {
       agility: 26,
       defense: 61,
@@ -468,7 +364,7 @@ constants.MONSTERS = [
       mana: 24,
       name: 'Crab',
       strength: 37,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.CRAB.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.CRAB.KEY
     }, {
       agility: 29,
       defense: 67,
@@ -477,7 +373,7 @@ constants.MONSTERS = [
       mana: 27,
       name: 'Ice Crab',
       strength: 41,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.CRAB.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.CRAB.KEY
     }, {
       agility: 53,
       defense: 99,
@@ -486,7 +382,7 @@ constants.MONSTERS = [
       mana: 51,
       name: 'Kingcrab',
       strength: 70,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.CRAB.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.CRAB.KEY
     }, {
       agility: 63,
       defense: 99,
@@ -495,7 +391,7 @@ constants.MONSTERS = [
       mana: 61,
       name: 'Dagon',
       strength: 81,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.CRAB.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.CRAB.KEY
     }, {
       agility: 19,
       defense: 28,
@@ -504,7 +400,7 @@ constants.MONSTERS = [
       mana: 39,
       name: 'Dragon 1',
       strength: 30,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.DRAGON.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.DRAGON.KEY
     }, {
       agility: 25,
       defense: 36,
@@ -513,7 +409,7 @@ constants.MONSTERS = [
       mana: 49,
       name: 'Dragon 2',
       strength: 38,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.DRAGON.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.DRAGON.KEY
     }, {
       agility: 35,
       defense: 49,
@@ -522,7 +418,7 @@ constants.MONSTERS = [
       mana: 65,
       name: 'Dragon 3',
       strength: 51,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.DRAGON.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.DRAGON.KEY
     }, {
       agility: 47,
       defense: 64,
@@ -531,7 +427,7 @@ constants.MONSTERS = [
       mana: 83,
       name: 'Dragon 4',
       strength: 66,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.DRAGON.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.DRAGON.KEY
     }, {
       agility: 56,
       defense: 74,
@@ -540,7 +436,7 @@ constants.MONSTERS = [
       mana: 94,
       name: 'Dragon 5',
       strength: 76,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.DRAGON.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.DRAGON.KEY
     }, {
       agility: 62,
       defense: 80,
@@ -549,7 +445,7 @@ constants.MONSTERS = [
       mana: 99,
       name: 'Tiamat',
       strength: 99,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.DRAGON.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.DRAGON.KEY
     }, {
       agility: 6,
       defense: 12,
@@ -558,7 +454,7 @@ constants.MONSTERS = [
       mana: 22,
       name: 'Big Eye',
       strength: 8,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.EYE.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.EYE.KEY
     }, {
       agility: 18,
       defense: 29,
@@ -567,7 +463,7 @@ constants.MONSTERS = [
       mana: 49,
       name: 'Gazer',
       strength: 20,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.EYE.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.EYE.KEY
     }, {
       agility: 27,
       defense: 41,
@@ -576,7 +472,7 @@ constants.MONSTERS = [
       mana: 67,
       name: 'Seeker',
       strength: 29,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.EYE.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.EYE.KEY
     }, {
       agility: 42,
       defense: 60,
@@ -585,7 +481,7 @@ constants.MONSTERS = [
       mana: 94,
       name: 'Watcher',
       strength: 44,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.EYE.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.EYE.KEY
     }, {
       agility: 55,
       defense: 75,
@@ -594,7 +490,7 @@ constants.MONSTERS = [
       mana: 99,
       name: 'Evil Eye',
       strength: 57,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.EYE.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.EYE.KEY
     }, {
       agility: 61,
       defense: 81,
@@ -603,7 +499,7 @@ constants.MONSTERS = [
       mana: 99,
       name: 'Beholder',
       strength: 63,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.EYE.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.EYE.KEY
     }, {
       agility: 12,
       defense: 11,
@@ -612,7 +508,7 @@ constants.MONSTERS = [
       mana: 12,
       name: 'Gen-bu',
       strength: 12,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FIEND.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FIEND.KEY
     }, {
       agility: 27,
       defense: 25,
@@ -621,7 +517,7 @@ constants.MONSTERS = [
       mana: 27,
       name: 'Sei-ryu',
       strength: 27,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FIEND.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FIEND.KEY
     }, {
       agility: 50,
       defense: 45,
@@ -630,7 +526,7 @@ constants.MONSTERS = [
       mana: 50,
       name: 'Byak-ko',
       strength: 50,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FIEND.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FIEND.KEY
     }, {
       agility: 85,
       defense: 77,
@@ -639,7 +535,7 @@ constants.MONSTERS = [
       mana: 85,
       name: 'Su-zaku',
       strength: 85,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FIEND.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FIEND.KEY
     }, {
       agility: 90,
       defense: 100,
@@ -648,7 +544,7 @@ constants.MONSTERS = [
       mana: 90,
       name: 'Gen-bu2',
       strength: 90,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FIEND.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FIEND.KEY
     }, {
       agility: 90,
       defense: 90,
@@ -657,7 +553,7 @@ constants.MONSTERS = [
       mana: 100,
       name: 'Sei-ryu2',
       strength: 100,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FIEND.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FIEND.KEY
     }, {
       agility: 100,
       defense: 90,
@@ -666,7 +562,7 @@ constants.MONSTERS = [
       mana: 100,
       name: 'Byak-ko2',
       strength: 100,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FIEND.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FIEND.KEY
     }, {
       agility: 100,
       defense: 100,
@@ -675,7 +571,7 @@ constants.MONSTERS = [
       mana: 100,
       name: 'Su-zaku2',
       strength: 100,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FIEND.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FIEND.KEY
     }, {
       agility: 90,
       defense: 90,
@@ -684,7 +580,7 @@ constants.MONSTERS = [
       mana: 90,
       name: 'Ashura',
       strength: 90,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FIEND.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FIEND.KEY
     }, {
       agility: 11,
       defense: 6,
@@ -693,7 +589,7 @@ constants.MONSTERS = [
       mana: 5,
       name: 'Barracud',
       strength: 9,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FISH.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FISH.KEY
     }, {
       agility: 14,
       defense: 9,
@@ -702,7 +598,7 @@ constants.MONSTERS = [
       mana: 6,
       name: 'Piranha',
       strength: 11,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FISH.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FISH.KEY
     }, {
       agility: 30,
       defense: 21,
@@ -711,7 +607,7 @@ constants.MONSTERS = [
       mana: 14,
       name: 'Shark',
       strength: 23,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FISH.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FISH.KEY
     }, {
       agility: 54,
       defense: 40,
@@ -720,7 +616,7 @@ constants.MONSTERS = [
       mana: 28,
       name: 'Gunfish',
       strength: 42,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FISH.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FISH.KEY
     }, {
       agility: 88,
       defense: 69,
@@ -729,7 +625,7 @@ constants.MONSTERS = [
       mana: 52,
       name: 'Elec Eel',
       strength: 71,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FISH.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FISH.KEY
     }, {
       agility: 99,
       defense: 80,
@@ -738,7 +634,7 @@ constants.MONSTERS = [
       mana: 62,
       name: 'Leviathn',
       strength: 82,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FISH.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FISH.KEY
     }, {
       agility: 9,
       defense: 8,
@@ -747,7 +643,7 @@ constants.MONSTERS = [
       mana: 5,
       name: 'Fly',
       strength: 6,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FLY.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FLY.KEY
     }, {
       agility: 18,
       defense: 17,
@@ -756,7 +652,7 @@ constants.MONSTERS = [
       mana: 11,
       name: 'Drgonfly',
       strength: 12,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FLY.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FLY.KEY
     }, {
       agility: 26,
       defense: 25,
@@ -765,7 +661,7 @@ constants.MONSTERS = [
       mana: 17,
       name: 'Hornet',
       strength: 18,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FLY.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FLY.KEY
     }, {
       agility: 31,
       defense: 30,
@@ -774,7 +670,7 @@ constants.MONSTERS = [
       mana: 21,
       name: 'Mosquito',
       strength: 22,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FLY.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FLY.KEY
     }, {
       agility: 89,
       defense: 88,
@@ -783,7 +679,7 @@ constants.MONSTERS = [
       mana: 69,
       name: 'Cicada',
       strength: 70,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FLY.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FLY.KEY
     }, {
       agility: 99,
       defense: 99,
@@ -792,7 +688,7 @@ constants.MONSTERS = [
       mana: 80,
       name: 'Mantis',
       strength: 82,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.FLY.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FLY.KEY
     }, {
       agility: 8,
       defense: 3,
@@ -801,7 +697,7 @@ constants.MONSTERS = [
       mana: 9,
       name: 'O-bake',
       strength: 4,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GHOST.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GHOST.KEY
     }, {
       agility: 14,
       defense: 5,
@@ -810,7 +706,7 @@ constants.MONSTERS = [
       mana: 15,
       name: 'Phantom',
       strength: 6,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GHOST.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GHOST.KEY
     }, {
       agility: 54,
       defense: 27,
@@ -819,7 +715,7 @@ constants.MONSTERS = [
       mana: 55,
       name: 'Buruburu',
       strength: 28,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GHOST.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GHOST.KEY
     }, {
       agility: 83,
       defense: 46,
@@ -828,7 +724,7 @@ constants.MONSTERS = [
       mana: 84,
       name: 'Wraith',
       strength: 47,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GHOST.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GHOST.KEY
     }, {
       agility: 94,
       defense: 55,
@@ -837,7 +733,7 @@ constants.MONSTERS = [
       mana: 95,
       name: 'Spector',
       strength: 56,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GHOST.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GHOST.KEY
     }, {
       agility: 99,
       defense: 61,
@@ -846,7 +742,7 @@ constants.MONSTERS = [
       mana: 99,
       name: 'Ghost',
       strength: 63,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GHOST.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GHOST.KEY
     }, {
       agility: 4,
       defense: 6,
@@ -855,7 +751,7 @@ constants.MONSTERS = [
       mana: 3,
       name: 'Goblin',
       strength: 9,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GOBLIN.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GOBLIN.KEY
     }, {
       agility: 7,
       defense: 9,
@@ -864,7 +760,7 @@ constants.MONSTERS = [
       mana: 5,
       name: 'Oni',
       strength: 14,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GOBLIN.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GOBLIN.KEY
     }, {
       agility: 32,
       defense: 34,
@@ -873,7 +769,7 @@ constants.MONSTERS = [
       mana: 22,
       name: 'Ogre',
       strength: 55,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GOBLIN.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GOBLIN.KEY
     }, {
       agility: 54,
       defense: 56,
@@ -882,7 +778,7 @@ constants.MONSTERS = [
       mana: 39,
       name: 'Giant',
       strength: 87,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GOBLIN.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GOBLIN.KEY
     }, {
       agility: 74,
       defense: 76,
@@ -891,7 +787,7 @@ constants.MONSTERS = [
       mana: 56,
       name: 'Titan',
       strength: 99,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GOBLIN.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GOBLIN.KEY
     }, {
       agility: 80,
       defense: 82,
@@ -900,7 +796,7 @@ constants.MONSTERS = [
       mana: 62,
       name: 'Susano-o',
       strength: 99,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GOBLIN.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GOBLIN.KEY
     }, {
       agility: 11,
       defense: 18,
@@ -909,7 +805,7 @@ constants.MONSTERS = [
       mana: 24,
       name: 'Woodman',
       strength: 26,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GOLEM.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GOLEM.KEY
     }, {
       agility: 25,
       defense: 37,
@@ -918,7 +814,7 @@ constants.MONSTERS = [
       mana: 48,
       name: 'Clayman',
       strength: 50,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GOLEM.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GOLEM.KEY
     }, {
       agility: 28,
       defense: 41,
@@ -927,7 +823,7 @@ constants.MONSTERS = [
       mana: 53,
       name: 'Stoneman',
       strength: 55,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GOLEM.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GOLEM.KEY
     }, {
       agility: 47,
       defense: 65,
@@ -936,7 +832,7 @@ constants.MONSTERS = [
       mana: 82,
       name: 'Ironman',
       strength: 84,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GOLEM.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GOLEM.KEY
     }, {
       agility: 56,
       defense: 75,
@@ -945,7 +841,7 @@ constants.MONSTERS = [
       mana: 93,
       name: 'Fireman',
       strength: 95,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GOLEM.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GOLEM.KEY
     }, {
       agility: 62,
       defense: 81,
@@ -954,7 +850,7 @@ constants.MONSTERS = [
       mana: 99,
       name: 'Mazin',
       strength: 99,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GOLEM.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GOLEM.KEY
     }, {
       agility: 21,
       defense: 14,
@@ -963,7 +859,7 @@ constants.MONSTERS = [
       mana: 22,
       name: 'Griffin',
       strength: 15,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GRIFFIN.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GRIFFIN.KEY
     }, {
       agility: 30,
       defense: 21,
@@ -972,7 +868,7 @@ constants.MONSTERS = [
       mana: 31,
       name: 'Mantcore',
       strength: 22,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GRIFFIN.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GRIFFIN.KEY
     }, {
       agility: 49,
       defense: 36,
@@ -981,7 +877,7 @@ constants.MONSTERS = [
       mana: 50,
       name: 'Chimera',
       strength: 37,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GRIFFIN.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GRIFFIN.KEY
     }, {
       agility: 71,
       defense: 54,
@@ -990,7 +886,7 @@ constants.MONSTERS = [
       mana: 72,
       name: 'Nue',
       strength: 55,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GRIFFIN.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GRIFFIN.KEY
     }, {
       agility: 94,
       defense: 74,
@@ -999,7 +895,7 @@ constants.MONSTERS = [
       mana: 95,
       name: 'Sphinx',
       strength: 75,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GRIFFIN.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GRIFFIN.KEY
     }, {
       agility: 99,
       defense: 80,
@@ -1008,7 +904,7 @@ constants.MONSTERS = [
       mana: 99,
       name: 'Ki-rin',
       strength: 82,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.GRIFFIN.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.GRIFFIN.KEY
     }, {
       agility: 9,
       defense: 8,
@@ -1017,7 +913,7 @@ constants.MONSTERS = [
       mana: 12,
       name: 'Gargoyle',
       strength: 11,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.IMP.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.IMP.KEY
     }, {
       agility: 24,
       defense: 23,
@@ -1026,7 +922,7 @@ constants.MONSTERS = [
       mana: 27,
       name: 'Imp',
       strength: 26,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.IMP.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.IMP.KEY
     }, {
       agility: 54,
       defense: 53,
@@ -1035,7 +931,7 @@ constants.MONSTERS = [
       mana: 57,
       name: 'Demon',
       strength: 56,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.IMP.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.IMP.KEY
     }, {
       agility: 59,
       defense: 58,
@@ -1044,7 +940,7 @@ constants.MONSTERS = [
       mana: 62,
       name: 'Demolord',
       strength: 61,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.IMP.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.IMP.KEY
     }, {
       agility: 74,
       defense: 73,
@@ -1053,7 +949,7 @@ constants.MONSTERS = [
       mana: 77,
       name: 'Demoking',
       strength: 76,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.IMP.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.IMP.KEY
     }, {
       agility: 80,
       defense: 79,
@@ -1062,7 +958,7 @@ constants.MONSTERS = [
       mana: 83,
       name: 'Athtalot',
       strength: 82,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.IMP.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.IMP.KEY
     }, {
       agility: 4,
       defense: 7,
@@ -1071,7 +967,7 @@ constants.MONSTERS = [
       mana: 2,
       name: 'Lizard',
       strength: 5,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.LIZARD.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.LIZARD.KEY
     }, {
       agility: 6,
       defense: 11,
@@ -1080,7 +976,7 @@ constants.MONSTERS = [
       mana: 4,
       name: 'P-frog',
       strength: 8,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.LIZARD.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.LIZARD.KEY
     }, {
       agility: 7,
       defense: 14,
@@ -1089,7 +985,7 @@ constants.MONSTERS = [
       mana: 5,
       name: 'Gecko',
       strength: 12,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.LIZARD.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.LIZARD.KEY
     }, {
       agility: 40,
       defense: 71,
@@ -1098,7 +994,7 @@ constants.MONSTERS = [
       mana: 38,
       name: 'Dinosaur',
       strength: 55,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.LIZARD.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.LIZARD.KEY
     }, {
       agility: 53,
       defense: 88,
@@ -1107,7 +1003,7 @@ constants.MONSTERS = [
       mana: 51,
       name: 'Salamand',
       strength: 70,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.LIZARD.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.LIZARD.KEY
     }, {
       agility: 63,
       defense: 99,
@@ -1116,7 +1012,7 @@ constants.MONSTERS = [
       mana: 61,
       name: 'Basilisk',
       strength: 81,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.LIZARD.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.LIZARD.KEY
     }, {
       agility: 19,
       defense: 17,
@@ -1125,7 +1021,7 @@ constants.MONSTERS = [
       mana: 25,
       name: 'Medusa',
       strength: 11,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.MEDUSA.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.MEDUSA.KEY
     }, {
       agility: 23,
       defense: 21,
@@ -1134,7 +1030,7 @@ constants.MONSTERS = [
       mana: 30,
       name: 'Siren',
       strength: 14,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.MEDUSA.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.MEDUSA.KEY
     }, {
       agility: 56,
       defense: 54,
@@ -1143,7 +1039,7 @@ constants.MONSTERS = [
       mana: 71,
       name: 'Lamia',
       strength: 39,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.MEDUSA.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.MEDUSA.KEY
     }, {
       agility: 61,
       defense: 59,
@@ -1152,7 +1048,7 @@ constants.MONSTERS = [
       mana: 77,
       name: 'Naga',
       strength: 43,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.MEDUSA.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.MEDUSA.KEY
     }, {
       agility: 76,
       defense: 74,
@@ -1161,7 +1057,7 @@ constants.MONSTERS = [
       mana: 94,
       name: 'Scylla',
       strength: 56,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.MEDUSA.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.MEDUSA.KEY
     }, {
       agility: 82,
       defense: 80,
@@ -1170,7 +1066,7 @@ constants.MONSTERS = [
       mana: 99,
       name: 'Lilith',
       strength: 62,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.MEDUSA.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.MEDUSA.KEY
     }, {
       agility: 8,
       defense: 16,
@@ -1179,7 +1075,7 @@ constants.MONSTERS = [
       mana: 9,
       name: 'Cactus',
       strength: 15,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.PLANT.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.PLANT.KEY
     }, {
       agility: 10,
       defense: 19,
@@ -1188,7 +1084,7 @@ constants.MONSTERS = [
       mana: 11,
       name: 'P-flower',
       strength: 18,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.PLANT.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.PLANT.KEY
     }, {
       agility: 15,
       defense: 26,
@@ -1197,7 +1093,7 @@ constants.MONSTERS = [
       mana: 16,
       name: 'Garlic',
       strength: 25,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.PLANT.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.PLANT.KEY
     }, {
       agility: 27,
       defense: 42,
@@ -1206,7 +1102,7 @@ constants.MONSTERS = [
       mana: 28,
       name: 'Thorn',
       strength: 41,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.PLANT.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.PLANT.KEY
     }, {
       agility: 51,
       defense: 71,
@@ -1215,7 +1111,7 @@ constants.MONSTERS = [
       mana: 52,
       name: 'F-flower',
       strength: 70,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.PLANT.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.PLANT.KEY
     }, {
       agility: 61,
       defense: 82,
@@ -1224,7 +1120,7 @@ constants.MONSTERS = [
       mana: 62,
       name: 'Darkrose',
       strength: 81,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.PLANT.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.PLANT.KEY
     }, {
       agility: 5,
       defense: 4,
@@ -1233,7 +1129,7 @@ constants.MONSTERS = [
       mana: 7,
       name: 'Wererat',
       strength: 8,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.RAT.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.RAT.KEY
     }, {
       agility: 11,
       defense: 7,
@@ -1242,7 +1138,7 @@ constants.MONSTERS = [
       mana: 13,
       name: 'Werewolf',
       strength: 17,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.RAT.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.RAT.KEY
     }, {
       agility: 21,
       defense: 14,
@@ -1251,7 +1147,7 @@ constants.MONSTERS = [
       mana: 23,
       name: 'Catwoman',
       strength: 30,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.RAT.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.RAT.KEY
     }, {
       agility: 54,
       defense: 39,
@@ -1260,7 +1156,7 @@ constants.MONSTERS = [
       mana: 56,
       name: 'Minotaur',
       strength: 71,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.RAT.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.RAT.KEY
     }, {
       agility: 69,
       defense: 52,
@@ -1269,7 +1165,7 @@ constants.MONSTERS = [
       mana: 71,
       name: 'Rakshasa',
       strength: 88,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.RAT.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.RAT.KEY
     }, {
       agility: 80,
       defense: 62,
@@ -1278,7 +1174,7 @@ constants.MONSTERS = [
       mana: 82,
       name: 'Anubis',
       strength: 99,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.RAT.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.RAT.KEY
     }, {
       agility: 12,
       defense: 11,
@@ -1287,7 +1183,7 @@ constants.MONSTERS = [
       mana: 7,
       name: 'Octopus',
       strength: 13,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SEA.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SEA.KEY
     }, {
       agility: 25,
       defense: 24,
@@ -1296,7 +1192,7 @@ constants.MONSTERS = [
       mana: 16,
       name: 'Clam',
       strength: 26,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SEA.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SEA.KEY
     }, {
       agility: 33,
       defense: 32,
@@ -1305,7 +1201,7 @@ constants.MONSTERS = [
       mana: 22,
       name: 'Amoeba',
       strength: 34,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SEA.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SEA.KEY
     }, {
       agility: 50,
       defense: 49,
@@ -1314,7 +1210,7 @@ constants.MONSTERS = [
       mana: 35,
       name: 'Ammonite',
       strength: 51,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SEA.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SEA.KEY
     }, {
       agility: 70,
       defense: 69,
@@ -1323,7 +1219,7 @@ constants.MONSTERS = [
       mana: 52,
       name: 'Squid',
       strength: 71,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SEA.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SEA.KEY
     }, {
       agility: 81,
       defense: 80,
@@ -1332,7 +1228,7 @@ constants.MONSTERS = [
       mana: 62,
       name: 'Kraken',
       strength: 82,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SEA.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SEA.KEY
     }, {
       agility: 4,
       defense: 2,
@@ -1341,7 +1237,7 @@ constants.MONSTERS = [
       mana: 7,
       name: 'Skeleton',
       strength: 5,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SKELETON.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SKELETON.KEY
     }, {
       agility: 8,
       defense: 6,
@@ -1350,7 +1246,7 @@ constants.MONSTERS = [
       mana: 17,
       name: 'Red Bone',
       strength: 12,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SKELETON.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SKELETON.KEY
     }, {
       agility: 33,
       defense: 31,
@@ -1359,7 +1255,7 @@ constants.MONSTERS = [
       mana: 60,
       name: 'Dokuro',
       strength: 46,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SKELETON.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SKELETON.KEY
     }, {
       agility: 44,
       defense: 42,
@@ -1368,7 +1264,7 @@ constants.MONSTERS = [
       mana: 77,
       name: 'Warrior',
       strength: 60,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SKELETON.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SKELETON.KEY
     }, {
       agility: 57,
       defense: 55,
@@ -1377,7 +1273,7 @@ constants.MONSTERS = [
       mana: 94,
       name: 'Boneking',
       strength: 75,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SKELETON.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SKELETON.KEY
     }, {
       agility: 63,
       defense: 61,
@@ -1386,7 +1282,7 @@ constants.MONSTERS = [
       mana: 99,
       name: 'Lich',
       strength: 81,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SKELETON.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SKELETON.KEY
     }, {
       agility: 3,
       defense: 4,
@@ -1395,7 +1291,7 @@ constants.MONSTERS = [
       mana: 8,
       name: 'Slime',
       strength: 5,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SLIME.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SLIME.KEY
     }, {
       agility: 21,
       defense: 22,
@@ -1404,7 +1300,7 @@ constants.MONSTERS = [
       mana: 44,
       name: 'Jelly',
       strength: 23,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SLIME.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SLIME.KEY
     }, {
       agility: 34,
       defense: 35,
@@ -1413,7 +1309,7 @@ constants.MONSTERS = [
       mana: 65,
       name: 'Tororo',
       strength: 36,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SLIME.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SLIME.KEY
     }, {
       agility: 42,
       defense: 43,
@@ -1422,7 +1318,7 @@ constants.MONSTERS = [
       mana: 77,
       name: 'Gummy',
       strength: 44,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SLIME.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SLIME.KEY
     }, {
       agility: 55,
       defense: 56,
@@ -1431,7 +1327,7 @@ constants.MONSTERS = [
       mana: 94,
       name: 'Pudding',
       strength: 57,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SLIME.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SLIME.KEY
     }, {
       agility: 61,
       defense: 62,
@@ -1440,7 +1336,7 @@ constants.MONSTERS = [
       mana: 99,
       name: 'Hi-slime',
       strength: 63,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SLIME.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SLIME.KEY
     }, {
       agility: 7,
       defense: 11,
@@ -1449,7 +1345,7 @@ constants.MONSTERS = [
       mana: 5,
       name: 'Snake',
       strength: 9,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SNAKE.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SNAKE.KEY
     }, {
       agility: 14,
       defense: 21,
@@ -1458,7 +1354,7 @@ constants.MONSTERS = [
       mana: 9,
       name: 'Serpent',
       strength: 16,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SNAKE.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SNAKE.KEY
     }, {
       agility: 28,
       defense: 39,
@@ -1467,7 +1363,7 @@ constants.MONSTERS = [
       mana: 19,
       name: 'Anaconda',
       strength: 30,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SNAKE.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SNAKE.KEY
     }, {
       agility: 49,
       defense: 65,
@@ -1476,7 +1372,7 @@ constants.MONSTERS = [
       mana: 35,
       name: 'Hydra',
       strength: 51,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SNAKE.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SNAKE.KEY
     }, {
       agility: 69,
       defense: 88,
@@ -1485,7 +1381,7 @@ constants.MONSTERS = [
       mana: 52,
       name: 'Ko-run',
       strength: 71,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SNAKE.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SNAKE.KEY
     }, {
       agility: 80,
       defense: 99,
@@ -1494,7 +1390,7 @@ constants.MONSTERS = [
       mana: 62,
       name: 'Jorgandr',
       strength: 82,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.SNAKE.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.SNAKE.KEY
     }, {
       agility: 10,
       defense: 8,
@@ -1503,7 +1399,7 @@ constants.MONSTERS = [
       mana: 5,
       name: 'Wolf',
       strength: 12,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.WOLF.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.WOLF.KEY
     }, {
       agility: 16,
       defense: 12,
@@ -1512,7 +1408,7 @@ constants.MONSTERS = [
       mana: 7,
       name: 'Jaguar',
       strength: 18,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.WOLF.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.WOLF.KEY
     }, {
       agility: 33,
       defense: 25,
@@ -1521,7 +1417,7 @@ constants.MONSTERS = [
       mana: 16,
       name: 'Sabercat',
       strength: 35,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.WOLF.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.WOLF.KEY
     }, {
       agility: 59,
       defense: 46,
@@ -1530,7 +1426,7 @@ constants.MONSTERS = [
       mana: 32,
       name: 'Snowcat',
       strength: 61,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.WOLF.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.WOLF.KEY
     }, {
       agility: 87,
       defense: 70,
@@ -1539,7 +1435,7 @@ constants.MONSTERS = [
       mana: 52,
       name: 'Blackcat',
       strength: 89,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.WOLF.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.WOLF.KEY
     }, {
       agility: 99,
       defense: 81,
@@ -1548,7 +1444,7 @@ constants.MONSTERS = [
       mana: 62,
       name: 'Fenswolf',
       strength: 99,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.WOLF.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.WOLF.KEY
     }, {
       agility: 4,
       defense: 5,
@@ -1557,7 +1453,7 @@ constants.MONSTERS = [
       mana: 8,
       name: 'Worm',
       strength: 9,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.WORM.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.WORM.KEY
     }, {
       agility: 15,
       defense: 16,
@@ -1566,7 +1462,7 @@ constants.MONSTERS = [
       mana: 25,
       name: 'P-worm',
       strength: 26,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.WORM.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.WORM.KEY
     }, {
       agility: 24,
       defense: 25,
@@ -1575,7 +1471,7 @@ constants.MONSTERS = [
       mana: 37,
       name: 'Crawler',
       strength: 38,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.WORM.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.WORM.KEY
     }, {
       agility: 34,
       defense: 35,
@@ -1584,7 +1480,7 @@ constants.MONSTERS = [
       mana: 50,
       name: 'Lavaworm',
       strength: 51,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.WORM.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.WORM.KEY
     }, {
       agility: 51,
       defense: 52,
@@ -1593,7 +1489,7 @@ constants.MONSTERS = [
       mana: 70,
       name: 'Sandworm',
       strength: 71,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.WORM.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.WORM.KEY
     }, {
       agility: 61,
       defense: 62,
@@ -1602,7 +1498,7 @@ constants.MONSTERS = [
       mana: 61,
       name: 'Gigaworm',
       strength: 82,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.WORM.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.WORM.KEY
     }, {
       agility: 3,
       defense: 4,
@@ -1611,7 +1507,7 @@ constants.MONSTERS = [
       mana: 6,
       name: 'Zombie',
       strength: 9,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.ZOMBIE.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.ZOMBIE.KEY
     }, {
       agility: 5,
       defense: 6,
@@ -1620,7 +1516,7 @@ constants.MONSTERS = [
       mana: 6,
       name: 'Ghoul',
       strength: 15,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.ZOMBIE.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.ZOMBIE.KEY
     }, {
       agility: 24,
       defense: 25,
@@ -1629,7 +1525,7 @@ constants.MONSTERS = [
       mana: 37,
       name: 'Mou-jya',
       strength: 50,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.ZOMBIE.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.ZOMBIE.KEY
     }, {
       agility: 46,
       defense: 47,
@@ -1638,7 +1534,7 @@ constants.MONSTERS = [
       mana: 65,
       name: 'Wight',
       strength: 84,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.ZOMBIE.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.ZOMBIE.KEY
     }, {
       agility: 55,
       defense: 56,
@@ -1647,7 +1543,7 @@ constants.MONSTERS = [
       mana: 75,
       name: 'Ghast',
       strength: 95,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.ZOMBIE.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.ZOMBIE.KEY
     }, {
       agility: 61,
       defense: 62,
@@ -1656,6 +1552,6 @@ constants.MONSTERS = [
       mana: 82,
       name: 'Revnant',
       strength: 99,
-      sprite: { height: 160, width: 180, x: 0, y: 0}, type: constants.MONSTER.TYPE.ZOMBIE.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 40, width: 40, x: 0, y: 0 }, type: constants.MONSTER.TYPE.ZOMBIE.KEY
     }
 ];
