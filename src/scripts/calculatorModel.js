@@ -47,13 +47,13 @@ var calculatorModel = new Backbone.Model({
 
 calculatorModel.updateStartingMonsters = function () {
     calculatorModel.set('startingMonsters', _.where(calculatorModel.get('monsters'), { 
-        type: calculatorModel.get('startingMonsterType')
+        type: calculatorModel.get('startingMonsterType').id
     }));
 };
 
 calculatorModel.updateMeatOfMonsters = function () {
     calculatorModel.set('meatOfMonsters', _.where(calculatorModel.get('monsters'), { 
-        type: calculatorModel.get('meatOfMonsterType')
+        type: calculatorModel.get('meatOfMonsterType').id
     }));
 };
 

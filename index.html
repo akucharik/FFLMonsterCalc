@@ -174,9 +174,9 @@
     <h1>Final Fantasy Legend<br/>Monster Tranformation Calculator</h1>
     <div style="width: 220px;">
         <h2>Starting Monster</h2>
-        <label class="ffl-dropdown-label">Monster Type</label>
+        <label class="ffl-dropdown-label" for="ddlStartingMonsterType">Monster Type</label>
         <select id="ddlStartingMonsterType" class="ffl-dropdown-list"></select>
-        <label class="ffl-dropdown-label">Monster</label>
+        <label class="ffl-dropdown-label" for="ddlStartingMonster">Monster</label>
         <select id="ddlStartingMonster" class="ffl-dropdown-list"></select>
         
         <div id="startingMonsterImage"></div>
@@ -231,9 +231,9 @@
     
     <div style="width: 220px;">
         <h2>Eats Meat Of</h2>
-        <label class="ffl-dropdown-label">Monster Type</label>
+        <label class="ffl-dropdown-label" for="ddlMeatOfMonsterType">Monster Type</label>
         <select id="ddlMeatOfMonsterType" class="ffl-dropdown-list"></select>
-        <label class="ffl-dropdown-label">Monster</label>
+        <label class="ffl-dropdown-label" for="ddlMeatOfMonster">Monster</label>
         <select id="ddlMeatOfMonster" class="ffl-dropdown-list"></select>
     </div>
 
@@ -243,23 +243,21 @@
         </div>
     </script>
     
-    <script id="monsterDropDownListTemplate" type="text/template">
-        <% _.each(this.model.get(this.collectionKey), function(item) { %>
-            <option value="<%= item[this.itemValueKey] %>"><%= item[this.itemTextKey] %></option>
-        <% }, this); %>
-    </script>
-    
     <script type="text/javascript" src="src/scripts/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="src/scripts/underscore-min.js"></script>
     <script type="text/javascript" src="src/scripts/backbone-min.js"></script>
     <script type="text/javascript" src="src/scripts/constants.js"></script>
     <script type="text/javascript" src="src/scripts/calculatorModel.js"></script>
     <script>
-        var bbDropDownList = function (options) {
+        
+        // Dropdown List
+        var bbDropdownList = function (options) {
             var instance = new Backbone.View(options);
             _.extend(instance, options);
             
             instance.initialize = function () {
+                instance.options = [];
+                
                 instance.delegateEvents();
                 instance.listenTo(instance.model, ('change:' + instance.selectedValueKey), instance.selectItem);
                 instance.listenTo(instance.model, ('change:' + instance.collectionKey), instance.render);
@@ -270,27 +268,65 @@
                 'change': 'onChange'
             };
             
+            instance.onChange = function () {
+                instance.model.set(instance.selectedValueKey, instance.$options.filter(':selected').data());
+            };
+            
             instance.render = function () {
-                instance.$el.html(instance.template(instance.model.toJSON()));
+                var placeholder = document.createDocumentFragment();
+                
+                instance.options = [];
+                
+                _.each(instance.model.get(instance.collectionKey), function (item) {
+                    var option = document.createElement('option');
+                    
+                    if (instance.itemValueKey) {
+                        option.value = item[instance.itemValueKey];
+                    }
+                    option.text = item[instance.itemTextKey];
+                    
+                    if (instance.itemValueKey) {
+                        $(option).data('value', item[instance.itemValueKey]);
+                    }
+                    else {
+                        $(option).data(item);
+                    }
+                    
+                    placeholder.appendChild(option);
+                    instance.options.push(option);
+                });
+                
+                instance.$el.html(placeholder);
+                
+                instance.$options = instance.$('option');
+                
                 if (instance.model.get(instance.collectionKey).length > 0) {
                     instance.selectInitialItem();
                 }
             };
             
-            instance.onChange = function () {
-                instance.model.set(instance.selectedValueKey, instance.$el.val());
-            };
-            
             instance.selectItem = function () {
-                instance.$el.val(instance.model.get(instance.selectedValueKey));
+                if (instance.itemValueKey) {
+                    instance.$el.val(instance.model.get(instance.selectedValueKey)[instance.itemValue]);
+                }
+                else {
+                    var selectedOption = _.find(instance.options, function (item) {
+                        return _.isEqual(instance.$(item).data(), instance.model.get(instance.selectedValueKey));
+                    });
+                    
+                    selectedOption.selected = true;
+                }
             };
             
             instance.selectInitialItem = function () {
                 if (instance.initialSelectedValue) {
                     instance.model.set(instance.selectedValueKey, instance.initialSelectedValue);
                 }
-                else {
+                else if (instance.itemValueKey) {
                     instance.model.set(instance.selectedValueKey, instance.model.get(instance.collectionKey)[0][instance.itemValueKey]);
+                }
+                else {
+                    instance.model.set(instance.selectedValueKey, instance.model.get(instance.collectionKey)[0]);
                 }
             };
             
@@ -299,18 +335,19 @@
             return instance;
         };
         
+        // Monster image
         var monsterImage = function (options) {
             var instance = new Backbone.View(options);
             _.extend(instance, options);
             
             instance.initialize = function () {
+                instance.template = _.template(document.getElementById(instance.templateId).innerHTML, { variable: 'item' })
                 instance.listenTo(instance.model, ('change:' + instance.itemKey), instance.render);
                 instance.render();
             };
             
             instance.render = function () {
-                var item = _.findWhere(instance.model.get(instance.itemsKey), { id: instance.model.get(instance.itemKey) });
-                instance.$el.html(instance.template(item));
+                instance.$el.html(instance.template(instance.model.get(instance.itemKey)));
             };
             
             instance.initialize();
@@ -318,52 +355,48 @@
             return instance;
         };
         
-        var ddlStartingMonsterType = bbDropDownList({
+        // Views
+        var ddlStartingMonsterType = bbDropdownList({
             el: document.getElementById('ddlStartingMonsterType'),
             model: calculatorModel,
             collectionKey: 'monsterTypes',
-            itemValueKey: 'id',
+            //itemValueKey: 'id',
             itemTextKey: 'name',
-            selectedValueKey: 'startingMonsterType',
-            template: _.template(document.getElementById('monsterDropDownListTemplate').innerHTML)
+            selectedValueKey: 'startingMonsterType'
         });
         
-        var ddlStartingMonster = bbDropDownList({
+        var ddlStartingMonster = bbDropdownList({
             el: document.getElementById('ddlStartingMonster'),
             model: calculatorModel,
             collectionKey: 'startingMonsters',
-            itemValueKey: 'id',
+            //itemValueKey: 'id',
             itemTextKey: 'name',
-            selectedValueKey: 'startingMonster',
-            template: _.template(document.getElementById('monsterDropDownListTemplate').innerHTML)
+            selectedValueKey: 'startingMonster'
         });
         
-        var ddlMeatOfMonsterType = bbDropDownList({
+        var ddlMeatOfMonsterType = bbDropdownList({
             el: document.getElementById('ddlMeatOfMonsterType'),
             model: calculatorModel,
             collectionKey: 'monsterTypes',
-            itemValueKey: 'id',
+            //itemValueKey: 'id',
             itemTextKey: 'name',
-            selectedValueKey: 'meatOfMonsterType',
-            template: _.template(document.getElementById('monsterDropDownListTemplate').innerHTML)
+            selectedValueKey: 'meatOfMonsterType'
         });
         
-        var ddlMeatOfMonster = bbDropDownList({
+        var ddlMeatOfMonster = bbDropdownList({
             el: document.getElementById('ddlMeatOfMonster'),
             model: calculatorModel,
             collectionKey: 'meatOfMonsters',
-            itemValueKey: 'id',
+            //itemValueKey: 'id',
             itemTextKey: 'name',
-            selectedValueKey: 'meatOfMonster',
-            template: _.template(document.getElementById('monsterDropDownListTemplate').innerHTML)
+            selectedValueKey: 'meatOfMonster'
         });
         
         var startingMonsterImage = monsterImage({
             el: document.getElementById('startingMonsterImage'),
             model: calculatorModel,
-            itemsKey: 'monsters',
             itemKey: 'startingMonster',
-            template: _.template(document.getElementById('monsterImageTemplate').innerHTML, { variable: 'item' })
+            templateId: 'monsterImageTemplate'
         });
     </script>
     
