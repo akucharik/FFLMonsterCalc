@@ -257,10 +257,11 @@
             
             instance.initialize = function () {
                 instance.options = [];
+                instance.itemValueIsKeyed = instance.itemValueKey ? true : false;
                 
                 instance.delegateEvents();
                 instance.listenTo(instance.model, ('change:' + instance.selectedValueKey), instance.selectItem);
-                instance.listenTo(instance.model, ('change:' + instance.collectionKey), instance.render);
+                instance.listenTo(instance.model, ('change:' + instance.itemsKey), instance.render);
                 instance.render();
             };
             
@@ -269,7 +270,7 @@
             };
             
             instance.onChange = function () {
-                instance.model.set(instance.selectedValueKey, instance.$options.filter(':selected').data());
+                instance.model.set(instance.selectedValueKey, instance.$(instance.options).filter(':selected').data('value'));
             };
             
             instance.render = function () {
@@ -277,57 +278,42 @@
                 
                 instance.options = [];
                 
-                _.each(instance.model.get(instance.collectionKey), function (item) {
+                _.each(instance.model.get(instance.itemsKey), function (item) {
                     var option = document.createElement('option');
                     
-                    if (instance.itemValueKey) {
-                        option.value = item[instance.itemValueKey];
-                    }
                     option.text = item[instance.itemTextKey];
+                    $(option).data('value', (instance.itemValueIsKeyed ? item[instance.itemValueKey] : item));
                     
-                    if (instance.itemValueKey) {
-                        $(option).data('value', item[instance.itemValueKey]);
-                    }
-                    else {
-                        $(option).data(item);
-                    }
-                    
-                    placeholder.appendChild(option);
                     instance.options.push(option);
+                    placeholder.appendChild(option);
                 });
                 
                 instance.$el.html(placeholder);
                 
-                instance.$options = instance.$('option');
-                
-                if (instance.model.get(instance.collectionKey).length > 0) {
+                if (instance.model.get(instance.itemsKey).length > 0) {
                     instance.selectInitialItem();
                 }
             };
             
             instance.selectItem = function () {
-                if (instance.itemValueKey) {
-                    instance.$el.val(instance.model.get(instance.selectedValueKey)[instance.itemValue]);
+                var selectedOption = null;
+                
+                if (_.isObject(instance.model.get(instance.selectedValueKey))) {
+                    selectedOption = _.find(instance.options, function (item) {
+                        return _.isEqual($(item).data('value'), instance.model.get(instance.selectedValueKey));
+                    });
                 }
                 else {
-                    var selectedOption = _.find(instance.options, function (item) {
-                        return _.isEqual(instance.$(item).data(), instance.model.get(instance.selectedValueKey));
+                    selectedOption = _.find(instance.options, function (item) {
+                        return $(item).data('value') === instance.model.get(instance.selectedValueKey);
                     });
-                    
-                    selectedOption.selected = true;
                 }
+
+                selectedOption.selected = true;
             };
             
             instance.selectInitialItem = function () {
-                if (instance.initialSelectedValue) {
-                    instance.model.set(instance.selectedValueKey, instance.initialSelectedValue);
-                }
-                else if (instance.itemValueKey) {
-                    instance.model.set(instance.selectedValueKey, instance.model.get(instance.collectionKey)[0][instance.itemValueKey]);
-                }
-                else {
-                    instance.model.set(instance.selectedValueKey, instance.model.get(instance.collectionKey)[0]);
-                }
+                instance.model.set(instance.selectedValueKey, instance.itemValueIsKeyed ? instance.model.get(instance.itemsKey)[0][instance.itemValueKey] : instance.model.get(instance.itemsKey)[0]);
             };
             
             instance.initialize();
@@ -359,8 +345,7 @@
         var ddlStartingMonsterType = bbDropdownList({
             el: document.getElementById('ddlStartingMonsterType'),
             model: calculatorModel,
-            collectionKey: 'monsterTypes',
-            //itemValueKey: 'id',
+            itemsKey: 'monsterTypes',
             itemTextKey: 'name',
             selectedValueKey: 'startingMonsterType'
         });
@@ -368,8 +353,7 @@
         var ddlStartingMonster = bbDropdownList({
             el: document.getElementById('ddlStartingMonster'),
             model: calculatorModel,
-            collectionKey: 'startingMonsters',
-            //itemValueKey: 'id',
+            itemsKey: 'startingMonsters',
             itemTextKey: 'name',
             selectedValueKey: 'startingMonster'
         });
@@ -377,8 +361,7 @@
         var ddlMeatOfMonsterType = bbDropdownList({
             el: document.getElementById('ddlMeatOfMonsterType'),
             model: calculatorModel,
-            collectionKey: 'monsterTypes',
-            //itemValueKey: 'id',
+            itemsKey: 'monsterTypes',
             itemTextKey: 'name',
             selectedValueKey: 'meatOfMonsterType'
         });
@@ -386,8 +369,7 @@
         var ddlMeatOfMonster = bbDropdownList({
             el: document.getElementById('ddlMeatOfMonster'),
             model: calculatorModel,
-            collectionKey: 'meatOfMonsters',
-            //itemValueKey: 'id',
+            itemsKey: 'meatOfMonsters',
             itemTextKey: 'name',
             selectedValueKey: 'meatOfMonster'
         });
@@ -398,6 +380,7 @@
             itemKey: 'startingMonster',
             templateId: 'monsterImageTemplate'
         });
+        
     </script>
     
 </body>

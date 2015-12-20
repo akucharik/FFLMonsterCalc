@@ -46,15 +46,19 @@ var calculatorModel = new Backbone.Model({
 });
 
 calculatorModel.updateStartingMonsters = function () {
-    calculatorModel.set('startingMonsters', _.where(calculatorModel.get('monsters'), { 
-        type: calculatorModel.get('startingMonsterType').id
-    }));
+    if (calculatorModel.get('startingMonsterType')) {
+        calculatorModel.set('startingMonsters', _.where(calculatorModel.get('monsters'), { 
+            type: calculatorModel.get('startingMonsterType').id
+        }));
+    }
 };
 
 calculatorModel.updateMeatOfMonsters = function () {
-    calculatorModel.set('meatOfMonsters', _.where(calculatorModel.get('monsters'), { 
-        type: calculatorModel.get('meatOfMonsterType').id
-    }));
+    if (calculatorModel.get('meatOfMonsterType')) {
+        calculatorModel.set('meatOfMonsters', _.where(calculatorModel.get('monsters'), { 
+            type: calculatorModel.get('meatOfMonsterType').id
+        }));
+    }
 };
 
 calculatorModel.listenTo(calculatorModel, 'change:startingMonsterType', calculatorModel.updateStartingMonsters);
