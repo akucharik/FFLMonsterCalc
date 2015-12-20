@@ -21,6 +21,25 @@
             font-size: 20px;
         }
         
+        h2 {
+            font-size: 110%;
+        }
+        
+        /* Forms */
+        .ffl-dropdown-label {
+            font-size: 80%;
+        }
+        
+        .ffl-dropdown-list {
+            box-sizing: border-box;
+            font-size: 200%;
+            position: relative;
+            text-transform: uppercase;
+            top: -0.1em;
+            width: 100%;
+        }
+        
+        /* Box */
         .ffl-box {
             display: flex;
             margin: 2px;
@@ -92,70 +111,9 @@
             left: 4px;
         }
         
-        .ffl-box-col-1 {
-            width: 3.2rem;
-        }
-        
-        .ffl-box-col-2 {
-            flex: 1;
-            margin-left: 1.0em !important;
-        }
-        
-        .ffl-stats {
-            letter-spacing: 1px;
-        }
-        
-        .ffl-stats > li {
-            margin-top: 0.5rem;
-        }
-        
-        .ffl-stats > li > label,
-        .ffl-stats > li > span {
-            line-height: 1;
-        }
-        
-        .ffl-stats > li > span {
-            display: block;
-            margin-top: -0.2rem;
-            text-align: right;
-        }
-        
-        .ffl-abilities {
-            text-transform: uppercase;
-        }
-        
-        .ffl-abilities > li {
-            display: flex;
-            margin-top: 0.5rem;
-        }
-        
-        .ffl-abilities > li > label {
-            flex: 1;
-        }
-        
-        .ffl-abilities > li > label,
-        .ffl-abilities > li > span {
-            line-height: 1;
-        }
-        
-        .ffl-abilities > li > span {
-            
-        }
-        
-        h2 {
-            font-size: 110%;
-        }
-        .ffl-dropdown-label {
-            font-size: 80%;
-        }
-        
-        .ffl-dropdown-list {
-            box-sizing: border-box;
-            font-size: 200%;
-            position: relative;
-            text-transform: uppercase;
-            top: -0.1em;
-            width: 100%;
+        /* Monster */
+        .ffl-monster {
+           width: 220px;
         }
         
         .ffl-monster-image-mask {
@@ -168,11 +126,75 @@
             position: absolute;
         }
         
+        .ffl-monster-avatar-mask {
+            height: 40px;
+            margin: 0 auto 0.8rem auto;
+            overflow: hidden;
+            position: relative;
+            width: 40px;
+        }
+        
+        .ffl-monster-avatar-mask > img {
+            left: -200px;
+            position: absolute;
+            top: -632px;
+        }
+        
+        .ffl-monster-abilities-col {
+            width: 3.2rem;
+        }
+        
+        .ffl-abilities {
+            letter-spacing: 1px;
+        }
+        
+        .ffl-abilities > li {
+            margin-top: 0.5rem;
+        }
+        
+        .ffl-abilities > li > label,
+        .ffl-abilities > li > span {
+            line-height: 1;
+        }
+        
+        .ffl-abilities > li > span {
+            display: block;
+            margin-top: -0.2rem;
+            text-align: right;
+        }
+        
+        .ffl-monster-skills-col {
+            flex: 1;
+            margin-left: 1.0em !important;
+        }
+        
+        .ffl-skills {
+            text-transform: uppercase;
+        }
+        
+        .ffl-skills > li {
+            display: flex;
+            margin-top: 0.5rem;
+        }
+        
+        .ffl-skills > li > label {
+            flex: 1;
+        }
+        
+        .ffl-skills > li > label,
+        .ffl-skills > li > span {
+            line-height: 1;
+        }
+        
+        .ffl-skills > li > span {
+            
+        }
+        
     </style>
 </head>
 <body>
     <h1>Final Fantasy Legend<br/>Monster Tranformation Calculator</h1>
-    <div style="width: 220px;">
+    <div class="ffl-monster">
         <h2>Starting Monster</h2>
         <label class="ffl-dropdown-label" for="ddlStartingMonsterType">Monster Type</label>
         <select id="ddlStartingMonsterType" class="ffl-dropdown-list"></select>
@@ -183,40 +205,16 @@
         
         <div class="ffl-box">
             <div class="ffl-box-edge"></div>
-            <div class="ffl-box-col-1">
-                <div class="ffl-avatar">
-                    <div style="height: 40px; margin: 0 auto 0.8rem auto; overflow: hidden; position: relative; width: 40px;">
-                        <img src="images/FFL-Spritesheet-White-1218x810.png" alt="Starting monster avatar portrait" width="1218" height="810" style="left: -200px; position: absolute; top: -632px;" />
-                    </div>
+            <div class="ffl-monster-abilities-col">
+                <div class="ffl-monster-avatar-mask">
+                    <img src="images/FFL-Spritesheet-White-1218x810.png" alt="Starting monster avatar portrait" width="1218" height="810" />
                 </div>
-                <ul class="ffl-stats" style="list-style-type: none; margin: 0; padding: 0;">
-                    <li>
-                        <label>Str.</label>
-                        <span>6</span>
-                    </li>
-                    <li>
-                        <label>Def.</label>
-                        <span>3</span>
-                    </li>
-                    <li>
-                        <label>Agl.</label>
-                        <span>9</span>
-                    </li>
-                    <li>
-                        <label>Mana</label>
-                        <span>4</span>
-                    </li>
-                </ul>
+                <ul id="startingMonsterAbilities" class="ffl-abilities" style="list-style-type: none; margin: 0; padding: 0;"></ul>
             </div>
 
-            <div class="ffl-box-col-2">
-                <ul class="ffl-abilities" style="list-style-type: none; margin: 0; margin-bottom: 1.4em; padding: 0;">
-                    <li>
-                        <label>HP</label>
-                        <span>20</span>
-                    </li>
-                </ul>
-                <ul class="ffl-abilities" style="list-style-type: none; margin: 0; padding: 0;">
+            <div class="ffl-monster-skills-col">
+                <ul id="startingMonsterHp" class="ffl-skills" style="list-style-type: none; margin: 0; margin-bottom: 1.4em; padding: 0;"></ul>
+                <ul class="ffl-skills" style="list-style-type: none; margin: 0; padding: 0;">
                     <li>
                         <label>Beak</label>
                         <span>25</span>
@@ -241,6 +239,32 @@
         <div class="ffl-monster-image-mask" style="height: <%= item.image.height %>px; width: <%= item.image.width %>px;">
             <img src="images/FFL-Spritesheet-White-1827x1215.png" alt="Starting monster image" width="1827" height="1215" style="left: <%= item.image.x %>px; top: <%= item.image.y %>px;" />
         </div>
+    </script>
+    
+    <script id="monsterAbilitiesTemplate" type="text/template">
+        <li>
+            <label>Str.</label>
+            <span><%= item.strength %></span>
+        </li>
+        <li>
+            <label>Def.</label>
+            <span><%= item.defense %></span>
+        </li>
+        <li>
+            <label>Agl.</label>
+            <span><%= item.agility %></span>
+        </li>
+        <li>
+            <label>Mana</label>
+            <span><%= item.mana %></span>
+        </li>
+    </script>
+    
+    <script id="monsterHpTemplate" type="text/template">
+        <li>
+            <label>HP</label>
+            <span><%= item.hp %></span>
+        </li>
     </script>
     
     <script type="text/javascript" src="src/scripts/jquery-2.1.4.min.js"></script>
@@ -321,8 +345,8 @@
             return instance;
         };
         
-        // Monster image
-        var monsterImage = function (options) {
+        // Template View
+        var bbTemplateView = function (options) {
             var instance = new Backbone.View(options);
             _.extend(instance, options);
             
@@ -374,11 +398,25 @@
             selectedValueKey: 'meatOfMonster'
         });
         
-        var startingMonsterImage = monsterImage({
+        var startingMonsterImage = bbTemplateView({
             el: document.getElementById('startingMonsterImage'),
             model: calculatorModel,
             itemKey: 'startingMonster',
             templateId: 'monsterImageTemplate'
+        });
+        
+        var startingMonsterAbilities = bbTemplateView({
+            el: document.getElementById('startingMonsterAbilities'),
+            model: calculatorModel,
+            itemKey: 'startingMonster',
+            templateId: 'monsterAbilitiesTemplate'
+        });
+        
+        var startingMonsterHp = bbTemplateView({
+            el: document.getElementById('startingMonsterHp'),
+            model: calculatorModel,
+            itemKey: 'startingMonster',
+            templateId: 'monsterHpTemplate'
         });
         
     </script>
