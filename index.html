@@ -140,20 +140,30 @@
             top: -632px;
         }
         
+        /* Abilities & Skills */
         .ffl-monster-abilities-col {
             width: 3.2rem;
+        }
+                
+        .ffl-monster-skills-col {
+            flex: 1;
+            margin-left: 1.0em !important;
         }
         
         .ffl-abilities {
             letter-spacing: 1px;
         }
         
-        .ffl-abilities > li {
+        .ffl-abilities > li,
+        .ffl-skills > li
+        {
             margin-top: 0.5rem;
         }
         
         .ffl-abilities > li > label,
-        .ffl-abilities > li > span {
+        .ffl-abilities > li > span,
+        .ffl-skills > li > label,
+        .ffl-skills > li > span {
             line-height: 1;
         }
         
@@ -163,31 +173,16 @@
             text-align: right;
         }
         
-        .ffl-monster-skills-col {
-            flex: 1;
-            margin-left: 1.0em !important;
-        }
-        
         .ffl-skills {
             text-transform: uppercase;
         }
         
         .ffl-skills > li {
             display: flex;
-            margin-top: 0.5rem;
         }
         
         .ffl-skills > li > label {
             flex: 1;
-        }
-        
-        .ffl-skills > li > label,
-        .ffl-skills > li > span {
-            line-height: 1;
-        }
-        
-        .ffl-skills > li > span {
-            
         }
         
     </style>
@@ -196,6 +191,7 @@
     <h1>Final Fantasy Legend<br/>Monster Tranformation Calculator</h1>
     <div class="ffl-monster">
         <h2>Starting Monster</h2>
+        
         <label class="ffl-dropdown-label" for="ddlStartingMonsterType">Monster Type</label>
         <select id="ddlStartingMonsterType" class="ffl-dropdown-list"></select>
         <label class="ffl-dropdown-label" for="ddlStartingMonster">Monster</label>
@@ -221,14 +217,12 @@
                     </li>
                 </ul>
             </div>
-            
-            
-            
         </div>
     </div>
     
-    <div style="width: 220px;">
+    <div class="ffl-monster">
         <h2>Eats Meat Of</h2>
+        
         <label class="ffl-dropdown-label" for="ddlMeatOfMonsterType">Monster Type</label>
         <select id="ddlMeatOfMonsterType" class="ffl-dropdown-list"></select>
         <label class="ffl-dropdown-label" for="ddlMeatOfMonster">Monster</label>
