@@ -278,8 +278,8 @@
                 instance.itemValueIsKeyed = instance.itemValueKey ? true : false;
                 
                 instance.delegateEvents();
-                instance.listenTo(instance.model, ('change:' + instance.selectedValueKey), instance.selectItem);
                 instance.listenTo(instance.model, ('change:' + instance.itemsKey), instance.render);
+                instance.listenTo(instance.model, ('change:' + instance.selectedValueKey), instance.selectItem);
                 instance.render();
             };
             
@@ -309,29 +309,42 @@
                 instance.$el.html(placeholder);
                 
                 if (instance.model.get(instance.itemsKey).length > 0) {
-                    instance.selectInitialItem();
+                    instance.setInitialValue();
                 }
             };
             
-            instance.selectItem = function () {
-                var selectedOption = null;
+            instance.getSelectedItem = function () {
+                var selectedItem = null;
                 
                 if (_.isObject(instance.model.get(instance.selectedValueKey))) {
-                    selectedOption = _.find(instance.options, function (item) {
+                    selectedItem = _.find(instance.options, function (item) {
                         return _.isEqual($(item).data('value'), instance.model.get(instance.selectedValueKey));
                     });
                 }
                 else {
-                    selectedOption = _.find(instance.options, function (item) {
+                    selectedItem = _.find(instance.options, function (item) {
                         return $(item).data('value') === instance.model.get(instance.selectedValueKey);
                     });
                 }
 
-                selectedOption.selected = true;
+                return _.isUndefined(selectedItem) ? null : selectedItem;
             };
             
-            instance.selectInitialItem = function () {
-                instance.model.set(instance.selectedValueKey, instance.itemValueIsKeyed ? instance.model.get(instance.itemsKey)[0][instance.itemValueKey] : instance.model.get(instance.itemsKey)[0]);
+            instance.selectItem = function () {
+                var selectedItem = instance.getSelectedItem();
+                
+                if (selectedItem) {
+                    selectedItem.selected = true;
+                }
+            };
+            
+            instance.setInitialValue = function () {
+                if (instance.getSelectedItem()) {
+                    instance.selectItem();
+                }
+                else {
+                    instance.model.set(instance.selectedValueKey, instance.itemValueIsKeyed ? instance.model.get(instance.itemsKey)[0][instance.itemValueKey] : instance.model.get(instance.itemsKey)[0]);
+                }
             };
             
             instance.initialize();
