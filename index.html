@@ -274,7 +274,7 @@
             _.extend(instance, options);
             
             instance.initialize = function () {
-                instance.options = [];
+                instance.items = [];
                 instance.itemValueIsKeyed = instance.itemValueKey ? true : false;
                 
                 instance.delegateEvents();
@@ -288,13 +288,13 @@
             };
             
             instance.onChange = function () {
-                instance.model.set(instance.selectedValueKey, instance.$(instance.options).filter(':selected').data('value'));
+                instance.model.set(instance.selectedValueKey, instance.$(instance.items).filter(':selected').data('value'));
             };
             
             instance.render = function () {
                 var placeholder = document.createDocumentFragment();
                 
-                instance.options = [];
+                instance.items = [];
                 
                 _.each(instance.model.get(instance.itemsKey), function (item) {
                     var option = document.createElement('option');
@@ -302,14 +302,14 @@
                     option.text = item[instance.itemTextKey];
                     $(option).data('value', (instance.itemValueIsKeyed ? item[instance.itemValueKey] : item));
                     
-                    instance.options.push(option);
+                    instance.items.push(option);
                     placeholder.appendChild(option);
                 });
                 
                 instance.$el.html(placeholder);
                 
                 if (instance.model.get(instance.itemsKey).length > 0) {
-                    instance.setInitialValue();
+                    instance.selectItem();
                 }
             };
             
@@ -317,12 +317,12 @@
                 var selectedItem = null;
                 
                 if (_.isObject(instance.model.get(instance.selectedValueKey))) {
-                    selectedItem = _.find(instance.options, function (item) {
+                    selectedItem = _.find(instance.items, function (item) {
                         return _.isEqual($(item).data('value'), instance.model.get(instance.selectedValueKey));
                     });
                 }
                 else {
-                    selectedItem = _.find(instance.options, function (item) {
+                    selectedItem = _.find(instance.items, function (item) {
                         return $(item).data('value') === instance.model.get(instance.selectedValueKey);
                     });
                 }
@@ -335,12 +335,6 @@
                 
                 if (selectedItem) {
                     selectedItem.selected = true;
-                }
-            };
-            
-            instance.setInitialValue = function () {
-                if (instance.getSelectedItem()) {
-                    instance.selectItem();
                 }
                 else {
                     instance.model.set(instance.selectedValueKey, instance.itemValueIsKeyed ? instance.model.get(instance.itemsKey)[0][instance.itemValueKey] : instance.model.get(instance.itemsKey)[0]);
