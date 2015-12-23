@@ -19,10 +19,13 @@
         body, button, input, select {
             font-family: 'GraphicPixel', sans-serif;
             font-size: 20px;
+            /*font-smooth: never;
+            -webkit-font-smoothing: none;*/
         }
         
         h2 {
-            font-size: 110%;
+            font-size: 120%;
+            margin-bottom: 0;
         }
         
         /* Forms */
@@ -111,9 +114,21 @@
             left: 4px;
         }
         
+        /* Monster Calculator Layout */
+        .ffl-monster-calc-layout {
+            align-items: flex-start;
+            display: flex;
+        }
+        
+        .ffl-monster-separator {
+            font-size: 300%;
+            margin-top: 13rem;
+        }
+        
         /* Monster */
         .ffl-monster {
-           width: 220px;
+            margin: 0 1.0em;
+            width: 220px;
         }
         
         .ffl-monster-image-mask {
@@ -189,15 +204,38 @@
 </head>
 <body>
     <h1>Final Fantasy Legend<br/>Monster Tranformation Calculator</h1>
-    <div class="ffl-monster">
-        <h2>Starting Monster</h2>
-        
-        <label class="ffl-dropdown-label" for="ddlStartingMonsterType">Monster Type</label>
-        <select id="ddlStartingMonsterType" class="ffl-dropdown-list"></select>
-        <label class="ffl-dropdown-label" for="ddlStartingMonster">Monster</label>
-        <select id="ddlStartingMonster" class="ffl-dropdown-list"></select>
-        
-        <div id="startingMonsterImage"></div>
+    <div class="ffl-monster-calc-layout">
+        <div class="ffl-monster">
+            <h2>Start</h2>
+
+            <label class="ffl-dropdown-label" for="ddlStartingMonsterType">Monster Type</label>
+            <select id="ddlStartingMonsterType" class="ffl-dropdown-list"></select>
+            <label class="ffl-dropdown-label" for="ddlStartingMonster">Monster</label>
+            <select id="ddlStartingMonster" class="ffl-dropdown-list"></select>
+
+            <div id="startingMonster"></div>
+        </div>
+        <div class="ffl-monster-separator">+</div>
+        <div class="ffl-monster">
+            <h2>Meat</h2>
+
+            <label class="ffl-dropdown-label" for="ddlMeatOfMonsterType">Monster Type</label>
+            <select id="ddlMeatOfMonsterType" class="ffl-dropdown-list"></select>
+            <label class="ffl-dropdown-label" for="ddlMeatOfMonster">Monster</label>
+            <select id="ddlMeatOfMonster" class="ffl-dropdown-list"></select>
+
+            <div id="meatOfMonster"></div>
+        </div>
+        <div class="ffl-monster-separator">=</div>
+        <div class="ffl-monster">
+            <div id="newMonster"></div>
+        </div>
+    </div>
+    
+    <script id="monsterTemplate" type="text/template">
+        <div class="ffl-monster-image-mask" style="height: <%= item.image.height %>px; width: <%= item.image.width %>px;">
+            <img src="images/FFL-Spritesheet-White-1827x1215.png" alt="Starting monster image" width="1827" height="1215" style="left: <%= item.image.x %>px; top: <%= item.image.y %>px;" />
+        </div>
         
         <div class="ffl-box">
             <div class="ffl-box-edge"></div>
@@ -205,11 +243,33 @@
                 <div class="ffl-monster-avatar-mask">
                     <img src="images/FFL-Spritesheet-White-1218x810.png" alt="Starting monster avatar portrait" width="1218" height="810" />
                 </div>
-                <ul id="startingMonsterAbilities" class="ffl-abilities" style="list-style-type: none; margin: 0; padding: 0;"></ul>
+                <ul id="startingMonsterAbilities" class="ffl-abilities" style="list-style-type: none; margin: 0; padding: 0;">
+                    <li>
+                        <label>Str.</label>
+                        <span><%= item.strength %></span>
+                    </li>
+                    <li>
+                        <label>Def.</label>
+                        <span><%= item.defense %></span>
+                    </li>
+                    <li>
+                        <label>Agl.</label>
+                        <span><%= item.agility %></span>
+                    </li>
+                    <li>
+                        <label>Mana</label>
+                        <span><%= item.mana %></span>
+                    </li>
+                </ul>
             </div>
 
             <div class="ffl-monster-skills-col">
-                <ul id="startingMonsterHp" class="ffl-skills" style="list-style-type: none; margin: 0; margin-bottom: 1.4em; padding: 0;"></ul>
+                <ul id="startingMonsterHp" class="ffl-skills" style="list-style-type: none; margin: 0; margin-bottom: 1.4em; padding: 0;">
+                    <li>
+                        <label>HP</label>
+                        <span><%= item.hp %></span>
+                    </li>
+                </ul>
                 <ul class="ffl-skills" style="list-style-type: none; margin: 0; padding: 0;">
                     <li>
                         <label>Beak</label>
@@ -218,16 +278,7 @@
                 </ul>
             </div>
         </div>
-    </div>
-    
-    <div class="ffl-monster">
-        <h2>Eats Meat Of</h2>
-        
-        <label class="ffl-dropdown-label" for="ddlMeatOfMonsterType">Monster Type</label>
-        <select id="ddlMeatOfMonsterType" class="ffl-dropdown-list"></select>
-        <label class="ffl-dropdown-label" for="ddlMeatOfMonster">Monster</label>
-        <select id="ddlMeatOfMonster" class="ffl-dropdown-list"></select>
-    </div>
+    </script>
 
     <script id="monsterImageTemplate" type="text/template">
         <div class="ffl-monster-image-mask" style="height: <%= item.image.height %>px; width: <%= item.image.width %>px;">
@@ -366,6 +417,28 @@
             return instance;
         };
         
+        // Monster View
+        var monsterView = function (options) {
+            var instance = new Backbone.View(options);
+            _.extend(instance, options);
+            
+            instance.initialize = function () {
+                instance.template = _.template(document.getElementById(instance.templateId).innerHTML, { variable: 'item' })
+                instance.listenTo(instance.model, ('change:' + instance.itemKey), instance.render);
+                instance.render();
+            };
+            
+            instance.render = function () {
+                if (instance.model.get(instance.itemKey)) {
+                    instance.$el.html(instance.template(instance.model.get(instance.itemKey)));
+                }
+            };
+            
+            instance.initialize();
+            
+            return instance;
+        };
+        
         // Views
         var ddlStartingMonsterType = bbDropdownList({
             el: document.getElementById('ddlStartingMonsterType'),
@@ -398,27 +471,48 @@
             itemTextKey: 'name',
             selectedValueKey: 'meatOfMonster'
         });
-        
-        var startingMonsterImage = bbTemplateView({
-            el: document.getElementById('startingMonsterImage'),
+
+        var startingMonster = monsterView({
+            el: document.getElementById('startingMonster'),
             model: calculatorModel,
             itemKey: 'startingMonster',
-            templateId: 'monsterImageTemplate'
+            templateId: 'monsterTemplate'
         });
         
-        var startingMonsterAbilities = bbTemplateView({
-            el: document.getElementById('startingMonsterAbilities'),
+        var meatOfMonster = monsterView({
+            el: document.getElementById('meatOfMonster'),
             model: calculatorModel,
-            itemKey: 'startingMonster',
-            templateId: 'monsterAbilitiesTemplate'
+            itemKey: 'meatOfMonster',
+            templateId: 'monsterTemplate'
         });
         
-        var startingMonsterHp = bbTemplateView({
-            el: document.getElementById('startingMonsterHp'),
+        var newMonster = monsterView({
+            el: document.getElementById('newMonster'),
             model: calculatorModel,
-            itemKey: 'startingMonster',
-            templateId: 'monsterHpTemplate'
+            itemKey: 'newMonster',
+            templateId: 'monsterTemplate'
         });
+        
+//        var startingMonsterImage = bbTemplateView({
+//            el: document.getElementById('startingMonsterImage'),
+//            model: calculatorModel,
+//            itemKey: 'startingMonster',
+//            templateId: 'monsterImageTemplate'
+//        });
+//        
+//        var startingMonsterAbilities = bbTemplateView({
+//            el: document.getElementById('startingMonsterAbilities'),
+//            model: calculatorModel,
+//            itemKey: 'startingMonster',
+//            templateId: 'monsterAbilitiesTemplate'
+//        });
+//        
+//        var startingMonsterHp = bbTemplateView({
+//            el: document.getElementById('startingMonsterHp'),
+//            model: calculatorModel,
+//            itemKey: 'startingMonster',
+//            templateId: 'monsterHpTemplate'
+//        });
         
     </script>
     

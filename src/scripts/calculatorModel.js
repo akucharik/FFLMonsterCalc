@@ -40,7 +40,7 @@ var calculatorModel = new Backbone.Model({
     meatOfMonsterType: null,
     meatOfMonster: null,
     meatOfMonsters: [],
-    endingMonster: null,
+    newMonster: null,
     monsterTypes: monsterTypes,
     monsters: monsters
 });
@@ -63,4 +63,3 @@ calculatorModel.updateMeatOfMonsters = function () {
 
 calculatorModel.listenTo(calculatorModel, 'change:startingMonsterType', calculatorModel.updateStartingMonsters);
 calculatorModel.listenTo(calculatorModel, 'change:meatOfMonsterType', calculatorModel.updateMeatOfMonsters);
-
