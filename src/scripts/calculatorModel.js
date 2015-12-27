@@ -1,6 +1,17 @@
-var monsterTypes = [];
+var startingMonsterTypes = [];
 _.each(constants.MONSTER.TYPE, function (item) {
-    monsterTypes.push({
+    if (item.KEY !== constants.MONSTER.TYPE.FIEND.KEY) {
+        startingMonsterTypes.push({
+            id: item.KEY,
+            name: item.NAME
+        });
+    }
+});
+
+var meatOfMonsterTypes = [];
+_.each(constants.MONSTER.TYPE, function (item) {
+    meatOfMonsterTypes.push({
+        id: item.KEY,
         id: item.KEY,
         name: item.NAME
     });
@@ -34,14 +45,15 @@ _.each(constants.MONSTERS, function (item) {
 });
 
 var calculatorModel = new Backbone.Model({
+    startingMonsterTypes: startingMonsterTypes,
     startingMonsterType: null,
     startingMonster: null,
     startingMonsters: [],
+    meatOfMonsterTypes: meatOfMonsterTypes,
     meatOfMonsterType: null,
     meatOfMonster: null,
     meatOfMonsters: [],
     newMonster: null,
-    monsterTypes: monsterTypes,
     monsters: monsters
 });
 
@@ -63,3 +75,5 @@ calculatorModel.updateMeatOfMonsters = function () {
 
 calculatorModel.listenTo(calculatorModel, 'change:startingMonsterType', calculatorModel.updateStartingMonsters);
 calculatorModel.listenTo(calculatorModel, 'change:meatOfMonsterType', calculatorModel.updateMeatOfMonsters);
+
+window.model = calculatorModel;
