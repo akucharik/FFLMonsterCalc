@@ -508,7 +508,7 @@ constants.MONSTERS = [
       mana: 12,
       name: 'Gen-bu',
       strength: 12,
-      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 32, width: 32, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FIEND.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 64, width: 64, x: -162, y: -476 }, type: constants.MONSTER.TYPE.FIEND.KEY
     }, {
       agility: 27,
       defense: 25,
@@ -517,7 +517,7 @@ constants.MONSTERS = [
       mana: 27,
       name: 'Sei-ryu',
       strength: 27,
-      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 32, width: 32, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FIEND.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 64, width: 64, x: -252, y: -476 }, type: constants.MONSTER.TYPE.FIEND.KEY
     }, {
       agility: 50,
       defense: 45,
@@ -526,7 +526,7 @@ constants.MONSTERS = [
       mana: 50,
       name: 'Byak-ko',
       strength: 50,
-      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 32, width: 32, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FIEND.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 64, width: 64, x: -432, y: -476 }, type: constants.MONSTER.TYPE.FIEND.KEY
     }, {
       agility: 85,
       defense: 77,
@@ -535,7 +535,7 @@ constants.MONSTERS = [
       mana: 85,
       name: 'Su-zaku',
       strength: 85,
-      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 32, width: 32, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FIEND.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 64, width: 96, x: -522, y: -476 }, type: constants.MONSTER.TYPE.FIEND.KEY
     }, {
       agility: 90,
       defense: 100,
@@ -544,7 +544,7 @@ constants.MONSTERS = [
       mana: 90,
       name: 'Gen-bu2',
       strength: 90,
-      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 32, width: 32, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FIEND.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 64, width: 64, x: -162, y: -476 }, type: constants.MONSTER.TYPE.FIEND.KEY
     }, {
       agility: 90,
       defense: 90,
@@ -553,7 +553,7 @@ constants.MONSTERS = [
       mana: 100,
       name: 'Sei-ryu2',
       strength: 100,
-      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 32, width: 32, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FIEND.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 64, width: 64, x: -252, y: -476 }, type: constants.MONSTER.TYPE.FIEND.KEY
     }, {
       agility: 100,
       defense: 90,
@@ -562,7 +562,7 @@ constants.MONSTERS = [
       mana: 100,
       name: 'Byak-ko2',
       strength: 100,
-      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 32, width: 32, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FIEND.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 64, width: 64, x: -432, y: -476 }, type: constants.MONSTER.TYPE.FIEND.KEY
     }, {
       agility: 100,
       defense: 100,
@@ -571,7 +571,7 @@ constants.MONSTERS = [
       mana: 100,
       name: 'Su-zaku2',
       strength: 100,
-      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 32, width: 32, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FIEND.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 64, width: 96, x: -522, y: -476 }, type: constants.MONSTER.TYPE.FIEND.KEY
     }, {
       agility: 90,
       defense: 90,
@@ -580,7 +580,7 @@ constants.MONSTERS = [
       mana: 90,
       name: 'Ashura',
       strength: 90,
-      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 32, width: 32, x: 0, y: 0 }, type: constants.MONSTER.TYPE.FIEND.KEY
+      image: { height: 160, width: 180, x: 0, y: 0}, avatar: { height: 64, width: 64, x: -642, y: -476 }, type: constants.MONSTER.TYPE.FIEND.KEY
     }, {
       agility: 11,
       defense: 6,
