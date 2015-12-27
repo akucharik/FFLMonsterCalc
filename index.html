@@ -142,11 +142,28 @@
         }
         
         .ffl-monster-avatar-mask {
-            height: 40px;
             margin: 0 auto 0.8rem auto;
             overflow: hidden;
             position: relative;
-            width: 40px;
+        }
+        
+        .ffl-avatar-walk-vertical {
+            -webkit-animation: ffl-avatar-walk-vertical 0.7s infinite;
+        }
+        
+        @-webkit-keyframes ffl-avatar-walk-vertical {
+            49.999% {
+                -webkit-transform: scaleX(1);
+            }
+            50% {
+                -webkit-transform: scaleX(-1);
+            }
+            99.999% {
+                -webkit-transform: scaleX(-1);
+            }
+            100% {
+                -webkit-transform: scaleX(1);
+            }
         }
         
         .ffl-monster-avatar-mask > img {
@@ -203,6 +220,9 @@
     </style>
 </head>
 <body>
+    <!--<div style="border: 1px solid red; height: 64px;  position: relative; width: 64px;">
+        <img src="images/FFL-Spritesheet-White-1218x810.png" width="1218" height="810" style="left: -252px; position: absolute; top: -476px" />
+    </div>-->
     <h1>Final Fantasy Legend<br/>Monster Tranformation Calculator</h1>
     <div class="ffl-monster-calc-layout">
         <div class="ffl-monster">
@@ -234,31 +254,31 @@
     
     <script id="monsterTemplate" type="text/template">
         <div class="ffl-monster-image-mask" style="height: <%= item.image.height %>px; width: <%= item.image.width %>px;">
-            <img src="images/FFL-Spritesheet-White-1827x1215.png" alt="Starting monster image" width="1827" height="1215" style="left: <%= item.image.x %>px; top: <%= item.image.y %>px;" />
+            <img src="images/FFL-Spritesheet-White-1827x1215.png" class="image" alt="Starting monster image" width="1827" height="1215" style="left: <%= item.image.x %>px; top: <%= item.image.y %>px;" />
         </div>
         
         <div class="ffl-box">
             <div class="ffl-box-edge"></div>
             <div class="ffl-monster-abilities-col">
-                <div class="ffl-monster-avatar-mask">
-                    <img src="images/FFL-Spritesheet-White-1218x810.png" alt="Starting monster avatar portrait" width="1218" height="810" />
+                <div class="avatarMask ffl-monster-avatar-mask ffl-avatar-walk">
+                    <img src="images/FFL-Spritesheet-White-1218x810.png" class="avatar" alt="Starting monster avatar portrait" width="1218" height="810" />
                 </div>
                 <ul id="startingMonsterAbilities" class="ffl-abilities" style="list-style-type: none; margin: 0; padding: 0;">
                     <li>
                         <label>Str.</label>
-                        <span><%= item.strength %></span>
+                        <span class="strength"><%= item.strength %></span>
                     </li>
                     <li>
                         <label>Def.</label>
-                        <span><%= item.defense %></span>
+                        <span class="defense"><%= item.defense %></span>
                     </li>
                     <li>
                         <label>Agl.</label>
-                        <span><%= item.agility %></span>
+                        <span class="agility"><%= item.agility %></span>
                     </li>
                     <li>
                         <label>Mana</label>
-                        <span><%= item.mana %></span>
+                        <span class="mana"><%= item.mana %></span>
                     </li>
                 </ul>
             </div>
@@ -424,7 +444,7 @@
             
             instance.initialize = function () {
                 instance.template = _.template(document.getElementById(instance.templateId).innerHTML, { variable: 'item' })
-                instance.listenTo(instance.model, ('change:' + instance.itemKey), instance.render);
+                instance.listenTo(instance.model, ('change:' + instance.itemKey), instance.update);
                 instance.render();
             };
             
@@ -432,6 +452,44 @@
                 if (instance.model.get(instance.itemKey)) {
                     instance.$el.html(instance.template(instance.model.get(instance.itemKey)));
                 }
+                instance.onRender();
+                instance.update();
+            };
+            
+            instance.onRender = function () {
+                instance.image = instance.el.querySelector('.image');
+                instance.$avatarMask = instance.$('.avatarMask');
+                instance.$avatar = instance.$('.avatar');
+                instance.$strength = instance.$('.strength');
+                instance.$defense = instance.$('.defense');
+                instance.$agility = instance.$('.agility');
+                instance.$mana = instance.$('.mana');
+                instance.$hp = instance.$('.hp');
+            };
+            
+            instance.update = function () {
+                var monster = instance.model.get(instance.itemKey);
+                
+                instance.image.setAttribute('style', 'left: ' + monster.image.x + 'px top: ' + monster.image.y + 'px');
+                instance.$avatarMask.css({
+                    height: monster.avatar.height + 'px',
+                    width: monster.avatar.width + 'px'
+                });
+                instance.$avatar.css({
+                    left: monster.avatar.x + 'px',
+                    top: monster.avatar.y + 'px'
+                });
+                if (instance.model.get(instance.itemKey).type !== constants.MONSTER.TYPE.FIEND.KEY) {
+                    instance.$avatarMask.addClass('ffl-avatar-walk-vertical');
+                }
+                else {
+                    instance.$avatarMask.removeClass('ffl-avatar-walk-vertical');
+                }
+                instance.$strength.html(monster.strength);
+                instance.$defense.html(monster.defense);
+                instance.$agility.html(monster.agility);
+                instance.$mana.html(monster.mana);
+                instance.$hp.html(monster.hp);
             };
             
             instance.initialize();
@@ -443,7 +501,7 @@
         var ddlStartingMonsterType = bbDropdownList({
             el: document.getElementById('ddlStartingMonsterType'),
             model: calculatorModel,
-            itemsKey: 'monsterTypes',
+            itemsKey: 'startingMonsterTypes',
             itemTextKey: 'name',
             selectedValueKey: 'startingMonsterType'
         });
@@ -459,7 +517,7 @@
         var ddlMeatOfMonsterType = bbDropdownList({
             el: document.getElementById('ddlMeatOfMonsterType'),
             model: calculatorModel,
-            itemsKey: 'monsterTypes',
+            itemsKey: 'meatOfMonsterTypes',
             itemTextKey: 'name',
             selectedValueKey: 'meatOfMonsterType'
         });
@@ -486,12 +544,12 @@
             templateId: 'monsterTemplate'
         });
         
-        var newMonster = monsterView({
-            el: document.getElementById('newMonster'),
-            model: calculatorModel,
-            itemKey: 'newMonster',
-            templateId: 'monsterTemplate'
-        });
+//        var newMonster = monsterView({
+//            el: document.getElementById('newMonster'),
+//            model: calculatorModel,
+//            itemKey: 'newMonster',
+//            templateId: 'monsterTemplate'
+//        });
         
 //        var startingMonsterImage = bbTemplateView({
 //            el: document.getElementById('startingMonsterImage'),
