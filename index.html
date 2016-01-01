@@ -132,7 +132,7 @@
         }
         
         .ffl-monster-image-mask {
-            margin: 1.0rem auto;
+            margin: 0.5rem auto;
             overflow: hidden;
             position: relative;
         }
@@ -220,8 +220,10 @@
     </style>
 </head>
 <body>
-    <!--<div style="border: 1px solid red; height: 64px;  position: relative; width: 64px;">
-        <img src="images/FFL-Spritesheet-White-1218x810.png" width="1218" height="810" style="left: -252px; position: absolute; top: -476px" />
+    <!--<div style="border: 1px solid red; height: 192px; width: 192px; position: relative;">
+        <img src="images/FFL-Spritesheet-White-1827x1215.png" width="1827" height="1215" style="left: -3px; top: -618px; position: absolute;" />
+        <div style="border: 1px solid green; height: 192px; width: 96px; left: -1px; top: 193px; position: absolute;"></div>
+        <div style="border: 1px solid blue; height: 192px; width: 96px; left: -1px; top: 422px; position: absolute;"></div>
     </div>-->
     <h1>Final Fantasy Legend<br/>Monster Tranformation Calculator</h1>
     <div class="ffl-monster-calc-layout">
@@ -253,7 +255,7 @@
     </div>
     
     <script id="monsterTemplate" type="text/template">
-        <div class="ffl-monster-image-mask" style="height: <%= item.image.height %>px; width: <%= item.image.width %>px;">
+        <div class="imageMask ffl-monster-image-mask" style="height: <%= item.image.height %>px; width: <%= item.image.width %>px;">
             <img src="images/FFL-Spritesheet-White-1827x1215.png" class="image" alt="Starting monster image" width="1827" height="1215" style="left: <%= item.image.x %>px; top: <%= item.image.y %>px;" />
         </div>
         
@@ -287,7 +289,7 @@
                 <ul id="startingMonsterHp" class="ffl-skills" style="list-style-type: none; margin: 0; margin-bottom: 1.4em; padding: 0;">
                     <li>
                         <label>HP</label>
-                        <span><%= item.hp %></span>
+                        <span class="hp"><%= item.hp %></span>
                     </li>
                 </ul>
                 <ul class="ffl-skills" style="list-style-type: none; margin: 0; padding: 0;">
@@ -457,6 +459,7 @@
             };
             
             instance.onRender = function () {
+                instance.imageMask = instance.el.querySelector('.imageMask');
                 instance.image = instance.el.querySelector('.image');
                 instance.$avatarMask = instance.$('.avatarMask');
                 instance.$avatar = instance.$('.avatar');
@@ -470,7 +473,8 @@
             instance.update = function () {
                 var monster = instance.model.get(instance.itemKey);
                 
-                instance.image.setAttribute('style', 'left: ' + monster.image.x + 'px top: ' + monster.image.y + 'px');
+                instance.imageMask.setAttribute('style', 'height: ' + monster.image.height + 'px; width: ' + monster.image.width + 'px;');
+                instance.image.setAttribute('style', 'left: ' + monster.image.x + 'px; top: ' + monster.image.y + 'px;');
                 instance.$avatarMask.css({
                     height: monster.avatar.height + 'px',
                     width: monster.avatar.width + 'px'
