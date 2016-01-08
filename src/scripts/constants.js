@@ -110,7 +110,6 @@ constants.MONSTER.TYPE = {
 };
 
 constants.MONSTER.TRANSFORMATION_TABLE = {
-    // Albatros, Griffin, Dragon
     ALBATROS_DRAGON_GRIFFIN: {
         ALBATROS: null,
         ANT: constants.MONSTER.TYPE.BULL.KEY,
@@ -146,22 +145,134 @@ constants.MONSTER.TRANSFORMATION_TABLE = {
         
     },
     BULL_LIZARD: {
-        
+        ALBATROS: null,
+        ANT: constants.MONSTER.TYPE.LIZARD.KEY,
+        BULL: null,
+        CONDOR: constants.MONSTER.TYPE.IMP.KEY,
+        CRAB: constants.MONSTER.TYPE.WORM.KEY,
+        DRAGON: constants.MONSTER.TYPE.SEA.KEY,
+        EYE: constants.MONSTER.TYPE.SNAKE.KEY,
+        FISH: constants.MONSTER.TYPE.BULL.KEY,
+        FLY: constants.MONSTER.TYPE.ANT.KEY,
+        GHOST: constants.MONSTER.TYPE.FLY.KEY,
+        GOBLIN: constants.MONSTER.TYPE.ALBATROS.KEY,
+        GOLEM: constants.MONSTER.TYPE.MEDUSA.KEY,
+        GRIFFIN: constants.MONSTER.TYPE.CONDOR.KEY,
+        IMP: constants.MONSTER.TYPE.GHOST.KEY,
+        LIZARD: null,
+        MEDUSA: constants.MONSTER.TYPE.EYE.KEY,
+        PLANT: constants.MONSTER.TYPE.CRAB.KEY,
+        RAT: null,
+        SEA: constants.MONSTER.TYPE.WOLF.KEY,
+        SKELETON: constants.MONSTER.TYPE.GOBLIN.KEY,
+        SLIME: constants.MONSTER.TYPE.ZOMBIE.KEY,
+        SNAKE: constants.MONSTER.TYPE.FISH.KEY,
+        WOLF: constants.MONSTER.TYPE.RAT.KEY,
+        WORM: constants.MONSTER.TYPE.SLIME.KEY,
+        ZOMBIE: constants.MONSTER.TYPE.SKELETON.KEY,
+        GEN_BU: constants.MONSTER.TYPE.PLANT.KEY,
+        SEI_RYU: constants.MONSTER.TYPE.GOLEM.KEY,
+        BYAK_KO: constants.MONSTER.TYPE.GOLEM.KEY,
+        SU_ZAKU: constants.MONSTER.TYPE.GRIFFIN.KEY
     },
     CONDOR_IMP: {
         
     },
     EYE_SLIME: {
-        
+        ALBATROS: constants.MONSTER.TYPE.BULL.KEY,
+        ANT: constants.MONSTER.TYPE.ALBATROS.KEY,
+        BULL: constants.MONSTER.TYPE.SKELETON.KEY,
+        CONDOR: constants.MONSTER.TYPE.WORM.KEY,
+        CRAB: constants.MONSTER.TYPE.SEA.KEY,
+        DRAGON: constants.MONSTER.TYPE.MEDUSA.KEY,
+        EYE: null,
+        FISH: constants.MONSTER.TYPE.WOLF.KEY,
+        FLY: null,
+        GHOST: constants.MONSTER.TYPE.GHOST.KEY,
+        GOBLIN: constants.MONSTER.TYPE.RAT.KEY,
+        GOLEM: constants.MONSTER.TYPE.EYE.KEY,
+        GRIFFIN: constants.MONSTER.TYPE.SEA.KEY,
+        IMP: constants.MONSTER.TYPE.SNAKE.KEY,
+        LIZARD: constants.MONSTER.TYPE.ANT.KEY,
+        MEDUSA: constants.MONSTER.TYPE.CRAB.KEY,
+        PLANT: constants.MONSTER.TYPE.CONDOR.KEY,
+        RAT: constants.MONSTER.TYPE.GHOST.KEY,
+        SEA: constants.MONSTER.TYPE.FISH.KEY,
+        SKELETON: constants.MONSTER.TYPE.ZOMBIE.KEY,
+        SLIME: null,
+        SNAKE: null,
+        WOLF: constants.MONSTER.TYPE.SLIME.KEY,
+        WORM: constants.MONSTER.TYPE.FLY.KEY,
+        ZOMBIE: constants.MONSTER.TYPE.LIZARD.KEY,
+        GEN_BU: constants.MONSTER.TYPE.GRIFFIN.KEY,
+        SEI_RYU: constants.MONSTER.TYPE.PLANT.KEY,
+        BYAK_KO: constants.MONSTER.TYPE.PLANT.KEY,
+        SU_ZAKU: constants.MONSTER.TYPE.DRAGON.KEY
     },
     FISH: {
         
     },
     GHOST_SKELETON_ZOMBIE: {
-        
+        ALBATROS: constants.MONSTER.TYPE.GOBLIN.KEY,
+        ANT: constants.MONSTER.TYPE.SKELETON.KEY,
+        BULL: constants.MONSTER.TYPE.FLY.KEY,
+        CONDOR: constants.MONSTER.TYPE.SNAKE.KEY,
+        CRAB: constants.MONSTER.TYPE.WOLF.KEY,
+        DRAGON: constants.MONSTER.TYPE.GRIFFIN.KEY,
+        EYE: constants.MONSTER.TYPE.CONDOR.KEY,
+        FISH: constants.MONSTER.TYPE.WORM.KEY,
+        FLY: constants.MONSTER.TYPE.RAT.KEY,
+        GHOST: null,
+        GOBLIN: constants.MONSTER.TYPE.LIZARD.KEY,
+        GOLEM: null,
+        GRIFFIN: constants.MONSTER.TYPE.EYE.KEY,
+        IMP: constants.MONSTER.TYPE.ANT.KEY,
+        LIZARD: constants.MONSTER.TYPE.ALBATROS.KEY,
+        MEDUSA: constants.MONSTER.TYPE.PLANT.KEY,
+        PLANT: constants.MONSTER.TYPE.IMP.KEY,
+        RAT: constants.MONSTER.TYPE.BULL.KEY,
+        SEA: constants.MONSTER.TYPE.CRAB.KEY,
+        SKELETON: null,
+        SLIME: constants.MONSTER.TYPE.GHOST.KEY,
+        SNAKE: constants.MONSTER.TYPE.SLIME.KEY,
+        WOLF: constants.MONSTER.TYPE.ZOMBIE.KEY,
+        WORM: constants.MONSTER.TYPE.FISH.KEY,
+        ZOMBIE: null,
+        GEN_BU: constants.MONSTER.TYPE.SEA.KEY,
+        SEI_RYU: constants.MONSTER.TYPE.MEDUSA.KEY,
+        BYAK_KO: constants.MONSTER.TYPE.MEDUSA.KEY,
+        SU_ZAKU: constants.MONSTER.TYPE.GOLEM.KEY
     },
     GOBLIN_RAT_WOLF: {
-        
+        ALBATROS: constants.MONSTER.TYPE.LIZARD.KEY,
+        ANT: constants.MONSTER.TYPE.FLY.KEY,
+        BULL: constants.MONSTER.TYPE.RAT.KEY,
+        CONDOR: constants.MONSTER.TYPE.WOLF.KEY,
+        CRAB: constants.MONSTER.TYPE.BULL.KEY,
+        DRAGON: constants.MONSTER.TYPE.PLANT.KEY,
+        EYE: constants.MONSTER.TYPE.FISH.KEY,
+        FISH: constants.MONSTER.TYPE.GOBLIN.KEY,
+        FLY: constants.MONSTER.TYPE.ZOMBIE.KEY,
+        GHOST: constants.MONSTER.TYPE.SLIME.KEY,
+        GOBLIN: null,
+        GOLEM: constants.MONSTER.TYPE.CRAB.KEY,
+        GRIFFIN: constants.MONSTER.TYPE.SNAKE.KEY,
+        IMP: constants.MONSTER.TYPE.CONDOR.KEY,
+        LIZARD: constants.MONSTER.TYPE.SKELETON.KEY,
+        MEDUSA: constants.MONSTER.TYPE.GRIFFIN.KEY,
+        PLANT: constants.MONSTER.TYPE.SEA.KEY,
+        RAT: null,
+        SEA: constants.MONSTER.TYPE.IMP.KEY,
+        SKELETON: constants.MONSTER.TYPE.ALBATROS.KEY,
+        SLIME: null,
+        SNAKE: constants.MONSTER.TYPE.WORM.KEY,
+        WOLF: null,
+        WORM: constants.MONSTER.TYPE.ANT.KEY,
+        ZOMBIE: constants.MONSTER.TYPE.GHOST.KEY,
+        GEN_BU: constants.MONSTER.TYPE.GOLEM.KEY,
+        SEI_RYU: constants.MONSTER.TYPE.MEDUSA.KEY,
+        BYAK_KO: constants.MONSTER.TYPE.MEDUSA.KEY,
+        SU_ZAKU: constants.MONSTER.TYPE.DRAGON.KEY
     },
     GOLEM: {
         
@@ -201,7 +312,43 @@ constants.MONSTER.TRANSFORMATION = {
     WORM: constants.MONSTER.TRANSFORMATION_TABLE.MEDUSA_SNAKE_WORM,
     ZOMBIE: constants.MONSTER.TRANSFORMATION_TABLE.GHOST_SKELETON_ZOMBIE
 };
-    
+
+constants.MONSTER.TRANSFORMATION.TYPE = {
+    ALBATROS_DRAGON_GRIFFIN: {
+        KEY: 'ALBATROS_DRAGON_GRIFFIN'
+    },
+    ANT_FLY_CRAB: {
+        KEY: 'ANT_FLY_CRAB'
+    },
+    BULL_LIZARD: {
+        KEY: 'BULL_LIZARD'
+    },
+    CONDOR_IMP: {
+        KEY: 'CONDOR_IMP'
+    },
+    EYE_SLIME: {
+        KEY: 'EYE_SLIME'
+    },
+    FISH: {
+        KEY: 'FISH'
+    },
+    GHOST_SKELETON_ZOMBIE: {
+        KEY: 'GHOST_SKELETON_ZOMBIE'
+    },
+    GOBLIN_RAT_WOLF: {
+        KEY: 'GOBLIN_RAT_WOLF'
+    },
+    GOLEM: {
+        KEY: 'GOLEM'
+    },
+    MEDUSA_SNAKE_WORM: {
+        KEY: 'MEDUSA_SNAKE_WORM'
+    },
+    PLANT_SEA: {
+        KEY: 'PLANT_SEA'
+    }
+};
+
 constants.MONSTERS = [
     {
       agility: 9,
@@ -223,7 +370,8 @@ constants.MONSTERS = [
           x: -202,
           y: -638
       },
-      type: constants.MONSTER.TYPE.ALBATROS.KEY
+      type: constants.MONSTER.TYPE.ALBATROS.KEY,
+      transformationType: constants.MONSTER.TRANSFORMATION.TYPE.ALBATROS_DRAGON_GRIFFIN
     }, {
       agility: 38,
       defense: 14,
@@ -264,7 +412,7 @@ constants.MONSTERS = [
       agility: 99,
       defense: 62,
       hp: 666,
-      level: 14,
+      level: 16,
       mana: 80,
       name: 'Phoenix',
       strength: 82,
@@ -318,7 +466,7 @@ constants.MONSTERS = [
       agility: 99,
       defense: 99,
       hp: 666,
-      level: 14,
+      level: 16,
       mana: 81,
       name: 'Scarab',
       strength: 62,
@@ -372,7 +520,7 @@ constants.MONSTERS = [
       agility: 80,
       defense: 82,
       hp: 795,
-      level: 14,
+      level: 16,
       mana: 62,
       name: 'Ganesha',
       strength: 99,
@@ -426,7 +574,7 @@ constants.MONSTERS = [
       agility: 99,
       defense: 62,
       hp: 729,
-      level: 14,
+      level: 16,
       mana: 80,
       name: 'Nike',
       strength: 82,
@@ -480,7 +628,7 @@ constants.MONSTERS = [
       agility: 63,
       defense: 99,
       hp: 729,
-      level: 14,
+      level: 16,
       mana: 61,
       name: 'Dagon',
       strength: 81,
@@ -534,7 +682,7 @@ constants.MONSTERS = [
       agility: 62,
       defense: 80,
       hp: 666,
-      level: 14,
+      level: 16,
       mana: 99,
       name: 'Tiamat',
       strength: 99,
@@ -588,7 +736,7 @@ constants.MONSTERS = [
       agility: 61,
       defense: 81,
       hp: 666,
-      level: 14,
+      level: 16,
       mana: 99,
       name: 'Beholder',
       strength: 63,
@@ -633,7 +781,7 @@ constants.MONSTERS = [
       agility: 90,
       defense: 100,
       hp: 1500,
-      level: 14,
+      level: 16,
       mana: 90,
       name: 'Gen-bu2',
       strength: 90,
@@ -642,7 +790,7 @@ constants.MONSTERS = [
       agility: 90,
       defense: 90,
       hp: 1750,
-      level: 14,
+      level: 16,
       mana: 100,
       name: 'Sei-ryu2',
       strength: 100,
@@ -651,7 +799,7 @@ constants.MONSTERS = [
       agility: 100,
       defense: 90,
       hp: 2000,
-      level: 14,
+      level: 16,
       mana: 100,
       name: 'Byak-ko2',
       strength: 100,
@@ -660,20 +808,11 @@ constants.MONSTERS = [
       agility: 100,
       defense: 100,
       hp:  2500,
-      level: 14,
+      level: 16,
       mana: 100,
       name: 'Su-zaku2',
       strength: 100,
       image: { height: 192, width: 141, x: -1488, y: -423}, avatar: { height: 64, width: 96, x: -522, y: -476 }, type: constants.MONSTER.TYPE.FIEND.KEY
-    }, {
-      agility: 90,
-      defense: 90,
-      hp:  2000,
-      level: 14,
-      mana: 90,
-      name: 'Ashura',
-      strength: 90,
-      image: { height: 192, width: 192, x: -3, y: -618}, avatar: { height: 64, width: 64, x: -642, y: -476 }, type: constants.MONSTER.TYPE.FIEND.KEY
     }, {
       agility: 11,
       defense: 6,
@@ -723,7 +862,7 @@ constants.MONSTERS = [
       agility: 99,
       defense: 80,
       hp: 729,
-      level: 14,
+      level: 16,
       mana: 62,
       name: 'Leviathn',
       strength: 82,
@@ -777,7 +916,7 @@ constants.MONSTERS = [
       agility: 99,
       defense: 99,
       hp: 666,
-      level: 14,
+      level: 16,
       mana: 80,
       name: 'Mantis',
       strength: 82,
@@ -831,7 +970,7 @@ constants.MONSTERS = [
       agility: 99,
       defense: 61,
       hp: 666,
-      level: 14,
+      level: 16,
       mana: 99,
       name: 'Ghost',
       strength: 63,
@@ -885,7 +1024,7 @@ constants.MONSTERS = [
       agility: 80,
       defense: 82,
       hp: 729,
-      level: 14,
+      level: 16,
       mana: 62,
       name: 'Susano-o',
       strength: 99,
@@ -939,7 +1078,7 @@ constants.MONSTERS = [
       agility: 62,
       defense: 81,
       hp: 729,
-      level: 14,
+      level: 16,
       mana: 99,
       name: 'Mazin',
       strength: 99,
@@ -993,7 +1132,7 @@ constants.MONSTERS = [
       agility: 99,
       defense: 80,
       hp: 666,
-      level: 14,
+      level: 16,
       mana: 99,
       name: 'Ki-rin',
       strength: 82,
@@ -1047,7 +1186,7 @@ constants.MONSTERS = [
       agility: 80,
       defense: 79,
       hp: 729,
-      level: 14,
+      level: 16,
       mana: 83,
       name: 'Athtalot',
       strength: 82,
@@ -1101,7 +1240,7 @@ constants.MONSTERS = [
       agility: 63,
       defense: 99,
       hp: 795,
-      level: 14,
+      level: 16,
       mana: 61,
       name: 'Basilisk',
       strength: 81,
@@ -1155,7 +1294,7 @@ constants.MONSTERS = [
       agility: 82,
       defense: 80,
       hp: 666,
-      level: 14,
+      level: 16,
       mana: 99,
       name: 'Lilith',
       strength: 62,
@@ -1209,7 +1348,7 @@ constants.MONSTERS = [
       agility: 61,
       defense: 82,
       hp: 795,
-      level: 14,
+      level: 16,
       mana: 62,
       name: 'Darkrose',
       strength: 81,
@@ -1263,7 +1402,7 @@ constants.MONSTERS = [
       agility: 80,
       defense: 62,
       hp: 729,
-      level: 14,
+      level: 16,
       mana: 82,
       name: 'Anubis',
       strength: 99,
@@ -1317,7 +1456,7 @@ constants.MONSTERS = [
       agility: 81,
       defense: 80,
       hp: 729,
-      level: 14,
+      level: 16,
       mana: 62,
       name: 'Kraken',
       strength: 82,
@@ -1371,7 +1510,7 @@ constants.MONSTERS = [
       agility: 63,
       defense: 61,
       hp: 729,
-      level: 14,
+      level: 16,
       mana: 99,
       name: 'Lich',
       strength: 81,
@@ -1425,7 +1564,7 @@ constants.MONSTERS = [
       agility: 61,
       defense: 62,
       hp: 795,
-      level: 14,
+      level: 16,
       mana: 99,
       name: 'Hi-slime',
       strength: 63,
@@ -1479,7 +1618,7 @@ constants.MONSTERS = [
       agility: 80,
       defense: 99,
       hp: 729,
-      level: 14,
+      level: 16,
       mana: 62,
       name: 'Jorgandr',
       strength: 82,
@@ -1533,7 +1672,7 @@ constants.MONSTERS = [
       agility: 99,
       defense: 81,
       hp: 729,
-      level: 14,
+      level: 16,
       mana: 62,
       name: 'Fenswolf',
       strength: 99,
@@ -1587,7 +1726,7 @@ constants.MONSTERS = [
       agility: 61,
       defense: 62,
       hp: 795,
-      level: 14,
+      level: 16,
       mana: 61,
       name: 'Gigaworm',
       strength: 82,
@@ -1641,7 +1780,7 @@ constants.MONSTERS = [
       agility: 61,
       defense: 62,
       hp: 795,
-      level: 14,
+      level: 16,
       mana: 82,
       name: 'Revnant',
       strength: 99,
