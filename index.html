@@ -425,8 +425,9 @@
             _.extend(instance, options);
             
             instance.initialize = function () {
-                instance.template = _.template(document.getElementById(instance.templateId).innerHTML, { variable: 'item' })
                 instance.listenTo(instance.model, ('change:' + instance.itemKey), instance.render);
+                
+                instance.template = _.template(document.getElementById(instance.templateId).innerHTML, { variable: 'item' });
                 instance.render();
             };
             
@@ -439,15 +440,19 @@
             return instance;
         };
         
+        // TODO: Optimize view for "nothing happened" scenario
         // Monster View
         var monsterView = function (options) {
             var instance = new Backbone.View(options);
             _.extend(instance, options);
             
             instance.initialize = function () {
-                instance.template = _.template(document.getElementById(instance.templateId).innerHTML, { variable: 'item' })
                 instance.listenTo(instance.model, ('change:' + instance.itemKey), instance.update);
-                instance.render();
+                
+                if (instance.model.get(instance.itemKey)) {
+                    instance.template = _.template(document.getElementById(instance.templateId).innerHTML, { variable: 'item' });
+                    instance.render();
+                }
             };
             
             instance.render = function () {
@@ -473,32 +478,40 @@
             instance.update = function () {
                 var monster = instance.model.get(instance.itemKey);
                 
-                instance.imageMask.setAttribute('style', 'height: ' + monster.image.height + 'px; width: ' + monster.image.width + 'px;');
-                instance.image.setAttribute('style', 'left: ' + monster.image.x + 'px; top: ' + monster.image.y + 'px;');
-                instance.$avatarMask.css({
-                    height: monster.avatar.height + 'px',
-                    width: monster.avatar.width + 'px'
-                });
-                instance.$avatar.css({
-                    left: monster.avatar.x + 'px',
-                    top: monster.avatar.y + 'px'
-                });
-                if (instance.model.get(instance.itemKey).type !== constants.MONSTER.TYPE.FIEND.KEY) {
-                    instance.$avatarMask.addClass('ffl-avatar-walk-vertical');
+                if (monster && instance.template) {
+                    instance.imageMask.setAttribute('style', 'height: ' + monster.image.height + 'px; width: ' + monster.image.width + 'px;');
+                    instance.image.setAttribute('style', 'left: ' + monster.image.x + 'px; top: ' + monster.image.y + 'px;');
+                    instance.$avatarMask.css({
+                        height: monster.avatar.height + 'px',
+                        width: monster.avatar.width + 'px'
+                    });
+                    instance.$avatar.css({
+                        left: monster.avatar.x + 'px',
+                        top: monster.avatar.y + 'px'
+                    });
+                    if (instance.model.get(instance.itemKey).type !== constants.MONSTER.TYPE.FIEND.KEY) {
+                        instance.$avatarMask.addClass('ffl-avatar-walk-vertical');
+                    }
+                    else {
+                        instance.$avatarMask.removeClass('ffl-avatar-walk-vertical');
+                    }
+                    instance.$strength.html(monster.strength);
+                    instance.$defense.html(monster.defense);
+                    instance.$agility.html(monster.agility);
+                    instance.$mana.html(monster.mana);
+                    instance.$hp.html(monster.hp);
+                }
+                else if (monster) {
+                    instance.template = _.template(document.getElementById(instance.templateId).innerHTML, { variable: 'item' });
+                    instance.render();
                 }
                 else {
-                    instance.$avatarMask.removeClass('ffl-avatar-walk-vertical');
+                    instance.$el.empty();
+                    instance.template = null;
                 }
-                instance.$strength.html(monster.strength);
-                instance.$defense.html(monster.defense);
-                instance.$agility.html(monster.agility);
-                instance.$mana.html(monster.mana);
-                instance.$hp.html(monster.hp);
             };
             
-            if (instance.model.get(instance.itemKey)) {
-                instance.initialize();
-            }
+            instance.initialize();
             
             return instance;
         };
@@ -510,6 +523,8 @@
             
             app.listenTo(calculatorModel, 'change:startingMonsterType', calculatorModel.updateStartingMonsters);
             app.listenTo(calculatorModel, 'change:meatOfMonsterType', calculatorModel.updateMeatOfMonsters);
+            app.listenTo(calculatorModel, 'change:startingMonster', calculatorModel.updateNewMonster);
+            app.listenTo(calculatorModel, 'change:meatOfMonster', calculatorModel.updateNewMonster);
             
             // Views
             var ddlStartingMonsterType = bbDropdownList({
@@ -558,13 +573,13 @@
                 templateId: 'monsterTemplate'
             });
 
-//            var newMonster = monsterView({
-//                el: document.getElementById('newMonster'),
-//                model: calculatorModel,
-//                itemKey: 'newMonster',
-//                templateId: 'monsterTemplate'
-//            });
-//
+            var newMonster = monsterView({
+                el: document.getElementById('newMonster'),
+                model: calculatorModel,
+                itemKey: 'newMonster',
+                templateId: 'monsterTemplate'
+            });
+
 //            var startingMonsterImage = bbTemplateView({
 //                el: document.getElementById('startingMonsterImage'),
 //                model: calculatorModel,

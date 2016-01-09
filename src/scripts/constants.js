@@ -109,6 +109,132 @@ constants.MONSTER.TYPE = {
     }
 };
 
+constants.MONSTER.TRANSFORMATION_TYPE = {
+    ALBATROS:  {
+        KEY: constants.MONSTER.TYPE.ALBATROS.KEY
+    },
+    ANT:  {
+        KEY: constants.MONSTER.TYPE.ANT.KEY
+    },
+    BULL:  {
+        KEY: constants.MONSTER.TYPE.BULL.KEY
+    },
+    CONDOR:  {
+        KEY: constants.MONSTER.TYPE.CONDOR.KEY
+    },
+    CRAB:  {
+        KEY: constants.MONSTER.TYPE.CRAB.KEY
+    },
+    DRAGON:  {
+        KEY: constants.MONSTER.TYPE.DRAGON.KEY
+    },
+    EYE:  {
+        KEY: constants.MONSTER.TYPE.EYE.KEY
+    },
+    FISH:  {
+        KEY: constants.MONSTER.TYPE.FISH.KEY
+    },
+    FLY:  {
+        KEY: constants.MONSTER.TYPE.FLY.KEY
+    },
+    GHOST:  {
+        KEY: constants.MONSTER.TYPE.GHOST.KEY
+    },
+    GOBLIN:  {
+        KEY: constants.MONSTER.TYPE.GOBLIN.KEY
+    },
+    GOLEM:  {
+        KEY: constants.MONSTER.TYPE.GOLEM.KEY
+    },
+    GRIFFIN:  {
+        KEY: constants.MONSTER.TYPE.GRIFFIN.KEY
+    },
+    IMP:  {
+        KEY: constants.MONSTER.TYPE.IMP.KEY
+    },
+    LIZARD:  {
+        KEY: constants.MONSTER.TYPE.LIZARD.KEY
+    },
+    MEDUSA:  {
+        KEY: constants.MONSTER.TYPE.MEDUSA.KEY
+    },
+    PLANT:  {
+        KEY: constants.MONSTER.TYPE.PLANT.KEY
+    },
+    RAT:  {
+        KEY: constants.MONSTER.TYPE.RAT.KEY
+    },
+    SEA:  {
+        KEY: constants.MONSTER.TYPE.SEA.KEY
+    },
+    SKELETON:  {
+        KEY: constants.MONSTER.TYPE.SKELETON.KEY
+    },
+    SLIME:  {
+        KEY: constants.MONSTER.TYPE.SLIME.KEY
+    },
+    SNAKE:  {
+        KEY: constants.MONSTER.TYPE.SNAKE.KEY
+    },
+    WOLF:  {
+        KEY: constants.MONSTER.TYPE.WOLF.KEY
+    },
+    WORM:  {
+        KEY: constants.MONSTER.TYPE.WORM.KEY
+    },
+    ZOMBIE:  {
+        KEY: constants.MONSTER.TYPE.ZOMBIE.KEY
+    },
+    GEN_BU:  {
+        KEY: 'GEN_BU'
+    },
+    SEI_RYU:  {
+        KEY: 'SEI_RYU'
+    },
+    BYAK_KO:  {
+        KEY: 'BYAK_KO'
+    },
+    SU_ZAKU:  {
+        KEY: 'SU_ZAKU'
+    },
+};
+
+constants.MONSTER.TRANSFORMATION_GROUP = {
+    ALBATROS_DRAGON_GRIFFIN: {
+        KEY: 'ALBATROS_DRAGON_GRIFFIN'
+    },
+    ANT_FLY_CRAB: {
+        KEY: 'ANT_FLY_CRAB'
+    },
+    BULL_LIZARD: {
+        KEY: 'BULL_LIZARD'
+    },
+    CONDOR_IMP: {
+        KEY: 'CONDOR_IMP'
+    },
+    EYE_SLIME: {
+        KEY: 'EYE_SLIME'
+    },
+    FISH: {
+        KEY: 'FISH'
+    },
+    GHOST_SKELETON_ZOMBIE: {
+        KEY: 'GHOST_SKELETON_ZOMBIE'
+    },
+    GOBLIN_RAT_WOLF: {
+        KEY: 'GOBLIN_RAT_WOLF'
+    },
+    GOLEM: {
+        KEY: 'GOLEM'
+    },
+    MEDUSA_SNAKE_WORM: {
+        KEY: 'MEDUSA_SNAKE_WORM'
+    },
+    PLANT_SEA: {
+        KEY: 'PLANT_SEA'
+    }
+};
+
 constants.MONSTER.TRANSFORMATION = {
     ALBATROS_DRAGON_GRIFFIN: {
         ALBATROS: null,
@@ -453,43 +579,6 @@ constants.MONSTER.TRANSFORMATION = {
     }
 };
 
-
-constants.MONSTER.TRANSFORMATION_TYPE = {
-    ALBATROS_DRAGON_GRIFFIN: {
-        KEY: 'ALBATROS_DRAGON_GRIFFIN'
-    },
-    ANT_FLY_CRAB: {
-        KEY: 'ANT_FLY_CRAB'
-    },
-    BULL_LIZARD: {
-        KEY: 'BULL_LIZARD'
-    },
-    CONDOR_IMP: {
-        KEY: 'CONDOR_IMP'
-    },
-    EYE_SLIME: {
-        KEY: 'EYE_SLIME'
-    },
-    FISH: {
-        KEY: 'FISH'
-    },
-    GHOST_SKELETON_ZOMBIE: {
-        KEY: 'GHOST_SKELETON_ZOMBIE'
-    },
-    GOBLIN_RAT_WOLF: {
-        KEY: 'GOBLIN_RAT_WOLF'
-    },
-    GOLEM: {
-        KEY: 'GOLEM'
-    },
-    MEDUSA_SNAKE_WORM: {
-        KEY: 'MEDUSA_SNAKE_WORM'
-    },
-    PLANT_SEA: {
-        KEY: 'PLANT_SEA'
-    }
-};
-
 constants.MONSTERS = [
     {
         agility: 9,
@@ -502,7 +591,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -360, y: -423 },
         avatar: { height: 32, width: 32, x: -202, y: -638 },
         type: constants.MONSTER.TYPE.ALBATROS.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS_DRAGON_GRIFFIN.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ALBATROS_DRAGON_GRIFFIN.KEY
     }, {
         agility: 38,
         defense: 14,
@@ -514,7 +604,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -360, y: -423},
         avatar: { height: 32, width: 32, x: -202, y: -638 },
         type: constants.MONSTER.TYPE.ALBATROS.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS_DRAGON_GRIFFIN.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ALBATROS_DRAGON_GRIFFIN.KEY
     }, {
         agility: 74,
         defense: 32,
@@ -526,7 +617,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -360, y: -423},
         avatar: { height: 32, width: 32, x: -202, y: -638 },
         type: constants.MONSTER.TYPE.ALBATROS.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS_DRAGON_GRIFFIN.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ALBATROS_DRAGON_GRIFFIN.KEY
     }, {
         agility: 99,
         defense: 47,
@@ -538,7 +630,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -360, y: -423},
         avatar: { height: 32, width: 32, x: -202, y: -638 },
         type: constants.MONSTER.TYPE.ALBATROS.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS_DRAGON_GRIFFIN.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ALBATROS_DRAGON_GRIFFIN.KEY
     }, {
         agility: 99,
         defense: 56,
@@ -550,7 +643,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -360, y: -423},
         avatar: { height: 32, width: 32, x: -202, y: -638 },
         type: constants.MONSTER.TYPE.ALBATROS.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS_DRAGON_GRIFFIN.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ALBATROS_DRAGON_GRIFFIN.KEY
     }, {
         agility: 99,
         defense: 62,
@@ -562,7 +656,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -360, y: -423},
         avatar: { height: 32, width: 32, x: -202, y: -638 },
         type: constants.MONSTER.TYPE.ALBATROS.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS_DRAGON_GRIFFIN.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ALBATROS_DRAGON_GRIFFIN.KEY
     }, {
         agility: 7,
         defense: 9,
@@ -574,7 +669,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -18, y: 0},
         avatar: { height: 32, width: 32, x: -2, y: -708 },
         type: constants.MONSTER.TYPE.ANT.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT_FLY_CRAB.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ANT_FLY_CRAB.KEY
     }, {
         agility: 38,
         defense: 40,
@@ -586,7 +682,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -18, y: 0},
         avatar: { height: 32, width: 32, x: -2, y: -708 },
         type: constants.MONSTER.TYPE.ANT.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT_FLY_CRAB.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ANT_FLY_CRAB.KEY
     }, {
         agility: 43,
         defense: 45,
@@ -598,7 +695,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -18, y: 0},
         avatar: { height: 32, width: 32, x: -2, y: -708 },
         type: constants.MONSTER.TYPE.ANT.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT_FLY_CRAB.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ANT_FLY_CRAB.KEY
     }, {
         agility: 53,
         defense: 55,
@@ -610,7 +708,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -18, y: 0},
         avatar: { height: 32, width: 32, x: -2, y: -708 },
         type: constants.MONSTER.TYPE.ANT.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT_FLY_CRAB.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ANT_FLY_CRAB.KEY
     }, {
         agility: 87,
         defense: 89,
@@ -622,7 +721,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -18, y: 0},
         avatar: { height: 32, width: 32, x: -2, y: -708 },
         type: constants.MONSTER.TYPE.ANT.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT_FLY_CRAB.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ANT_FLY_CRAB.KEY
     }, {
         agility: 99,
         defense: 99,
@@ -634,7 +734,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -18, y: 0},
         avatar: { height: 32, width: 32, x: -2, y: -708 },
         type: constants.MONSTER.TYPE.ANT.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT_FLY_CRAB.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ANT_FLY_CRAB.KEY
     }, {
         agility: 5,
         defense: 7,
@@ -646,7 +747,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 141, x: -1623, y: -192},
         avatar: { height: 32, width: 32, x: -992, y: -638 },
         type: constants.MONSTER.TYPE.BULL.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BULL_LIZARD.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BULL.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.BULL_LIZARD.KEY
     }, {
         agility: 14,
         defense: 16,
@@ -658,7 +760,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 141, x: -1623, y: -192},
         avatar: { height: 32, width: 32, x: -992, y: -638 },
         type: constants.MONSTER.TYPE.BULL.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BULL_LIZARD.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BULL.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.BULL_LIZARD.KEY
     }, {
         agility: 36,
         defense: 38,
@@ -670,7 +773,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 141, x: -1623, y: -192},
         avatar: { height: 32, width: 32, x: -992, y: -638 },
         type: constants.MONSTER.TYPE.BULL.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BULL_LIZARD.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BULL.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.BULL_LIZARD.KEY
     }, {
         agility: 45,
         defense: 47,
@@ -682,7 +786,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 141, x: -1623, y: -192},
         avatar: { height: 32, width: 32, x: -992, y: -638 },
         type: constants.MONSTER.TYPE.BULL.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BULL_LIZARD.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BULL.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.BULL_LIZARD.KEY
     }, {
         agility: 69,
         defense: 71,
@@ -694,7 +799,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 141, x: -1623, y: -192},
         avatar: { height: 32, width: 32, x: -992, y: -638 },
         type: constants.MONSTER.TYPE.BULL.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BULL_LIZARD.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BULL.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.BULL_LIZARD.KEY
     }, {
         agility: 80,
         defense: 82,
@@ -706,7 +812,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 141, x: -1623, y: -192},
         avatar: { height: 32, width: 32, x: -992, y: -638 },
         type: constants.MONSTER.TYPE.BULL.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BULL_LIZARD.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BULL.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.BULL_LIZARD.KEY
     }, {
         agility: 14,
         defense: 6,
@@ -718,7 +825,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1053, y: 0},
         avatar: { height: 32, width: 32, x: -202, y: -638 },
         type: constants.MONSTER.TYPE.CONDOR.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CONDOR_IMP.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CONDOR.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.CONDOR_IMP.KEY
     }, {
         agility: 25,
         defense: 11,
@@ -730,7 +838,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1053, y: 0},
         avatar: { height: 32, width: 32, x: -202, y: -638 },
         type: constants.MONSTER.TYPE.CONDOR.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CONDOR_IMP.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CONDOR.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.CONDOR_IMP.KEY
     }, {
         agility: 39,
         defense: 19,
@@ -742,7 +851,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1053, y: 0},
         avatar: { height: 32, width: 32, x: -202, y: -638 },
         type: constants.MONSTER.TYPE.CONDOR.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CONDOR_IMP.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CONDOR.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.CONDOR_IMP.KEY
     }, {
         agility: 60,
         defense: 32,
@@ -754,7 +864,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1053, y: 0},
         avatar: { height: 32, width: 32, x: -202, y: -638 },
         type: constants.MONSTER.TYPE.CONDOR.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CONDOR_IMP.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CONDOR.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.CONDOR_IMP.KEY
     }, {
         agility: 88,
         defense: 52,
@@ -766,7 +877,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1053, y: 0},
         avatar: { height: 32, width: 32, x: -202, y: -638 },
         type: constants.MONSTER.TYPE.CONDOR.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CONDOR_IMP.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CONDOR.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.CONDOR_IMP.KEY
     }, {
         agility: 99,
         defense: 62,
@@ -778,7 +890,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1053, y: 0},
         avatar: { height: 32, width: 32, x: -202, y: -638 },
         type: constants.MONSTER.TYPE.CONDOR.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CONDOR_IMP.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CONDOR.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.CONDOR_IMP.KEY
     }, {
         agility: 8,
         defense: 22,
@@ -790,7 +903,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -156, y: -192},
         avatar: { height: 32, width: 32, x: -2, y: -708 },
         type: constants.MONSTER.TYPE.CRAB.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT_FLY_CRAB.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CRAB.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ANT_FLY_CRAB.KEY
     }, {
         agility: 12,
         defense: 32,
@@ -802,7 +916,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -156, y: -192},
         avatar: { height: 32, width: 32, x: -2, y: -708 },
         type: constants.MONSTER.TYPE.CRAB.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT_FLY_CRAB.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CRAB.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ANT_FLY_CRAB.KEY
     }, {
         agility: 26,
         defense: 61,
@@ -814,7 +929,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -156, y: -192},
         avatar: { height: 32, width: 32, x: -2, y: -708 },
         type: constants.MONSTER.TYPE.CRAB.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT_FLY_CRAB.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CRAB.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ANT_FLY_CRAB.KEY
     }, {
         agility: 29,
         defense: 67,
@@ -826,7 +942,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -156, y: -192},
         avatar: { height: 32, width: 32, x: -2, y: -708 },
         type: constants.MONSTER.TYPE.CRAB.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT_FLY_CRAB.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CRAB.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ANT_FLY_CRAB.KEY
     }, {
         agility: 53,
         defense: 99,
@@ -838,7 +955,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -156, y: -192},
         avatar: { height: 32, width: 32, x: -2, y: -708 },
         type: constants.MONSTER.TYPE.CRAB.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT_FLY_CRAB.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CRAB.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ANT_FLY_CRAB.KEY
     }, {
         agility: 63,
         defense: 99,
@@ -850,7 +968,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -156, y: -192},
         avatar: { height: 32, width: 32, x: -2, y: -708 },
         type: constants.MONSTER.TYPE.CRAB.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT_FLY_CRAB.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CRAB.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ANT_FLY_CRAB.KEY
     }, {
         agility: 19,
         defense: 28,
@@ -862,7 +981,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 140, x: -180, y: -423},
         avatar: { height: 32, width: 32, x: -202, y: -638 },
         type: constants.MONSTER.TYPE.DRAGON.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS_DRAGON_GRIFFIN.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.DRAGON.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ALBATROS_DRAGON_GRIFFIN.KEY
     }, {
         agility: 25,
         defense: 36,
@@ -874,7 +994,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 140, x: -180, y: -423},
         avatar: { height: 32, width: 32, x: -202, y: -638 },
         type: constants.MONSTER.TYPE.DRAGON.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS_DRAGON_GRIFFIN.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.DRAGON.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ALBATROS_DRAGON_GRIFFIN.KEY
     }, {
         agility: 35,
         defense: 49,
@@ -886,7 +1007,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 140, x: -180, y: -423},
         avatar: { height: 32, width: 32, x: -202, y: -638 },
         type: constants.MONSTER.TYPE.DRAGON.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS_DRAGON_GRIFFIN.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.DRAGON.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ALBATROS_DRAGON_GRIFFIN.KEY
     }, {
         agility: 47,
         defense: 64,
@@ -898,7 +1020,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 140, x: -180, y: -423},
         avatar: { height: 32, width: 32, x: -202, y: -638 },
         type: constants.MONSTER.TYPE.DRAGON.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS_DRAGON_GRIFFIN.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.DRAGON.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ALBATROS_DRAGON_GRIFFIN.KEY
     }, {
         agility: 56,
         defense: 74,
@@ -910,7 +1033,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 140, x: -180, y: -423},
         avatar: { height: 32, width: 32, x: -202, y: -638 },
         type: constants.MONSTER.TYPE.DRAGON.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS_DRAGON_GRIFFIN.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.DRAGON.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ALBATROS_DRAGON_GRIFFIN.KEY
     }, {
         agility: 62,
         defense: 80,
@@ -922,7 +1046,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 140, x: -180, y: -423},
         avatar: { height: 32, width: 32, x: -202, y: -638 },
         type: constants.MONSTER.TYPE.DRAGON.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS_DRAGON_GRIFFIN.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.DRAGON.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ALBATROS_DRAGON_GRIFFIN.KEY
     }, {
         agility: 6,
         defense: 12,
@@ -934,7 +1059,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 72, x: -288, y: 0},
         avatar: { height: 32, width: 32, x: -792, y: -638 },
         type: constants.MONSTER.TYPE.EYE.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.EYE_SLIME.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.EYE.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.EYE_SLIME.KEY
     }, {
         agility: 18,
         defense: 29,
@@ -946,7 +1072,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 72, x: -288, y: 0},
         avatar: { height: 32, width: 32, x: -792, y: -638 },
         type: constants.MONSTER.TYPE.EYE.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.EYE_SLIME.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.EYE.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.EYE_SLIME.KEY
     }, {
         agility: 27,
         defense: 41,
@@ -958,7 +1085,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 72, x: -288, y: 0},
         avatar: { height: 32, width: 32, x: -792, y: -638 },
         type: constants.MONSTER.TYPE.EYE.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.EYE_SLIME.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.EYE.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.EYE_SLIME.KEY
     }, {
         agility: 42,
         defense: 60,
@@ -970,7 +1098,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 72, x: -288, y: 0},
         avatar: { height: 32, width: 32, x: -792, y: -638 },
         type: constants.MONSTER.TYPE.EYE.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.EYE_SLIME.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.EYE.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.EYE_SLIME.KEY
     }, {
         agility: 55,
         defense: 75,
@@ -982,7 +1111,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 72, x: -288, y: 0},
         avatar: { height: 32, width: 32, x: -792, y: -638 },
         type: constants.MONSTER.TYPE.EYE.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.EYE_SLIME.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.EYE.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.EYE_SLIME.KEY
     }, {
         agility: 61,
         defense: 81,
@@ -994,7 +1124,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 72, x: -288, y: 0},
         avatar: { height: 32, width: 32, x: -792, y: -638 },
         type: constants.MONSTER.TYPE.EYE.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.EYE_SLIME.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.EYE.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.EYE_SLIME.KEY
     }, {
         agility: 12,
         defense: 11,
@@ -1006,7 +1137,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -903, y: -423},
         avatar: { height: 64, width: 64, x: -162, y: -476 },
         type: constants.MONSTER.TYPE.FIEND.KEY,
-        transformationType: null
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GEN_BU.KEY,
+        transformationGroup: null
     }, {
         agility: 27,
         defense: 25,
@@ -1018,7 +1150,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -1098, y: -423},
         avatar: { height: 64, width: 64, x: -252, y: -476 },
         type: constants.MONSTER.TYPE.FIEND.KEY,
-        transformationType: null
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SEI_RYU.KEY,
+        transformationGroup: null
     }, {
         agility: 50,
         defense: 45,
@@ -1030,7 +1163,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -1293, y: -423},
         avatar: { height: 64, width: 64, x: -432, y: -476 },
         type: constants.MONSTER.TYPE.FIEND.KEY,
-        transformationType: null
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BYAK_KO.KEY,
+        transformationGroup: null
     }, {
         agility: 85,
         defense: 77,
@@ -1042,7 +1176,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 141, x: -1488, y: -423},
         avatar: { height: 64, width: 96, x: -522, y: -476 },
         type: constants.MONSTER.TYPE.FIEND.KEY,
-        transformationType: null
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SU_ZAKU.KEY,
+        transformationGroup: null
     }, {
         agility: 90,
         defense: 100,
@@ -1054,7 +1189,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -903, y: -423},
         avatar: { height: 64, width: 64, x: -162, y: -476 },
         type: constants.MONSTER.TYPE.FIEND.KEY,
-        transformationType: null
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GEN_BU.KEY,
+        transformationGroup: null
     }, {
         agility: 90,
         defense: 90,
@@ -1066,7 +1202,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -1098, y: -423},
         avatar: { height: 64, width: 64, x: -252, y: -476 },
         type: constants.MONSTER.TYPE.FIEND.KEY,
-        transformationType: null
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SEI_RYU.KEY,
+        transformationGroup: null
     }, {
         agility: 100,
         defense: 90,
@@ -1078,7 +1215,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -1293, y: -423},
         avatar: { height: 64, width: 64, x: -432, y: -476 },
         type: constants.MONSTER.TYPE.FIEND.KEY,
-        transformationType: null
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BYAK_KO.KEY,
+        transformationGroup: null
     }, {
         agility: 100,
         defense: 100,
@@ -1090,7 +1228,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 141, x: -1488, y: -423},
         avatar: { height: 64, width: 96, x: -522, y: -476 },
         type: constants.MONSTER.TYPE.FIEND.KEY,
-        transformationType: null
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SU_ZAKU.KEY,
+        transformationGroup: null
     }, {
         agility: 11,
         defense: 6,
@@ -1102,7 +1241,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -153, y: 0},
         avatar: { height: 32, width: 32, x: -382, y: -708 },
         type: constants.MONSTER.TYPE.FISH.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.FISH.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.FISH.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.FISH.KEY
     }, {
         agility: 14,
         defense: 9,
@@ -1114,7 +1254,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -153, y: 0},
         avatar: { height: 32, width: 32, x: -382, y: -708 },
         type: constants.MONSTER.TYPE.FISH.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.FISH.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.FISH.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.FISH.KEY
     }, {
         agility: 30,
         defense: 21,
@@ -1126,7 +1267,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -153, y: 0},
         avatar: { height: 32, width: 32, x: -382, y: -708 },
         type: constants.MONSTER.TYPE.FISH.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.FISH.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.FISH.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.FISH.KEY
     }, {
         agility: 54,
         defense: 40,
@@ -1138,7 +1280,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -153, y: 0},
         avatar: { height: 32, width: 32, x: -382, y: -708 },
         type: constants.MONSTER.TYPE.FISH.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.FISH.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.FISH.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.FISH.KEY
     }, {
         agility: 88,
         defense: 69,
@@ -1150,7 +1293,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -153, y: 0},
         avatar: { height: 32, width: 32, x: -382, y: -708 },
         type: constants.MONSTER.TYPE.FISH.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.FISH.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.FISH.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.FISH.KEY
     }, {
         agility: 99,
         defense: 80,
@@ -1162,7 +1306,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -153, y: 0},
         avatar: { height: 32, width: 32, x: -382, y: -708 },
         type: constants.MONSTER.TYPE.FISH.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.FISH.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.FISH.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.FISH.KEY
     }, {
         agility: 9,
         defense: 8,
@@ -1174,7 +1319,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -291, y: -192},
         avatar: { height: 32, width: 32, x: -2, y: -708 },
         type: constants.MONSTER.TYPE.FLY.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT_FLY_CRAB.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.FLY.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ANT_FLY_CRAB.KEY
     }, {
         agility: 18,
         defense: 17,
@@ -1186,7 +1332,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -291, y: -192},
         avatar: { height: 32, width: 32, x: -2, y: -708 },
         type: constants.MONSTER.TYPE.FLY.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT_FLY_CRAB.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.FLY.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ANT_FLY_CRAB.KEY
     }, {
         agility: 26,
         defense: 25,
@@ -1198,7 +1345,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -291, y: -192},
         avatar: { height: 32, width: 32, x: -2, y: -708 },
         type: constants.MONSTER.TYPE.FLY.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT_FLY_CRAB.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.FLY.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ANT_FLY_CRAB.KEY
     }, {
         agility: 31,
         defense: 30,
@@ -1210,7 +1358,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -291, y: -192},
         avatar: { height: 32, width: 32, x: -2, y: -708 },
         type: constants.MONSTER.TYPE.FLY.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT_FLY_CRAB.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.FLY.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ANT_FLY_CRAB.KEY
     }, {
         agility: 89,
         defense: 88,
@@ -1222,7 +1371,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -291, y: -192},
         avatar: { height: 32, width: 32, x: -2, y: -708 },
         type: constants.MONSTER.TYPE.FLY.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT_FLY_CRAB.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.FLY.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ANT_FLY_CRAB.KEY
     }, {
         agility: 99,
         defense: 99,
@@ -1234,7 +1384,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -291, y: -192},
         avatar: { height: 32, width: 32, x: -2, y: -708 },
         type: constants.MONSTER.TYPE.FLY.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ANT_FLY_CRAB.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.FLY.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ANT_FLY_CRAB.KEY
     }, {
         agility: 8,
         defense: 3,
@@ -1246,7 +1397,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -783, y: 0},
         avatar: { height: 32, width: 32, x: -802, y: -578 },
         type: constants.MONSTER.TYPE.GHOST.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST_SKELETON_ZOMBIE.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GHOST_SKELETON_ZOMBIE.KEY
     }, {
         agility: 14,
         defense: 5,
@@ -1258,7 +1410,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -783, y: 0},
         avatar: { height: 32, width: 32, x: -802, y: -578 },
         type: constants.MONSTER.TYPE.GHOST.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST_SKELETON_ZOMBIE.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GHOST_SKELETON_ZOMBIE.KEY
     }, {
         agility: 54,
         defense: 27,
@@ -1270,7 +1423,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -783, y: 0},
         avatar: { height: 32, width: 32, x: -802, y: -578 },
         type: constants.MONSTER.TYPE.GHOST.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST_SKELETON_ZOMBIE.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GHOST_SKELETON_ZOMBIE.KEY
     }, {
         agility: 83,
         defense: 46,
@@ -1282,7 +1436,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -783, y: 0},
         avatar: { height: 32, width: 32, x: -802, y: -578 },
         type: constants.MONSTER.TYPE.GHOST.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST_SKELETON_ZOMBIE.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GHOST_SKELETON_ZOMBIE.KEY
     }, {
         agility: 94,
         defense: 55,
@@ -1294,7 +1449,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -783, y: 0},
         avatar: { height: 32, width: 32, x: -802, y: -578 },
         type: constants.MONSTER.TYPE.GHOST.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST_SKELETON_ZOMBIE.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GHOST_SKELETON_ZOMBIE.KEY
     }, {
         agility: 99,
         defense: 61,
@@ -1306,7 +1462,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -783, y: 0},
         avatar: { height: 32, width: 32, x: -802, y: -578 },
         type: constants.MONSTER.TYPE.GHOST.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST_SKELETON_ZOMBIE.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GHOST_SKELETON_ZOMBIE.KEY
     }, {
         agility: 4,
         defense: 6,
@@ -1318,7 +1475,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -540, y: -423},
         avatar: { height: 32, width: 32, x: -1002, y: -578 },
         type: constants.MONSTER.TYPE.GOBLIN.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN_RAT_WOLF.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOBLIN_RAT_WOLF.KEY
     }, {
         agility: 7,
         defense: 9,
@@ -1330,7 +1488,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -540, y: -423},
         avatar: { height: 32, width: 32, x: -1002, y: -578 },
         type: constants.MONSTER.TYPE.GOBLIN.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN_RAT_WOLF.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOBLIN_RAT_WOLF.KEY
     }, {
         agility: 32,
         defense: 34,
@@ -1342,7 +1501,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -540, y: -423},
         avatar: { height: 32, width: 32, x: -1002, y: -578 },
         type: constants.MONSTER.TYPE.GOBLIN.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN_RAT_WOLF.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOBLIN_RAT_WOLF.KEY
     }, {
         agility: 54,
         defense: 56,
@@ -1354,7 +1514,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -540, y: -423},
         avatar: { height: 32, width: 32, x: -1002, y: -578 },
         type: constants.MONSTER.TYPE.GOBLIN.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN_RAT_WOLF.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOBLIN_RAT_WOLF.KEY
     }, {
         agility: 74,
         defense: 76,
@@ -1366,7 +1527,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -540, y: -423},
         avatar: { height: 32, width: 32, x: -1002, y: -578 },
         type: constants.MONSTER.TYPE.GOBLIN.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN_RAT_WOLF.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOBLIN_RAT_WOLF.KEY
     }, {
         agility: 80,
         defense: 82,
@@ -1378,7 +1540,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -540, y: -423},
         avatar: { height: 32, width: 32, x: -1002, y: -578 },
         type: constants.MONSTER.TYPE.GOBLIN.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN_RAT_WOLF.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOBLIN_RAT_WOLF.KEY
     }, {
         agility: 11,
         defense: 18,
@@ -1390,7 +1553,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 141, x: -1248, y: -192},
         avatar: { height: 32, width: 32, x: -192, y: -708 },
         type: constants.MONSTER.TYPE.GOLEM.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOLEM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOLEM.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOLEM.KEY
     }, {
         agility: 25,
         defense: 37,
@@ -1402,7 +1566,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 141, x: -1248, y: -192},
         avatar: { height: 32, width: 32, x: -192, y: -708 },
         type: constants.MONSTER.TYPE.GOLEM.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOLEM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOLEM.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOLEM.KEY
     }, {
         agility: 28,
         defense: 41,
@@ -1414,7 +1579,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 141, x: -1248, y: -192},
         avatar: { height: 32, width: 32, x: -192, y: -708 },
         type: constants.MONSTER.TYPE.GOLEM.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOLEM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOLEM.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOLEM.KEY
     }, {
         agility: 47,
         defense: 65,
@@ -1426,7 +1592,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 141, x: -1248, y: -192},
         avatar: { height: 32, width: 32, x: -192, y: -708 },
         type: constants.MONSTER.TYPE.GOLEM.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOLEM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOLEM.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOLEM.KEY
     }, {
         agility: 56,
         defense: 75,
@@ -1438,7 +1605,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 141, x: -1248, y: -192},
         avatar: { height: 32, width: 32, x: -192, y: -708 },
         type: constants.MONSTER.TYPE.GOLEM.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOLEM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOLEM.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOLEM.KEY
     }, {
         agility: 62,
         defense: 81,
@@ -1450,7 +1618,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 141, x: -1248, y: -192},
         avatar: { height: 32, width: 32, x: -192, y: -708 },
         type: constants.MONSTER.TYPE.GOLEM.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOLEM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOLEM.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOLEM.KEY
     }, {
         agility: 21,
         defense: 14,
@@ -1462,7 +1631,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: 0, y: -423},
         avatar: { height: 32, width: 32, x: -402, y: -638 },
         type: constants.MONSTER.TYPE.GRIFFIN.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS_DRAGON_GRIFFIN.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GRIFFIN.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ALBATROS_DRAGON_GRIFFIN.KEY
     }, {
         agility: 30,
         defense: 21,
@@ -1474,7 +1644,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: 0, y: -423},
         avatar: { height: 32, width: 32, x: -402, y: -638 },
         type: constants.MONSTER.TYPE.GRIFFIN.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS_DRAGON_GRIFFIN.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GRIFFIN.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ALBATROS_DRAGON_GRIFFIN.KEY
     }, {
         agility: 49,
         defense: 36,
@@ -1486,7 +1657,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: 0, y: -423},
         avatar: { height: 32, width: 32, x: -402, y: -638 },
         type: constants.MONSTER.TYPE.GRIFFIN.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS_DRAGON_GRIFFIN.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GRIFFIN.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ALBATROS_DRAGON_GRIFFIN.KEY
     }, {
         agility: 71,
         defense: 54,
@@ -1498,7 +1670,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: 0, y: -423},
         avatar: { height: 32, width: 32, x: -402, y: -638 },
         type: constants.MONSTER.TYPE.GRIFFIN.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS_DRAGON_GRIFFIN.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GRIFFIN.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ALBATROS_DRAGON_GRIFFIN.KEY
     }, {
         agility: 94,
         defense: 74,
@@ -1510,7 +1683,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: 0, y: -423},
         avatar: { height: 32, width: 32, x: -402, y: -638 },
         type: constants.MONSTER.TYPE.GRIFFIN.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS_DRAGON_GRIFFIN.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GRIFFIN.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ALBATROS_DRAGON_GRIFFIN.KEY
     }, {
         agility: 99,
         defense: 80,
@@ -1522,7 +1696,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: 0, y: -423},
         avatar: { height: 32, width: 32, x: -402, y: -638 },
         type: constants.MONSTER.TYPE.GRIFFIN.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ALBATROS_DRAGON_GRIFFIN.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GRIFFIN.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.ALBATROS_DRAGON_GRIFFIN.KEY
     }, {
         agility: 9,
         defense: 8,
@@ -1534,7 +1709,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -1428, y: -192},
         avatar: { height: 32, width: 32, x: -402, y: -638 },
         type: constants.MONSTER.TYPE.IMP.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CONDOR_IMP.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.IMP.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.CONDOR_IMP.KEY
     }, {
         agility: 24,
         defense: 23,
@@ -1546,7 +1722,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -1428, y: -192},
         avatar: { height: 32, width: 32, x: -402, y: -638 },
         type: constants.MONSTER.TYPE.IMP.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CONDOR_IMP.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.IMP.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.CONDOR_IMP.KEY
     }, {
         agility: 54,
         defense: 53,
@@ -1558,7 +1735,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -1428, y: -192},
         avatar: { height: 32, width: 32, x: -402, y: -638 },
         type: constants.MONSTER.TYPE.IMP.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CONDOR_IMP.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.IMP.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.CONDOR_IMP.KEY
     }, {
         agility: 59,
         defense: 58,
@@ -1570,7 +1748,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -1428, y: -192},
         avatar: { height: 32, width: 32, x: -402, y: -638 },
         type: constants.MONSTER.TYPE.IMP.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CONDOR_IMP.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.IMP.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.CONDOR_IMP.KEY
     }, {
         agility: 74,
         defense: 73,
@@ -1582,7 +1761,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -1428, y: -192},
         avatar: { height: 32, width: 32, x: -402, y: -638 },
         type: constants.MONSTER.TYPE.IMP.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CONDOR_IMP.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.IMP.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.CONDOR_IMP.KEY
     }, {
         agility: 80,
         defense: 79,
@@ -1594,7 +1774,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 144, x: -1428, y: -192},
         avatar: { height: 32, width: 32, x: -402, y: -638 },
         type: constants.MONSTER.TYPE.IMP.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.CONDOR_IMP.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.IMP.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.CONDOR_IMP.KEY
     }, {
         agility: 4,
         defense: 7,
@@ -1606,7 +1787,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1338, y: 0},
         avatar: { height: 32, width: 32, x: -992, y: -638 },
         type: constants.MONSTER.TYPE.LIZARD.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BULL_LIZARD.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.LIZARD.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.BULL_LIZARD.KEY
     }, {
         agility: 6,
         defense: 11,
@@ -1618,7 +1800,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1338, y: 0},
         avatar: { height: 32, width: 32, x: -992, y: -638 },
         type: constants.MONSTER.TYPE.LIZARD.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BULL_LIZARD.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.LIZARD.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.BULL_LIZARD.KEY
     }, {
         agility: 7,
         defense: 14,
@@ -1630,7 +1813,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1338, y: 0},
         avatar: { height: 32, width: 32, x: -992, y: -638 },
         type: constants.MONSTER.TYPE.LIZARD.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BULL_LIZARD.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.LIZARD.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.BULL_LIZARD.KEY
     }, {
         agility: 40,
         defense: 71,
@@ -1642,7 +1826,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1338, y: 0},
         avatar: { height: 32, width: 32, x: -992, y: -638 },
         type: constants.MONSTER.TYPE.LIZARD.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BULL_LIZARD.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.LIZARD.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.BULL_LIZARD.KEY
     }, {
         agility: 53,
         defense: 88,
@@ -1654,7 +1839,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1338, y: 0},
         avatar: { height: 32, width: 32, x: -992, y: -638 },
         type: constants.MONSTER.TYPE.LIZARD.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BULL_LIZARD.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.LIZARD.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.BULL_LIZARD.KEY
     }, {
         agility: 63,
         defense: 99,
@@ -1666,7 +1852,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1338, y: 0},
         avatar: { height: 32, width: 32, x: -992, y: -638 },
         type: constants.MONSTER.TYPE.LIZARD.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BULL_LIZARD.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.LIZARD.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.BULL_LIZARD.KEY
     }, {
         agility: 19,
         defense: 17,
@@ -1678,7 +1865,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -918, y: 0},
         avatar: { height: 32, width: 32, x: -2, y: -638 },
         type: constants.MONSTER.TYPE.MEDUSA.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA_SNAKE_WORM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.MEDUSA_SNAKE_WORM.KEY
     }, {
         agility: 23,
         defense: 21,
@@ -1690,7 +1878,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -918, y: 0},
         avatar: { height: 32, width: 32, x: -2, y: -638 },
         type: constants.MONSTER.TYPE.MEDUSA.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA_SNAKE_WORM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.MEDUSA_SNAKE_WORM.KEY
     }, {
         agility: 56,
         defense: 54,
@@ -1702,7 +1891,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -918, y: 0},
         avatar: { height: 32, width: 32, x: -2, y: -638 },
         type: constants.MONSTER.TYPE.MEDUSA.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA_SNAKE_WORM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.MEDUSA_SNAKE_WORM.KEY
     }, {
         agility: 61,
         defense: 59,
@@ -1714,7 +1904,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -918, y: 0},
         avatar: { height: 32, width: 32, x: -2, y: -638 },
         type: constants.MONSTER.TYPE.MEDUSA.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA_SNAKE_WORM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.MEDUSA_SNAKE_WORM.KEY
     }, {
         agility: 76,
         defense: 74,
@@ -1726,7 +1917,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -918, y: 0},
         avatar: { height: 32, width: 32, x: -2, y: -638 },
         type: constants.MONSTER.TYPE.MEDUSA.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA_SNAKE_WORM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.MEDUSA_SNAKE_WORM.KEY
     }, {
         agility: 82,
         defense: 80,
@@ -1738,7 +1930,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -918, y: 0},
         avatar: { height: 32, width: 32, x: -2, y: -638 },
         type: constants.MONSTER.TYPE.MEDUSA.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA_SNAKE_WORM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.MEDUSA_SNAKE_WORM.KEY
     }, {
         agility: 8,
         defense: 16,
@@ -1750,7 +1943,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1485, y: 0},
         avatar: { height: 32, width: 32, x: -592, y: -638 },
         type: constants.MONSTER.TYPE.PLANT.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.PLANT_SEA.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.PLANT.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.PLANT_SEA.KEY
     }, {
         agility: 10,
         defense: 19,
@@ -1762,7 +1956,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1485, y: 0},
         avatar: { height: 32, width: 32, x: -592, y: -638 },
         type: constants.MONSTER.TYPE.PLANT.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.PLANT_SEA.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.PLANT.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.PLANT_SEA.KEY
     }, {
         agility: 15,
         defense: 26,
@@ -1774,7 +1969,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1485, y: 0},
         avatar: { height: 32, width: 32, x: -592, y: -638 },
         type: constants.MONSTER.TYPE.PLANT.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.PLANT_SEA.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.PLANT.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.PLANT_SEA.KEY
     }, {
         agility: 27,
         defense: 42,
@@ -1786,7 +1982,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1485, y: 0},
         avatar: { height: 32, width: 32, x: -592, y: -638 },
         type: constants.MONSTER.TYPE.PLANT.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.PLANT_SEA.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.PLANT.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.PLANT_SEA.KEY
     }, {
         agility: 51,
         defense: 71,
@@ -1798,7 +1995,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1485, y: 0},
         avatar: { height: 32, width: 32, x: -592, y: -638 },
         type: constants.MONSTER.TYPE.PLANT.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.PLANT_SEA.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.PLANT.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.PLANT_SEA.KEY
     }, {
         agility: 61,
         defense: 82,
@@ -1810,7 +2008,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1485, y: 0},
         avatar: { height: 32, width: 32, x: -592, y: -638 },
         type: constants.MONSTER.TYPE.PLANT.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.PLANT_SEA.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.PLANT.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.PLANT_SEA.KEY
     }, {
         agility: 5,
         defense: 4,
@@ -1822,7 +2021,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -18, y: -192},
         avatar: { height: 32, width: 32, x: -1002, y: -578 },
         type: constants.MONSTER.TYPE.RAT.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN_RAT_WOLF.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.RAT.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOBLIN_RAT_WOLF.KEY
     }, {
         agility: 11,
         defense: 7,
@@ -1834,7 +2034,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -18, y: -192},
         avatar: { height: 32, width: 32, x: -1002, y: -578 },
         type: constants.MONSTER.TYPE.RAT.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN_RAT_WOLF.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.RAT.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOBLIN_RAT_WOLF.KEY
     }, {
         agility: 21,
         defense: 14,
@@ -1846,7 +2047,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -18, y: -192},
         avatar: { height: 32, width: 32, x: -1002, y: -578 },
         type: constants.MONSTER.TYPE.RAT.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN_RAT_WOLF.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.RAT.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOBLIN_RAT_WOLF.KEY
     }, {
         agility: 54,
         defense: 39,
@@ -1858,7 +2060,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -18, y: -192},
         avatar: { height: 32, width: 32, x: -1002, y: -578 },
         type: constants.MONSTER.TYPE.RAT.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN_RAT_WOLF.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.RAT.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOBLIN_RAT_WOLF.KEY
     }, {
         agility: 69,
         defense: 52,
@@ -1870,7 +2073,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -18, y: -192},
         avatar: { height: 32, width: 32, x: -1002, y: -578 },
         type: constants.MONSTER.TYPE.RAT.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN_RAT_WOLF.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.RAT.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOBLIN_RAT_WOLF.KEY
     }, {
         agility: 80,
         defense: 62,
@@ -1882,7 +2086,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -18, y: -192},
         avatar: { height: 32, width: 32, x: -1002, y: -578 },
         type: constants.MONSTER.TYPE.RAT.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN_RAT_WOLF.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.RAT.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOBLIN_RAT_WOLF.KEY
     }, {
         agility: 12,
         defense: 11,
@@ -1894,7 +2099,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 93, x: -438, y: -192},
         avatar: { height: 32, width: 32, x: -592, y: -638 },
         type: constants.MONSTER.TYPE.SEA.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.PLANT_SEA.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SEA.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.PLANT_SEA.KEY
     }, {
         agility: 25,
         defense: 24,
@@ -1906,7 +2112,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 93, x: -438, y: -192},
         avatar: { height: 32, width: 32, x: -592, y: -638 },
         type: constants.MONSTER.TYPE.SEA.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.PLANT_SEA.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SEA.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.PLANT_SEA.KEY
     }, {
         agility: 33,
         defense: 32,
@@ -1918,7 +2125,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 93, x: -438, y: -192},
         avatar: { height: 32, width: 32, x: -592, y: -638 },
         type: constants.MONSTER.TYPE.SEA.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.PLANT_SEA.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SEA.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.PLANT_SEA.KEY
     }, {
         agility: 50,
         defense: 49,
@@ -1930,7 +2138,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 93, x: -438, y: -192},
         avatar: { height: 32, width: 32, x: -592, y: -638 },
         type: constants.MONSTER.TYPE.SEA.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.PLANT_SEA.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SEA.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.PLANT_SEA.KEY
     }, {
         agility: 70,
         defense: 69,
@@ -1942,7 +2151,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 93, x: -438, y: -192},
         avatar: { height: 32, width: 32, x: -592, y: -638 },
         type: constants.MONSTER.TYPE.SEA.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.PLANT_SEA.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SEA.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.PLANT_SEA.KEY
     }, {
         agility: 81,
         defense: 80,
@@ -1954,7 +2164,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 93, x: -438, y: -192},
         avatar: { height: 32, width: 32, x: -592, y: -638 },
         type: constants.MONSTER.TYPE.SEA.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.PLANT_SEA.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SEA.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.PLANT_SEA.KEY
     }, {
         agility: 4,
         defense: 2,
@@ -1966,7 +2177,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1620, y: 0},
         avatar: { height: 32, width: 32, x: -802, y: -578 },
         type: constants.MONSTER.TYPE.SKELETON.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST_SKELETON_ZOMBIE.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SKELETON.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GHOST_SKELETON_ZOMBIE.KEY
     }, {
         agility: 8,
         defense: 6,
@@ -1978,7 +2190,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1620, y: 0},
         avatar: { height: 32, width: 32, x: -802, y: -578 },
         type: constants.MONSTER.TYPE.SKELETON.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST_SKELETON_ZOMBIE.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SKELETON.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GHOST_SKELETON_ZOMBIE.KEY
     }, {
         agility: 33,
         defense: 31,
@@ -1990,7 +2203,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1620, y: 0},
         avatar: { height: 32, width: 32, x: -802, y: -578 },
         type: constants.MONSTER.TYPE.SKELETON.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST_SKELETON_ZOMBIE.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SKELETON.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GHOST_SKELETON_ZOMBIE.KEY
     }, {
         agility: 44,
         defense: 42,
@@ -2002,7 +2216,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1620, y: 0},
         avatar: { height: 32, width: 32, x: -802, y: -578 },
         type: constants.MONSTER.TYPE.SKELETON.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST_SKELETON_ZOMBIE.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SKELETON.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GHOST_SKELETON_ZOMBIE.KEY
     }, {
         agility: 57,
         defense: 55,
@@ -2014,7 +2229,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1620, y: 0},
         avatar: { height: 32, width: 32, x: -802, y: -578 },
         type: constants.MONSTER.TYPE.SKELETON.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST_SKELETON_ZOMBIE.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SKELETON.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GHOST_SKELETON_ZOMBIE.KEY
     }, {
         agility: 63,
         defense: 61,
@@ -2026,7 +2242,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1620, y: 0},
         avatar: { height: 32, width: 32, x: -802, y: -578 },
         type: constants.MONSTER.TYPE.SKELETON.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST_SKELETON_ZOMBIE.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SKELETON.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GHOST_SKELETON_ZOMBIE.KEY
     }, {
         agility: 3,
         defense: 4,
@@ -2038,7 +2255,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -393, y: 0},
         avatar: { height: 32, width: 32, x: -792, y: -638 },
         type: constants.MONSTER.TYPE.SLIME.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.EYE_SLIME.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SLIME.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.EYE_SLIME.KEY
     }, {
         agility: 21,
         defense: 22,
@@ -2050,7 +2268,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -393, y: 0},
         avatar: { height: 32, width: 32, x: -792, y: -638 },
         type: constants.MONSTER.TYPE.SLIME.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.EYE_SLIME.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SLIME.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.EYE_SLIME.KEY
     }, {
         agility: 34,
         defense: 35,
@@ -2062,7 +2281,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -393, y: 0},
         avatar: { height: 32, width: 32, x: -792, y: -638 },
         type: constants.MONSTER.TYPE.SLIME.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.EYE_SLIME.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SLIME.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.EYE_SLIME.KEY
     }, {
         agility: 42,
         defense: 43,
@@ -2074,7 +2294,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -393, y: 0},
         avatar: { height: 32, width: 32, x: -792, y: -638 },
         type: constants.MONSTER.TYPE.SLIME.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.EYE_SLIME.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SLIME.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.EYE_SLIME.KEY
     }, {
         agility: 55,
         defense: 56,
@@ -2086,7 +2307,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -393, y: 0},
         avatar: { height: 32, width: 32, x: -792, y: -638 },
         type: constants.MONSTER.TYPE.SLIME.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.EYE_SLIME.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SLIME.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.EYE_SLIME.KEY
     }, {
         agility: 61,
         defense: 62,
@@ -2098,7 +2320,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -393, y: 0},
         avatar: { height: 32, width: 30, x: -792, y: -638 },
         type: constants.MONSTER.TYPE.SLIME.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.EYE_SLIME.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SLIME.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.EYE_SLIME.KEY
     }, {
         agility: 7,
         defense: 11,
@@ -2110,7 +2333,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -528, y: 0},
         avatar: { height: 32, width: 30, x: -2, y: -638 },
         type: constants.MONSTER.TYPE.SNAKE.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA_SNAKE_WORM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SNAKE.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.MEDUSA_SNAKE_WORM.KEY
     }, {
         agility: 14,
         defense: 21,
@@ -2122,7 +2346,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -528, y: 0},
         avatar: { height: 32, width: 30, x: -2, y: -638 },
         type: constants.MONSTER.TYPE.SNAKE.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA_SNAKE_WORM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SNAKE.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.MEDUSA_SNAKE_WORM.KEY
     }, {
         agility: 28,
         defense: 39,
@@ -2134,7 +2359,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -528, y: 0},
         avatar: { height: 32, width: 30, x: -2, y: -638 },
         type: constants.MONSTER.TYPE.SNAKE.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA_SNAKE_WORM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SNAKE.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.MEDUSA_SNAKE_WORM.KEY
     }, {
         agility: 49,
         defense: 65,
@@ -2146,7 +2372,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -528, y: 0},
         avatar: { height: 32, width: 30, x: -2, y: -638 },
         type: constants.MONSTER.TYPE.SNAKE.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA_SNAKE_WORM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SNAKE.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.MEDUSA_SNAKE_WORM.KEY
     }, {
         agility: 69,
         defense: 88,
@@ -2158,7 +2385,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -528, y: 0},
         avatar: { height: 32, width: 30, x: -2, y: -638 },
         type: constants.MONSTER.TYPE.SNAKE.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA_SNAKE_WORM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SNAKE.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.MEDUSA_SNAKE_WORM.KEY
     }, {
         agility: 80,
         defense: 99,
@@ -2170,7 +2398,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -528, y: 0},
         avatar: { height: 32, width: 32, x: -2, y: -638 },
         type: constants.MONSTER.TYPE.SNAKE.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA_SNAKE_WORM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SNAKE.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.MEDUSA_SNAKE_WORM.KEY
     }, {
         agility: 10,
         defense: 8,
@@ -2182,7 +2411,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1203, y: 0},
         avatar: { height: 32, width: 32, x: -1002, y: -578 },
         type: constants.MONSTER.TYPE.WOLF.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN_RAT_WOLF.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.WOLF.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOBLIN_RAT_WOLF.KEY
     }, {
         agility: 16,
         defense: 12,
@@ -2194,7 +2424,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1203, y: 0},
         avatar: { height: 32, width: 32, x: -1002, y: -578 },
         type: constants.MONSTER.TYPE.WOLF.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN_RAT_WOLF.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.WOLF.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOBLIN_RAT_WOLF.KEY
     }, {
         agility: 33,
         defense: 25,
@@ -2206,7 +2437,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1203, y: 0},
         avatar: { height: 32, width: 32, x: -1002, y: -578 },
         type: constants.MONSTER.TYPE.WOLF.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN_RAT_WOLF.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.WOLF.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOBLIN_RAT_WOLF.KEY
     }, {
         agility: 59,
         defense: 46,
@@ -2218,7 +2450,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1203, y: 0},
         avatar: { height: 32, width: 32, x: -1002, y: -578 },
         type: constants.MONSTER.TYPE.WOLF.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN_RAT_WOLF.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.WOLF.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOBLIN_RAT_WOLF.KEY
     }, {
         agility: 87,
         defense: 70,
@@ -2230,7 +2463,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1203, y: 0},
         avatar: { height: 32, width: 32, x: -1002, y: -578 },
         type: constants.MONSTER.TYPE.WOLF.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN_RAT_WOLF.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.WOLF.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOBLIN_RAT_WOLF.KEY
     }, {
         agility: 99,
         defense: 81,
@@ -2242,7 +2476,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 96, x: -1203, y: 0},
         avatar: { height: 32, width: 32, x: -1002, y: -578 },
         type: constants.MONSTER.TYPE.WOLF.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GOBLIN_RAT_WOLF.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.WOLF.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GOBLIN_RAT_WOLF.KEY
     }, {
         agility: 4,
         defense: 5,
@@ -2254,7 +2489,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 84, x: -663, y: 0},
         avatar: { height: 32, width: 32, x: -2, y: -638 },
         type: constants.MONSTER.TYPE.WORM.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA_SNAKE_WORM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.WORM.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.MEDUSA_SNAKE_WORM.KEY
     }, {
         agility: 15,
         defense: 16,
@@ -2266,7 +2502,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 84, x: -663, y: 0},
         avatar: { height: 32, width: 32, x: -2, y: -638 },
         type: constants.MONSTER.TYPE.WORM.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA_SNAKE_WORM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.WORM.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.MEDUSA_SNAKE_WORM.KEY
     }, {
         agility: 24,
         defense: 25,
@@ -2278,7 +2515,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 84, x: -663, y: 0},
         avatar: { height: 32, width: 32, x: -2, y: -638 },
         type: constants.MONSTER.TYPE.WORM.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA_SNAKE_WORM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.WORM.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.MEDUSA_SNAKE_WORM.KEY
     }, {
         agility: 34,
         defense: 35,
@@ -2290,7 +2528,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 84, x: -663, y: 0},
         avatar: { height: 32, width: 32, x: -2, y: -638 },
         type: constants.MONSTER.TYPE.WORM.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA_SNAKE_WORM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.WORM.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.MEDUSA_SNAKE_WORM.KEY
     }, {
         agility: 51,
         defense: 52,
@@ -2302,7 +2541,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 84, x: -663, y: 0},
         avatar: { height: 32, width: 32, x: -2, y: -638 },
         type: constants.MONSTER.TYPE.WORM.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA_SNAKE_WORM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.WORM.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.MEDUSA_SNAKE_WORM.KEY
     }, {
         agility: 61,
         defense: 62,
@@ -2314,7 +2554,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 84, x: -663, y: 0},
         avatar: { height: 32, width: 32, x: -2, y: -638 },
         type: constants.MONSTER.TYPE.WORM.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.MEDUSA_SNAKE_WORM.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.WORM.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.MEDUSA_SNAKE_WORM.KEY
     }, {
         agility: 3,
         defense: 4,
@@ -2326,7 +2567,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 84, x: -585, y: -192},
         avatar: { height: 32, width: 32, x: -802, y: -578 },
         type: constants.MONSTER.TYPE.ZOMBIE.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST_SKELETON_ZOMBIE.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ZOMBIE.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GHOST_SKELETON_ZOMBIE.KEY
     }, {
         agility: 5,
         defense: 6,
@@ -2338,7 +2580,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 84, x: -585, y: -192},
         avatar: { height: 32, width: 32, x: -802, y: -578 },
         type: constants.MONSTER.TYPE.ZOMBIE.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST_SKELETON_ZOMBIE.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ZOMBIE.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GHOST_SKELETON_ZOMBIE.KEY
     }, {
         agility: 24,
         defense: 25,
@@ -2350,7 +2593,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 84, x: -585, y: -192},
         avatar: { height: 32, width: 32, x: -802, y: -578 },
         type: constants.MONSTER.TYPE.ZOMBIE.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST_SKELETON_ZOMBIE.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ZOMBIE.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GHOST_SKELETON_ZOMBIE.KEY
     }, {
         agility: 46,
         defense: 47,
@@ -2362,7 +2606,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 84, x: -585, y: -192},
         avatar: { height: 32, width: 32, x: -802, y: -578 },
         type: constants.MONSTER.TYPE.ZOMBIE.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST_SKELETON_ZOMBIE.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ZOMBIE.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GHOST_SKELETON_ZOMBIE.KEY
     }, {
         agility: 55,
         defense: 56,
@@ -2374,7 +2619,8 @@ constants.MONSTERS = [
         image: { height: 192, width: 84, x: -585, y: -192},
         avatar: { height: 32, width: 32, x: -802, y: -578 },
         type: constants.MONSTER.TYPE.ZOMBIE.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST_SKELETON_ZOMBIE.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ZOMBIE.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GHOST_SKELETON_ZOMBIE.KEY
     }, {
         agility: 61,
         defense: 62,
@@ -2386,6 +2632,7 @@ constants.MONSTERS = [
         image: { height: 192, width: 84, x: -585, y: -192},
         avatar: { height: 32, width: 32, x: -802, y: -578 },
         type: constants.MONSTER.TYPE.ZOMBIE.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GHOST_SKELETON_ZOMBIE.KEY
+        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.ZOMBIE.KEY,
+        transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.GHOST_SKELETON_ZOMBIE.KEY
     }
 ];
