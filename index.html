@@ -496,85 +496,100 @@
                 instance.$hp.html(monster.hp);
             };
             
-            instance.initialize();
+            if (instance.model.get(instance.itemKey)) {
+                instance.initialize();
+            }
             
             return instance;
         };
         
-        // Views
-        var ddlStartingMonsterType = bbDropdownList({
-            el: document.getElementById('ddlStartingMonsterType'),
-            model: calculatorModel,
-            itemsKey: 'startingMonsterTypes',
-            itemTextKey: 'name',
-            selectedValueKey: 'startingMonsterType'
-        });
+        // App
+        var app = _.extend({}, Backbone.Events);
         
-        var ddlStartingMonster = bbDropdownList({
-            el: document.getElementById('ddlStartingMonster'),
-            model: calculatorModel,
-            itemsKey: 'startingMonsters',
-            itemTextKey: 'name',
-            selectedValueKey: 'startingMonster'
-        });
-        
-        var ddlMeatOfMonsterType = bbDropdownList({
-            el: document.getElementById('ddlMeatOfMonsterType'),
-            model: calculatorModel,
-            itemsKey: 'meatOfMonsterTypes',
-            itemTextKey: 'name',
-            selectedValueKey: 'meatOfMonsterType'
-        });
-        
-        var ddlMeatOfMonster = bbDropdownList({
-            el: document.getElementById('ddlMeatOfMonster'),
-            model: calculatorModel,
-            itemsKey: 'meatOfMonsters',
-            itemTextKey: 'name',
-            selectedValueKey: 'meatOfMonster'
-        });
+        app.initialize = function () {
+            
+            app.listenTo(calculatorModel, 'change:startingMonsterType', calculatorModel.updateStartingMonsters);
+            app.listenTo(calculatorModel, 'change:meatOfMonsterType', calculatorModel.updateMeatOfMonsters);
+            
+            // Views
+            var ddlStartingMonsterType = bbDropdownList({
+                el: document.getElementById('ddlStartingMonsterType'),
+                model: calculatorModel,
+                itemsKey: 'startingMonsterTypes',
+                itemTextKey: 'name',
+                selectedValueKey: 'startingMonsterType'
+            });
 
-        var startingMonster = monsterView({
-            el: document.getElementById('startingMonster'),
-            model: calculatorModel,
-            itemKey: 'startingMonster',
-            templateId: 'monsterTemplate'
-        });
+            var ddlStartingMonster = bbDropdownList({
+                el: document.getElementById('ddlStartingMonster'),
+                model: calculatorModel,
+                itemsKey: 'startingMonsters',
+                itemTextKey: 'name',
+                selectedValueKey: 'startingMonster'
+            });
+
+            var ddlMeatOfMonsterType = bbDropdownList({
+                el: document.getElementById('ddlMeatOfMonsterType'),
+                model: calculatorModel,
+                itemsKey: 'meatOfMonsterTypes',
+                itemTextKey: 'name',
+                selectedValueKey: 'meatOfMonsterType'
+            });
+
+            var ddlMeatOfMonster = bbDropdownList({
+                el: document.getElementById('ddlMeatOfMonster'),
+                model: calculatorModel,
+                itemsKey: 'meatOfMonsters',
+                itemTextKey: 'name',
+                selectedValueKey: 'meatOfMonster'
+            });
+
+            var startingMonster = monsterView({
+                el: document.getElementById('startingMonster'),
+                model: calculatorModel,
+                itemKey: 'startingMonster',
+                templateId: 'monsterTemplate'
+            });
+
+            var meatOfMonster = monsterView({
+                el: document.getElementById('meatOfMonster'),
+                model: calculatorModel,
+                itemKey: 'meatOfMonster',
+                templateId: 'monsterTemplate'
+            });
+
+//            var newMonster = monsterView({
+//                el: document.getElementById('newMonster'),
+//                model: calculatorModel,
+//                itemKey: 'newMonster',
+//                templateId: 'monsterTemplate'
+//            });
+//
+//            var startingMonsterImage = bbTemplateView({
+//                el: document.getElementById('startingMonsterImage'),
+//                model: calculatorModel,
+//                itemKey: 'startingMonster',
+//                templateId: 'monsterImageTemplate'
+//            });
+//
+//            var startingMonsterAbilities = bbTemplateView({
+//                el: document.getElementById('startingMonsterAbilities'),
+//                model: calculatorModel,
+//                itemKey: 'startingMonster',
+//                templateId: 'monsterAbilitiesTemplate'
+//            });
+//
+//            var startingMonsterHp = bbTemplateView({
+//                el: document.getElementById('startingMonsterHp'),
+//                model: calculatorModel,
+//                itemKey: 'startingMonster',
+//                templateId: 'monsterHpTemplate'
+//            });
+        };
         
-        var meatOfMonster = monsterView({
-            el: document.getElementById('meatOfMonster'),
-            model: calculatorModel,
-            itemKey: 'meatOfMonster',
-            templateId: 'monsterTemplate'
-        });
+        app.initialize();
         
-//        var newMonster = monsterView({
-//            el: document.getElementById('newMonster'),
-//            model: calculatorModel,
-//            itemKey: 'newMonster',
-//            templateId: 'monsterTemplate'
-//        });
-        
-//        var startingMonsterImage = bbTemplateView({
-//            el: document.getElementById('startingMonsterImage'),
-//            model: calculatorModel,
-//            itemKey: 'startingMonster',
-//            templateId: 'monsterImageTemplate'
-//        });
-//        
-//        var startingMonsterAbilities = bbTemplateView({
-//            el: document.getElementById('startingMonsterAbilities'),
-//            model: calculatorModel,
-//            itemKey: 'startingMonster',
-//            templateId: 'monsterAbilitiesTemplate'
-//        });
-//        
-//        var startingMonsterHp = bbTemplateView({
-//            el: document.getElementById('startingMonsterHp'),
-//            model: calculatorModel,
-//            itemKey: 'startingMonster',
-//            templateId: 'monsterHpTemplate'
-//        });
+        window.model = calculatorModel;
         
     </script>
     

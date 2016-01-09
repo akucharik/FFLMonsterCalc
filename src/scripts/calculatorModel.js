@@ -72,8 +72,3 @@ calculatorModel.updateMeatOfMonsters = function () {
         }));
     }
 };
-
-calculatorModel.listenTo(calculatorModel, 'change:startingMonsterType', calculatorModel.updateStartingMonsters);
-calculatorModel.listenTo(calculatorModel, 'change:meatOfMonsterType', calculatorModel.updateMeatOfMonsters);
-
-window.model = calculatorModel;
