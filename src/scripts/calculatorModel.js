@@ -80,25 +80,50 @@ calculatorModel.updateMeatOfMonsters = function () {
 
 // TODO: Add logic to get correct new monster
 calculatorModel.updateNewMonster = function () {
+    var startingMonster = calculatorModel.get('startingMonster');
+    var meatOfMonster = calculatorModel.get('meatOfMonster');
+    
     if (calculatorModel.get('startingMonster') && calculatorModel.get('meatOfMonster')) {
+        var monsterLevel = Math.max(startingMonster.level, meatOfMonster.level);
+        
         var startingTransformationGroup = calculatorModel.get('startingMonster').transformationGroup;
         var meatOfTransformationType = calculatorModel.get('meatOfMonster').transformationType;
-        
-        console.log('starting transformation group: ', startingTransformationGroup);
-        console.log('meat of type: ', meatOfTransformationType);
 
         var newMonsterType = constants.MONSTER.TRANSFORMATION[startingTransformationGroup][meatOfTransformationType];
         
-        console.log('new type: ', newMonsterType);
-        
-        var newMonster = _.findWhere(calculatorModel.get('monsters'), { 
-            type: newMonsterType
-        });
-        
-        calculatorModel.set('newMonster', newMonster);   
+        if (newMonsterType) {
+            var newMonsterPossibilities = _.where(calculatorModel.get('monsters'), { 
+                type: newMonsterType
+            })
+
+            var newMonster = _.findWhere(newMonsterPossibilities, {
+                level: monsterLevel
+            });
+
+            if (newMonster === undefined) {
+                newMonster = _.findWhere(newMonsterPossibilities, {
+                    level: (monsterLevel + 1)
+                });
+            }
+
+            if (newMonster === undefined) {
+                newMonster = calculatorModel.getNewMonster(newMonsterPossibilities, monsterLevel - 1);
+            }
+
+            calculatorModel.set('newMonster', newMonster);
+        }
     }
 };
 
-calculatorModel.getNewMonsterType = function () {
-    
+calculatorModel.getNewMonster = function (monsters, level) {
+    var newMonster = _.findWhere(monsters, {
+        level: level
+    });
+        
+    if (newMonster === undefined) {
+        calculatorModel.getNewMonster(monsters, (level - 1));
+    }
+    else {
+        return newMonster;
+    }
 };
