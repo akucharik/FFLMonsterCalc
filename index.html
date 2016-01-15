@@ -521,10 +521,10 @@
         
         app.initialize = function () {
             
-            app.listenTo(calculatorModel, 'change:startingMonsterType', calculatorModel.updateStartingMonsters);
-            app.listenTo(calculatorModel, 'change:meatOfMonsterType', calculatorModel.updateMeatOfMonsters);
-            app.listenTo(calculatorModel, 'change:startingMonster', calculatorModel.updateNewMonster);
-            app.listenTo(calculatorModel, 'change:meatOfMonster', calculatorModel.updateNewMonster);
+            app.listenTo(calculatorModel, 'change:startingMonsterType', app.updateStartingMonsters);
+            app.listenTo(calculatorModel, 'change:meatOfMonsterType', app.updateMeatOfMonsters);
+            app.listenTo(calculatorModel, 'change:startingMonster', app.updateNewMonster);
+            app.listenTo(calculatorModel, 'change:meatOfMonster', app.updateNewMonster);
             
             // Views
             var ddlStartingMonsterType = bbDropdownList({
@@ -602,8 +602,77 @@
 //            });
         };
         
+        app.updateStartingMonsters = function () {
+            if (calculatorModel.get('startingMonsterType')) {
+                var startingMonsters = _.where(calculatorModel.get('monsters'), { 
+                    type: calculatorModel.get('startingMonsterType').id
+                });
+                calculatorModel.set('startingMonsters', startingMonsters);
+            }
+        };
+        
+        app.updateMeatOfMonsters = function () {
+            if (calculatorModel.get('meatOfMonsterType')) {
+                var meatOfMonsters = _.where(calculatorModel.get('monsters'), { 
+                    type: calculatorModel.get('meatOfMonsterType').id
+                });
+                calculatorModel.set('meatOfMonsters', meatOfMonsters);
+            }
+        };
+        
+        // TODO: Add logic to get correct new monster
+        app.updateNewMonster = function () {
+            var startingMonster = calculatorModel.get('startingMonster');
+            var meatOfMonster = calculatorModel.get('meatOfMonster');
+
+            if (calculatorModel.get('startingMonster') && calculatorModel.get('meatOfMonster')) {
+                var monsterLevel = Math.max(startingMonster.level, meatOfMonster.level);
+
+                var startingTransformationGroup = calculatorModel.get('startingMonster').transformationGroup;
+                var meatOfTransformationType = calculatorModel.get('meatOfMonster').transformationType;
+
+                var newMonsterType = constants.MONSTER.TRANSFORMATION[startingTransformationGroup][meatOfTransformationType];
+
+                if (newMonsterType) {
+                    var newMonsterPossibilities = _.where(calculatorModel.get('monsters'), { 
+                        type: newMonsterType
+                    })
+
+                    var newMonster = _.findWhere(newMonsterPossibilities, {
+                        level: monsterLevel
+                    });
+
+                    if (newMonster === undefined) {
+                        newMonster = _.findWhere(newMonsterPossibilities, {
+                            level: (monsterLevel + 1)
+                        });
+                    }
+
+                    if (newMonster === undefined) {
+                        newMonster = app.getNewMonster(newMonsterPossibilities, monsterLevel - 1);
+                    }
+
+                    calculatorModel.set('newMonster', newMonster);
+                }
+            }
+        };
+        
+        app.getNewMonster = function (monsters, level) {
+            var newMonster = _.findWhere(monsters, {
+                level: level
+            });
+
+            if (newMonster === undefined) {
+                app.getNewMonster(monsters, (level - 1));
+            }
+            else {
+                return newMonster;
+            }
+        };
+        
         app.initialize();
         
+        // TODO: Remove once development is complete
         window.model = calculatorModel;
         
     </script>
