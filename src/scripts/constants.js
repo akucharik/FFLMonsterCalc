@@ -1127,19 +1127,6 @@ constants.MONSTERS = [
         transformationType: constants.MONSTER.TRANSFORMATION_TYPE.EYE.KEY,
         transformationGroup: constants.MONSTER.TRANSFORMATION_GROUP.EYE_SLIME.KEY
     }, {
-        agility: 12,
-        defense: 11,
-        hp: 250,
-        level: null,
-        mana: 12,
-        name: 'Gen-bu',
-        strength: 12,
-        image: { height: 192, width: 144, x: -903, y: -423},
-        avatar: { height: 64, width: 64, x: -162, y: -476 },
-        type: constants.MONSTER.TYPE.FIEND.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.GEN_BU.KEY,
-        transformationGroup: null
-    }, {
         agility: 27,
         defense: 25,
         hp: 600,
@@ -1151,19 +1138,6 @@ constants.MONSTERS = [
         avatar: { height: 64, width: 64, x: -252, y: -476 },
         type: constants.MONSTER.TYPE.FIEND.KEY,
         transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SEI_RYU.KEY,
-        transformationGroup: null
-    }, {
-        agility: 50,
-        defense: 45,
-        hp: 1000,
-        level: null,
-        mana: 50,
-        name: 'Byak-ko',
-        strength: 50,
-        image: { height: 192, width: 144, x: -1293, y: -423},
-        avatar: { height: 64, width: 64, x: -432, y: -476 },
-        type: constants.MONSTER.TYPE.FIEND.KEY,
-        transformationType: constants.MONSTER.TRANSFORMATION_TYPE.BYAK_KO.KEY,
         transformationGroup: null
     }, {
         agility: 85,
