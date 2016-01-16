@@ -24,8 +24,7 @@
         }
         
         h2 {
-            font-size: 120%;
-            margin-bottom: 0;
+            
         }
         
         /* Forms */
@@ -44,8 +43,8 @@
         
         /* Box */
         .ffl-box {
-            display: flex;
-            margin: 2px;
+            box-sizing: border-box;
+            height: 100%;
             padding: 0.8em 0.7em 0.5em 0.7em;
             position: relative;
         }
@@ -114,6 +113,10 @@
             left: 4px;
         }
         
+        .ffl-box-content {
+        
+        }
+        
         /* Monster Calculator Layout */
         .ffl-monster-calc-layout {
             align-items: flex-start;
@@ -129,6 +132,11 @@
         .ffl-monster {
             margin: 0 1.0em;
             width: 220px;
+        }
+        
+        .ffl-monster-top > h2 {
+            font-size: 120%;
+            margin: 0;
         }
         
         .ffl-monster-image-mask {
@@ -173,6 +181,10 @@
         }
         
         /* Abilities & Skills */
+        .ffl-monster-layout {
+            display: flex;
+        }
+        
         .ffl-monster-abilities-col {
             width: 3.4rem;
         }
@@ -228,31 +240,46 @@
     <h1>Final Fantasy Legend<br/>Monster Tranformation Calculator</h1>
     <div class="ffl-monster-calc-layout">
         <div class="ffl-monster">
-            <h2>Start</h2>
-
-            <label class="ffl-dropdown-label" for="ddlStartingMonsterType">Monster Type</label>
-            <select id="ddlStartingMonsterType" class="ffl-dropdown-list"></select>
-            <label class="ffl-dropdown-label" for="ddlStartingMonster">Monster</label>
-            <select id="ddlStartingMonster" class="ffl-dropdown-list"></select>
-
+            <div id="startingMonsterTop" class="ffl-monster-top">
+                <h2>Start</h2>
+                <label class="ffl-dropdown-label" for="ddlStartingMonsterType">Monster Type</label>
+                <select id="ddlStartingMonsterType" class="ffl-dropdown-list"></select>
+                <label class="ffl-dropdown-label" for="ddlStartingMonster">Monster</label>
+                <select id="ddlStartingMonster" class="ffl-dropdown-list"></select>
+            </div>
             <div id="startingMonster"></div>
         </div>
         <div class="ffl-monster-separator">+</div>
         <div class="ffl-monster">
-            <h2>Meat</h2>
-
-            <label class="ffl-dropdown-label" for="ddlMeatOfMonsterType">Monster Type</label>
-            <select id="ddlMeatOfMonsterType" class="ffl-dropdown-list"></select>
-            <label class="ffl-dropdown-label" for="ddlMeatOfMonster">Monster</label>
-            <select id="ddlMeatOfMonster" class="ffl-dropdown-list"></select>
-
+            <div id="meatOfMonsterTop" class="ffl-monster-top">
+                <h2>Meat</h2>
+                <label class="ffl-dropdown-label" for="ddlMeatOfMonsterType">Monster Type</label>
+                <select id="ddlMeatOfMonsterType" class="ffl-dropdown-list"></select>
+                <label class="ffl-dropdown-label" for="ddlMeatOfMonster">Monster</label>
+                <select id="ddlMeatOfMonster" class="ffl-dropdown-list"></select>
+            </div>
             <div id="meatOfMonster"></div>
         </div>
         <div class="ffl-monster-separator">=</div>
         <div class="ffl-monster">
+            <div id="newMonsterTop" class="ffl-monster-top"></div>
             <div id="newMonster"></div>
         </div>
     </div>
+    
+    <script id="monsterMessageTemplate" type="text/template">        
+        <div class="ffl-box">
+            <div class="ffl-box-edge"></div>
+            <div class="ffl-box-content">you changed to <%= item.name %></div>
+        </div>
+    </script>
+    
+    <script id="monsterMessageEmptyTemplate" type="text/template">        
+        <div class="ffl-box">
+            <div class="ffl-box-edge"></div>
+            <div class="ffl-box-content">nothing happened</div>
+        </div>
+    </script>
     
     <script id="monsterTemplate" type="text/template">
         <div class="imageMask ffl-monster-image-mask" style="height: <%= item.image.height %>px; width: <%= item.image.width %>px;">
@@ -261,43 +288,45 @@
         
         <div class="ffl-box">
             <div class="ffl-box-edge"></div>
-            <div class="ffl-monster-abilities-col">
-                <div class="avatarMask ffl-monster-avatar-mask ffl-avatar-walk">
-                    <img src="images/FFL-Spritesheet-White-1218x810.png" class="avatar" alt="Starting monster avatar portrait" width="1218" height="810" />
+            <div class="ffl-box-content ffl-monster-layout">
+                <div class="ffl-monster-abilities-col">
+                    <div class="avatarMask ffl-monster-avatar-mask ffl-avatar-walk">
+                        <img src="images/FFL-Spritesheet-White-1218x810.png" class="avatar" alt="Starting monster avatar portrait" width="1218" height="810" />
+                    </div>
+                    <ul id="startingMonsterAbilities" class="ffl-abilities" style="list-style-type: none; margin: 0; padding: 0;">
+                        <li>
+                            <label>Str.</label>
+                            <span class="strength"><%= item.strength %></span>
+                        </li>
+                        <li>
+                            <label>Def.</label>
+                            <span class="defense"><%= item.defense %></span>
+                        </li>
+                        <li>
+                            <label>Agl.</label>
+                            <span class="agility"><%= item.agility %></span>
+                        </li>
+                        <li>
+                            <label>Mana</label>
+                            <span class="mana"><%= item.mana %></span>
+                        </li>
+                    </ul>
                 </div>
-                <ul id="startingMonsterAbilities" class="ffl-abilities" style="list-style-type: none; margin: 0; padding: 0;">
-                    <li>
-                        <label>Str.</label>
-                        <span class="strength"><%= item.strength %></span>
-                    </li>
-                    <li>
-                        <label>Def.</label>
-                        <span class="defense"><%= item.defense %></span>
-                    </li>
-                    <li>
-                        <label>Agl.</label>
-                        <span class="agility"><%= item.agility %></span>
-                    </li>
-                    <li>
-                        <label>Mana</label>
-                        <span class="mana"><%= item.mana %></span>
-                    </li>
-                </ul>
-            </div>
 
-            <div class="ffl-monster-skills-col">
-                <ul id="startingMonsterHp" class="ffl-skills" style="list-style-type: none; margin: 0; margin-bottom: 1.4em; padding: 0;">
-                    <li>
-                        <label>HP</label>
-                        <span class="hp"><%= item.hp %></span>
-                    </li>
-                </ul>
-                <ul class="ffl-skills" style="list-style-type: none; margin: 0; padding: 0;">
-                    <li>
-                        <label>Beak</label>
-                        <span>25</span>
-                    </li>
-                </ul>
+                <div class="ffl-monster-skills-col">
+                    <ul id="startingMonsterHp" class="ffl-skills" style="list-style-type: none; margin: 0; margin-bottom: 1.4em; padding: 0;">
+                        <li>
+                            <label>HP</label>
+                            <span class="hp"><%= item.hp %></span>
+                        </li>
+                    </ul>
+                    <ul class="ffl-skills" style="list-style-type: none; margin: 0; padding: 0;">
+                        <li>
+                            <label>Beak</label>
+                            <span>25</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </script>
@@ -419,6 +448,35 @@
             return instance;
         };
         
+        // Monster Message View
+        var monsterMessageView = function (options) {
+            var instance = new Backbone.View(options);
+            _.extend(instance, options);
+            
+            instance.initialize = function () {
+                instance.listenTo(instance.model, ('change:' + instance.itemKey), instance.render);
+                
+                instance.template = _.template(document.getElementById(instance.templateId).innerHTML, { variable: 'item' });
+                instance.emptyTemplate = _.template(document.getElementById(instance.emptyTemplateId).innerHTML);
+                window.addEventListener('load', instance.render);
+            };
+            
+            instance.render = function () {
+                if (instance.model.get(instance.itemKey)) {
+                    instance.$el.html(instance.template(instance.model.get(instance.itemKey)));
+                }
+                else {
+                    instance.$el.html(instance.emptyTemplate());
+                }
+                
+                instance.$el.height(document.getElementById(instance.height).clientHeight);
+            };
+            
+            instance.initialize();
+            
+            return instance;
+        };
+        
         // Template View
         var bbTemplateView = function (options) {
             var instance = new Backbone.View(options);
@@ -436,6 +494,17 @@
             };
             
             instance.initialize();
+            
+            return instance;
+        };
+        
+        // Fixed Height View Behavior
+        var fixedHeightViewBehvaior = function (state) {
+            var instance = {};
+            
+            instance.setHeight = function () {
+                instance.$el.height(state.height);
+            };
             
             return instance;
         };
@@ -572,6 +641,15 @@
                 itemKey: 'meatOfMonster',
                 templateId: 'monsterTemplate'
             });
+            
+            var newMonsterMessage = monsterMessageView({
+                el: document.getElementById('newMonsterTop'),
+                model: calculatorModel,
+                itemKey: 'newMonster',
+                templateId: 'monsterMessageTemplate',
+                emptyTemplateId: 'monsterMessageEmptyTemplate',
+                height: 'startingMonsterTop'
+            });
 
             var newMonster = monsterView({
                 el: document.getElementById('newMonster'),
@@ -654,14 +732,23 @@
 
                     calculatorModel.set('newMonster', newMonster);
                 }
+                else {
+                    // TODO: Remove once development is complete
+                    console.log('no type match');
+                    calculatorModel.set('newMonster', null);
+                }
             }
         };
         
         app.getNewMonster = function (monsters, level) {
+            if (level === 0) {
+                return null;
+            }
+            
             var newMonster = _.findWhere(monsters, {
                 level: level
             });
-
+            
             if (newMonster === undefined) {
                 app.getNewMonster(monsters, (level - 1));
             }
