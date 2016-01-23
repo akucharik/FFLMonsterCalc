@@ -602,7 +602,7 @@
         };
         
         // App
-        var app = _.extend({}, Backbone.Events);
+        var app = Object.assign({}, Backbone.Events);
         
         app.initialize = function () {
             
