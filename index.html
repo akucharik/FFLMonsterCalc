@@ -441,9 +441,50 @@
             return instance;
         };
         
-        // Message Printer
-        var messagePrinter = function () {
+        // Fixed Height View Behavior
+        var bbFixedHeightView = function () {
             var instance = {};
+            
+            instance.setHeight = function (height) {
+                if (_.isNumber(height)) {
+                    this.$el.height(height);
+                }
+                else if (_.isElement(height)) {
+                    this.$el.height(height.clientHeight);
+                }
+                else if (_.isFunction(height)) {
+                    this.$el.height(height());
+                }
+            };
+            
+            return instance;
+        };
+        
+        // Message View
+        var messageView = function (options) {
+            var instance = Object.create(Object.assign(
+                Backbone.View.prototype, bbFixedHeightView()
+            ));
+            
+            Object.assign(instance, options);
+            
+            instance.initialize = function () {
+                instance.template = _.template(instance.templateEl.innerHTML);
+                
+                instance.listenTo(instance.model, ('change:' + instance.itemKey), instance.update);
+                window.addEventListener('load', instance.render);
+            };
+            
+            instance.render = function () {
+                instance.$el.html(instance.template());
+                instance.setHeight(instance.height);
+                instance.messageEl = instance.el.querySelector(instance.messageSelector);
+                instance.update();
+            };
+            
+            instance.update = function () {
+                instance.printMessage(instance.model.get(instance.itemKey), instance.messageEl);
+            };
             
             instance.printMessage = function (message, target) {
                 var printString = function (i) {
@@ -455,34 +496,7 @@
                 }
             };
             
-            return instance;
-        };
-        
-        // Message View
-        var messageView = function (options) {
-            var instance = new Backbone.View(options);
-            _.extend(instance, options, messagePrinter());
-            
-            instance.initialize = function () {
-                instance.listenTo(instance.model, ('change:' + instance.itemKey), instance.update);
-                
-                instance.template = _.template(document.getElementById(instance.templateId).innerHTML);
-                window.addEventListener('load', instance.render);
-            };
-            
-            instance.render = function () {
-                instance.$el.html(instance.template());
-                instance.messageEl = instance.el.querySelector(instance.messageSelector);
-                instance.update();
-            };
-            
-            instance.update = function () {
-                instance.$el.height(document.getElementById(instance.height).clientHeight);
-                
-                instance.printMessage(instance.model.get(instance.itemKey), instance.messageEl);
-            };
-            
-            instance.initialize();
+            Backbone.View.call(instance, options);
             
             return instance;
         };
@@ -495,7 +509,7 @@
             instance.initialize = function () {
                 instance.listenTo(instance.model, ('change:' + instance.itemKey), instance.render);
                 
-                instance.template = _.template(document.getElementById(instance.templateId).innerHTML, { variable: 'item' });
+                instance.template = _.template(instance.templateEl.innerHTML, { variable: 'item' });
                 instance.render();
             };
             
@@ -504,17 +518,6 @@
             };
             
             instance.initialize();
-            
-            return instance;
-        };
-        
-        // Fixed Height View Behavior
-        var fixedHeightViewBehvaior = function (state) {
-            var instance = {};
-            
-            instance.setHeight = function () {
-                instance.$el.height(state.height);
-            };
             
             return instance;
         };
@@ -529,7 +532,7 @@
                 instance.listenTo(instance.model, ('change:' + instance.itemKey), instance.update);
                 
                 if (instance.model.get(instance.itemKey)) {
-                    instance.template = _.template(document.getElementById(instance.templateId).innerHTML, { variable: 'item' });
+                    instance.template = _.template(instance.templateEl.innerHTML, { variable: 'item' });
                     instance.render();
                 }
             };
@@ -581,7 +584,7 @@
                     instance.$hp.html(monster.hp);
                 }
                 else if (monster) {
-                    instance.template = _.template(document.getElementById(instance.templateId).innerHTML, { variable: 'item' });
+                    instance.template = _.template(instance.templateEl.innerHTML, { variable: 'item' });
                     instance.render();
                 }
                 else {
@@ -641,53 +644,53 @@
 
             var startingMonster = monsterView({
                 el: document.getElementById('startingMonster'),
+                templateEl: document.getElementById('monsterTemplate'),
                 model: calculatorModel,
-                itemKey: 'startingMonster',
-                templateId: 'monsterTemplate'
+                itemKey: 'startingMonster'
             });
 
             var meatOfMonster = monsterView({
                 el: document.getElementById('meatOfMonster'),
+                templateEl: document.getElementById('monsterTemplate'),
                 model: calculatorModel,
-                itemKey: 'meatOfMonster',
-                templateId: 'monsterTemplate'
-            });
-            
-            var newMonsterMessage = messageView({
-                el: document.getElementById('newMonsterMessage'),
-                model: calculatorModel,
-                itemKey: 'newMonsterMessage',
-                templateId: 'messageTemplate',
-                messageSelector: '.message',
-                height: 'startingMonsterTop'
+                itemKey: 'meatOfMonster'
             });
 
             var newMonster = monsterView({
                 el: document.getElementById('newMonster'),
+                templateEl: document.getElementById('monsterTemplate'),
                 model: calculatorModel,
-                itemKey: 'newMonster',
-                templateId: 'monsterTemplate'
+                itemKey: 'newMonster'
+            });
+            
+            var newMonsterMessage = messageView({
+                el: document.getElementById('newMonsterMessage'),
+                templateEl: document.getElementById('messageTemplate'),
+                model: calculatorModel,
+                itemKey: 'newMonsterMessage',
+                messageSelector: '.message',
+                height: document.getElementById('startingMonsterTop')
             });
 
 //            var startingMonsterImage = bbTemplateView({
 //                el: document.getElementById('startingMonsterImage'),
+//                templateEl: document.getElementById('monsterImageTemplate'),
 //                model: calculatorModel,
 //                itemKey: 'startingMonster',
-//                templateId: 'monsterImageTemplate'
 //            });
 //
 //            var startingMonsterAbilities = bbTemplateView({
 //                el: document.getElementById('startingMonsterAbilities'),
+//                templateEl: document.getElementById('monsterAbilitiesTemplate',
 //                model: calculatorModel,
-//                itemKey: 'startingMonster',
-//                templateId: 'monsterAbilitiesTemplate'
+//                itemKey: 'startingMonster'
 //            });
 //
 //            var startingMonsterHp = bbTemplateView({
 //                el: document.getElementById('startingMonsterHp'),
+//                templateEl: document.getElementById('monsterHpTemplate'),
 //                model: calculatorModel,
-//                itemKey: 'startingMonster',
-//                templateId: 'monsterHpTemplate'
+//                itemKey: 'startingMonster'
 //            });
         };
         
