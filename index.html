@@ -441,10 +441,27 @@
             return instance;
         };
         
+        // Message Printer
+        var messagePrinter = function () {
+            var instance = {};
+            
+            instance.printMessage = function (message, target) {
+                var printString = function (i) {
+                    target.innerHTML = message.substring(0, i).replace(/(\n)/g, '<br>');
+                };
+
+                for (var i = 1; i <= message.length; i++) {
+                    window.setTimeout(printString, constants.MESSAGE.SPEED * i, i);
+                }
+            };
+            
+            return instance;
+        };
+        
         // Monster Message View
         var monsterMessageView = function (options) {
             var instance = new Backbone.View(options);
-            _.extend(instance, options);
+            _.extend(instance, options, messagePrinter());
             
             instance.initialize = function () {
                 instance.listenTo(instance.model, ('change:' + instance.updateOnItemKey), instance.render);
@@ -455,49 +472,21 @@
             
             instance.render = function () {
                 instance.$el.html(instance.template());
-                
                 instance.messageEl = instance.el.querySelector(instance.messageSelector);
+                instance.update();
+            };
+            
+            instance.update = function () {
                 instance.$el.height(document.getElementById(instance.height).clientHeight);
                 
-                var message = '';
-                var delay = 40;
-                
                 if (instance.model.get(instance.itemKey)) {
-                    message = instance.message + '\n' + instance.model.get(instance.itemKey).name.toUpperCase();
+                    instance.message = constants.MESSAGE.TRANSFORMATION.CHANGED + instance.model.get(instance.itemKey).name.toUpperCase();
                 }
                 else {
-                    message = instance.emptyMessage;
+                    instance.message = constants.MESSAGE.TRANSFORMATION.UNCHANGED;
                 }
                 
-                for (var i = 0; i < message.length; i++) {
-                    instance.printCharacter(message.charAt(i), instance.messageEl, delay, i + 1);
-                }
-//                instance.printMessage(message, delay);
-            };
-                
-//            instance.printMessage = function (message, delay) {
-//                setTimeout(instance.printCharacter.call(instance, message, 0), delay);
-//            };
-//            
-//            instance.printCharacter = function (message, charIndex) {
-//                setTimeout(function () {
-//                    if (character === '\n') {
-//                        target.appendChild(document.createElement('br'));
-//                    }
-//                    else {
-//                        target.appendChild(document.createTextNode(character));
-//                    }
-//                }, delay * iteration);
-//            };
-            instance.printCharacter = function (character, target, delay, iteration) {
-                setTimeout(function () {
-                    if (character === '\n') {
-                        target.appendChild(document.createElement('br'));
-                    }
-                    else {
-                        target.appendChild(document.createTextNode(character));
-                    }
-                }, delay * iteration);
+                instance.printMessage(instance.message, instance.messageEl);
             };
             
             instance.initialize();
@@ -677,8 +666,6 @@
                 updateOnItemKey: 'meatOfMonster',
                 templateId: 'monsterMessageTemplate',
                 messageSelector: '.newMonsterMessage',
-                message: 'you changed to ',
-                emptyMessage: 'nothing happened',
                 height: 'startingMonsterTop'
             });
 
@@ -764,8 +751,6 @@
                     calculatorModel.set('newMonster', newMonster);
                 }
                 else {
-                    // TODO: Remove once development is complete
-                    console.log('no type match');
                     calculatorModel.set('newMonster', null);
                 }
             }

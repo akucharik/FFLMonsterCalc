@@ -1,5 +1,13 @@
 var constants = {};
 
+constants.MESSAGE = {
+    SPEED: 40,
+    TRANSFORMATION: {
+        CHANGED: 'you changed to \n',
+        UNCHANGED: 'nothing happened'
+    }
+};
+
 constants.MONSTER = {};
 
 constants.MONSTER.TYPE = {
