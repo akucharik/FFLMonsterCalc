@@ -365,8 +365,9 @@
         
         // Dropdown List
         var bbDropdownList = function (options) {
-            var instance = new Backbone.View(options);
-            _.extend(instance, options);
+            var instance = Object.create(Backbone.View.prototype);
+            
+            Object.assign(instance, options);
             
             instance.initialize = function () {
                 instance.items = [];
@@ -436,7 +437,7 @@
                 }
             };
             
-            instance.initialize();
+            Backbone.View.call(instance, options);
             
             return instance;
         };
@@ -503,8 +504,9 @@
         
         // Template View
         var bbTemplateView = function (options) {
-            var instance = new Backbone.View(options);
-            _.extend(instance, options);
+            var instance = Object.create(Backbone.View.prototype);
+            
+            Object.assign(instance, options);
             
             instance.initialize = function () {
                 instance.listenTo(instance.model, ('change:' + instance.itemKey), instance.render);
@@ -517,7 +519,7 @@
                 instance.$el.html(instance.template(instance.model.get(instance.itemKey)));
             };
             
-            instance.initialize();
+            Backbone.View.call(instance, options);
             
             return instance;
         };
@@ -525,8 +527,9 @@
         // TODO: Optimize view for "nothing happened" scenario
         // Monster View
         var monsterView = function (options) {
-            var instance = new Backbone.View(options);
-            _.extend(instance, options);
+            var instance = Object.create(Backbone.View.prototype);
+            
+            Object.assign(instance, options);
             
             instance.initialize = function () {
                 instance.listenTo(instance.model, ('change:' + instance.itemKey), instance.update);
@@ -593,7 +596,7 @@
                 }
             };
             
-            instance.initialize();
+            Backbone.View.call(instance, options);
             
             return instance;
         };
