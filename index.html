@@ -45,7 +45,7 @@
         .ffl-box {
             box-sizing: border-box;
             height: 100%;
-            padding: 0.8em 0.7em 0.5em 0.7em;
+            padding: 16px 14px 10px 14px;
             position: relative;
         }
         
@@ -149,17 +149,48 @@
             position: absolute;
         }
         
+        .ffl-monster-avatar {
+            height: 60px;
+        }
+        
         .ffl-monster-avatar-mask {
-            margin: 0.5rem auto 0.8rem auto;
+            margin: 0 auto;
             overflow: hidden;
             position: relative;
+            top: 10px;
         }
         
-        .ffl-avatar-walk-vertical {
-            animation: ffl-avatar-walk-vertical 0.8s infinite;
+        .ffl-avatar-fiend {
+            top: -4px;
         }
         
-        @keyframes ffl-avatar-walk-vertical {
+        .ffl-monster-avatar-genbu {
+            top: -4px;
+        }
+        
+        .ffl-monster-avatar-seiryu {
+            top: -10px;
+            
+        }
+        
+        .ffl-monster-avatar-byakko {
+            top: -4px;
+        }
+        
+        .ffl-monster-avatar-suzaku {
+            top: -4px;
+            left: -8px;
+        }
+        
+        .ffl-avatar-walk {
+            animation: 0.8s infinite;
+        }
+        
+        .ffl-avatar-walk-down {
+            animation-name: ffl-avatar-walk-down;
+        }
+        
+        @keyframes ffl-avatar-walk-down {
             49.999% {
                 transform: scaleX(1);
             }
@@ -186,7 +217,7 @@
         }
         
         .ffl-monster-abilities-col {
-            width: 3.4rem;
+            width: 64px;
         }
                 
         .ffl-monster-skills-col {
@@ -283,8 +314,10 @@
             <div class="ffl-box-edge"></div>
             <div class="ffl-box-content ffl-monster-layout">
                 <div class="ffl-monster-abilities-col">
-                    <div class="avatarMask ffl-monster-avatar-mask ffl-avatar-walk">
-                        <img src="images/FFL-Spritesheet-White-1218x810.png" class="avatar" alt="Starting monster avatar portrait" width="1218" height="810" />
+                    <div class="ffl-monster-avatar">
+                        <div class="avatarMask ffl-monster-avatar-mask ffl-avatar-walk">
+                            <img src="images/FFL-Spritesheet-White-1218x810.png" class="avatar" alt="Starting monster avatar portrait" width="1218" height="810" />
+                        </div>
                     </div>
                     <ul id="startingMonsterAbilities" class="ffl-abilities" style="list-style-type: none; margin: 0; padding: 0;">
                         <li>
@@ -573,11 +606,29 @@
                         left: monster.avatar.x + 'px',
                         top: monster.avatar.y + 'px'
                     });
+                    
+                    instance.$avatarMask.removeClass('ffl-monster-avatar-genbu');
+                    instance.$avatarMask.removeClass('ffl-monster-avatar-seiryu');
+                    instance.$avatarMask.removeClass('ffl-monster-avatar-byakko');
+                    instance.$avatarMask.removeClass('ffl-monster-avatar-suzaku');
+                    instance.$avatarMask.removeClass('ffl-avatar-walk-down');
+                    
                     if (instance.model.get(instance.itemKey).type !== constants.MONSTER.TYPE.FIEND.KEY) {
-                        instance.$avatarMask.addClass('ffl-avatar-walk-vertical');
+                        instance.$avatarMask.addClass('ffl-avatar-walk-down');
                     }
                     else {
-                        instance.$avatarMask.removeClass('ffl-avatar-walk-vertical');
+                        if (instance.model.get(instance.itemKey).name.indexOf('Gen-bu') >=0) {
+                            instance.$avatarMask.addClass('ffl-monster-avatar-genbu');
+                        }
+                        if (instance.model.get(instance.itemKey).name.indexOf('Sei-ryu') >=0) {
+                            instance.$avatarMask.addClass('ffl-monster-avatar-seiryu');
+                        }
+                        if (instance.model.get(instance.itemKey).name.indexOf('Byak-ko') >=0) {
+                            instance.$avatarMask.addClass('ffl-monster-avatar-byakko');
+                        }
+                        if (instance.model.get(instance.itemKey).name.indexOf('Su-zaku') >=0) {
+                            instance.$avatarMask.addClass('ffl-monster-avatar-suzaku');
+                        }
                     }
                     instance.$strength.html(monster.strength);
                     instance.$defense.html(monster.defense);

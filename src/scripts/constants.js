@@ -1143,7 +1143,7 @@ constants.MONSTERS = [
         name: 'Sei-ryu',
         strength: 27,
         image: { height: 192, width: 144, x: -1098, y: -423},
-        avatar: { height: 64, width: 64, x: -252, y: -476 },
+        avatar: { height: 70, width: 64, x: -252, y: -470 },
         type: constants.MONSTER.TYPE.FIEND.KEY,
         transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SEI_RYU.KEY,
         transformationGroup: null
@@ -1156,7 +1156,7 @@ constants.MONSTERS = [
         name: 'Su-zaku',
         strength: 85,
         image: { height: 192, width: 141, x: -1488, y: -423},
-        avatar: { height: 64, width: 96, x: -522, y: -476 },
+        avatar: { height: 64, width: 96, x: -532, y: -476 },
         type: constants.MONSTER.TYPE.FIEND.KEY,
         transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SU_ZAKU.KEY,
         transformationGroup: null
@@ -1182,7 +1182,7 @@ constants.MONSTERS = [
         name: 'Sei-ryu2',
         strength: 100,
         image: { height: 192, width: 144, x: -1098, y: -423},
-        avatar: { height: 64, width: 64, x: -252, y: -476 },
+        avatar: { height: 70, width: 64, x: -252, y: -470 },
         type: constants.MONSTER.TYPE.FIEND.KEY,
         transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SEI_RYU.KEY,
         transformationGroup: null
@@ -1208,7 +1208,7 @@ constants.MONSTERS = [
         name: 'Su-zaku2',
         strength: 100,
         image: { height: 192, width: 141, x: -1488, y: -423},
-        avatar: { height: 64, width: 96, x: -522, y: -476 },
+        avatar: { height: 64, width: 96, x: -532, y: -476 },
         type: constants.MONSTER.TYPE.FIEND.KEY,
         transformationType: constants.MONSTER.TRANSFORMATION_TYPE.SU_ZAKU.KEY,
         transformationGroup: null
