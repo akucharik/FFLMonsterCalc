@@ -262,15 +262,15 @@
         </div>
         <div class="ffl-monster-separator">=</div>
         <div class="ffl-monster">
-            <div id="newMonsterTop" class="ffl-monster-top"></div>
+            <div id="newMonsterMessage" class="ffl-monster-top"></div>
             <div id="newMonster"></div>
         </div>
     </div>
     
-    <script id="monsterMessageTemplate" type="text/template">        
+    <script id="messageTemplate" type="text/template">        
         <div class="ffl-box">
             <div class="ffl-box-edge"></div>
-            <div class="ffl-box-content newMonsterMessage"></div>
+            <div class="ffl-box-content message"></div>
         </div>
     </script>
     
@@ -458,13 +458,13 @@
             return instance;
         };
         
-        // Monster Message View
-        var monsterMessageView = function (options) {
+        // Message View
+        var messageView = function (options) {
             var instance = new Backbone.View(options);
             _.extend(instance, options, messagePrinter());
             
             instance.initialize = function () {
-                instance.listenTo(instance.model, ('change:' + instance.updateOnItemKey), instance.render);
+                instance.listenTo(instance.model, ('change:' + instance.itemKey), instance.update);
                 
                 instance.template = _.template(document.getElementById(instance.templateId).innerHTML);
                 window.addEventListener('load', instance.render);
@@ -479,14 +479,7 @@
             instance.update = function () {
                 instance.$el.height(document.getElementById(instance.height).clientHeight);
                 
-                if (instance.model.get(instance.itemKey)) {
-                    instance.message = constants.MESSAGE.TRANSFORMATION.CHANGED + instance.model.get(instance.itemKey).name.toUpperCase();
-                }
-                else {
-                    instance.message = constants.MESSAGE.TRANSFORMATION.UNCHANGED;
-                }
-                
-                instance.printMessage(instance.message, instance.messageEl);
+                instance.printMessage(instance.model.get(instance.itemKey), instance.messageEl);
             };
             
             instance.initialize();
@@ -611,6 +604,7 @@
             app.listenTo(calculatorModel, 'change:meatOfMonsterType', app.updateMeatOfMonsters);
             app.listenTo(calculatorModel, 'change:startingMonster', app.updateNewMonster);
             app.listenTo(calculatorModel, 'change:meatOfMonster', app.updateNewMonster);
+            app.listenTo(calculatorModel, 'change:newMonster', app.updateNewMonsterMessage);
             
             // Views
             var ddlStartingMonsterType = bbDropdownList({
@@ -659,13 +653,12 @@
                 templateId: 'monsterTemplate'
             });
             
-            var newMonsterMessage = monsterMessageView({
-                el: document.getElementById('newMonsterTop'),
+            var newMonsterMessage = messageView({
+                el: document.getElementById('newMonsterMessage'),
                 model: calculatorModel,
-                itemKey: 'newMonster',
-                updateOnItemKey: 'meatOfMonster',
-                templateId: 'monsterMessageTemplate',
-                messageSelector: '.newMonsterMessage',
+                itemKey: 'newMonsterMessage',
+                templateId: 'messageTemplate',
+                messageSelector: '.message',
                 height: 'startingMonsterTop'
             });
 
@@ -770,6 +763,15 @@
             }
             else {
                 return newMonster;
+            }
+        };
+        
+        app.updateNewMonsterMessage = function (model, newValue) {
+            if (newValue) {
+                model.set('newMonsterMessage', constants.MESSAGE.TRANSFORMATION.CHANGED + newValue.name.toUpperCase());
+            }
+            else {
+                model.set('newMonsterMessage', constants.MESSAGE.TRANSFORMATION.UNCHANGED);
             }
         };
         

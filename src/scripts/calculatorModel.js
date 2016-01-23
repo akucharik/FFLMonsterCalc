@@ -59,5 +59,6 @@ var calculatorModel = new Backbone.Model({
     meatOfMonster: null,
     meatOfMonsters: [],
     newMonster: null,
+    newMonsterMessage: constants.MESSAGE.TRANSFORMATION.UNCHANGED,
     monsters: monsters
 });
