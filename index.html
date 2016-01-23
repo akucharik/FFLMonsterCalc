@@ -373,7 +373,6 @@
                 instance.items = [];
                 instance.itemValueIsKeyed = instance.itemValueKey ? true : false;
                 
-                instance.delegateEvents();
                 instance.listenTo(instance.model, ('change:' + instance.itemsKey), instance.render);
                 instance.listenTo(instance.model, ('change:' + instance.selectedValueKey), instance.selectItem);
                 instance.render();
